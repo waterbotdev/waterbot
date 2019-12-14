@@ -45,8 +45,8 @@ async def boostinfo(ctx):
 
 
 @bot.command()
-@bot.is_owner() 
 async def activity(ctx):
+
     await ctx.send(content=" :ok_hand: What is the message you want in status")
     message = await bot.wait_for('message')
     game = discord.Game(message.content)
