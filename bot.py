@@ -8,7 +8,7 @@ tokenfile = open('token.txt','r')
 etokenb = tokenfile.read().encode()
 tokenb = base64.b64decode(etokenb)
 token = tokenb.decode()
-bot = commands.bot(command_prefix='.')
+bot = commands.Bot(command_prefix='.')
 
 bot.remove_command('help')
 
@@ -104,6 +104,6 @@ async def dog(ctx):
       embed.set_image(url=url)
       embed.set_footer(text="Powered by thedogapi.com!")                                                              
     await ctx.send(embed=embed)
-    
+
 
 bot.run(token)
