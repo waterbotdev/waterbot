@@ -102,10 +102,9 @@ async def dog(ctx):
       embed.set_image(url=url)
       embed.set_footer(text="Powered by thedogapi.com!")                                                              
     await ctx.send(embed=embed)
-
 @bot.command()
 async def help(ctx):
-embed = discord.Embed(colour=discord.Colour(0xfff0d2), url="https://discordapp.com")
+embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com")
 
 embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=1024")
 embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url="ctx.author.avatar_url")
