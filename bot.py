@@ -18,11 +18,6 @@ async def on_ready():
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-
-@bot.command()
 async def fuck(ctx):
     await ctx.send('shit')
 
