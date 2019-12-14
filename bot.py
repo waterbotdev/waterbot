@@ -45,13 +45,12 @@ async def boostinfo(ctx):
 
 
 @bot.command()
-@bot.is_owner()
-async def activity(ctx):
-
-    await ctx.send(content=" :ok_hand: What is the message you want in status")
-    message = await bot.wait_for('message')
-    game = discord.Game(message.content)
-    await bot.change_presence(status=discord.Status.online, activity=game)
+@commands.is_owner()
+async def activity(ctx) :
+    '''Changes the status of the bot
+    Bot Owner Only.
+    '''
+    await ctx.send(":ok_hand:")......
 
 
 @bot.command(aliases=['8ball'])
@@ -106,7 +105,7 @@ async def dog(ctx):
 
 @bot.command()
 async def help(ctx):
-embed = discord.Embed(colour=discord.Colour(0xfff0d2), url="https://discordapp.com", timestamp=datetime.datetime.utcfromtimestamp(1576318214))
+embed = discord.Embed(colour=discord.Colour(0xfff0d2), url="https://discordapp.com")
 
 embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=1024")
 embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url="ctx.author.avatar_url")
