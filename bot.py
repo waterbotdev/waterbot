@@ -8,7 +8,9 @@ tokenfile = open('token.txt','r')
 etokenb = tokenfile.read().encode()
 tokenb = base64.b64decode(etokenb)
 token = tokenb.decode()
-bot = commands.Bot(command_prefix='.')
+bot = commands.bot(command_prefix='.')
+
+bot.remove_command('help')
 
 
 @bot.event
