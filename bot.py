@@ -50,7 +50,7 @@ async def activity(ctx) :
     '''Changes the status of the bot
     Bot Owner Only.
     '''
-    await ctx.send(":ok_hand:")......
+    await ctx.send(":ok_hand:")
 
 
 @bot.command(aliases=['8ball'])
