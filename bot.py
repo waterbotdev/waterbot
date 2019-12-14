@@ -97,4 +97,9 @@ async def cat(ctx):
     await ctx.send(embed=embed)
 
 
+    @bot.command()
+async def ping(ctx):
+    await ctx.send('Pong! {0}'.format(round(bot.latency, 1)))
+
+
 bot.run(token)
