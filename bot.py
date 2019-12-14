@@ -92,4 +92,16 @@ async def cat(ctx):
     await ctx.send(embed=embed)
 
 
+@bot.command()
+async def dog(ctx):
+    async with ctx.channel.typing():                            
+      rawres = requests.get('https://api.thedogapi.com/v1/images/search')
+      parres = json.loads(rawres.text)
+      url = parres[0]["url"]
+      embed = discord.Embed(title="Random Dog Image")
+      embed.set_image(url=url)
+      embed.set_footer(text="Powered by thedoapi.com!")                                                              
+    await ctx.send(embed=embed)
+
+
 bot.run(token)
