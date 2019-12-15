@@ -116,9 +116,9 @@ async def troll(ctx):
 @bot.command()
 async def help(ctx):
 
-    embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/%22)
+    embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/%22")
 
-    embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=1024%22)
+    embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=1024%22")
     embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url="ctx.author.avatar_url")
 
     embed.add_field(name="Moderation", value=".mute, add whatever you want")
