@@ -113,4 +113,19 @@ async def troll(ctx):
     await ctx.send('get trolled loser https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
 
 
+@bot.command()
+async def help(ctx):
+
+    embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/%22)
+
+    embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=1024%22)
+    embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url="ctx.author.avatar_url")
+
+    embed.add_field(name="Moderation", value=".mute, add whatever you want")
+    embed.add_field(name="Utility", value=".activity, add whatever you want")
+    embed.add_field(name="Fun", value=".8ball, add whatever you want")
+
+    await ctx.send(embed=embed)
+
+
 bot.run(token)
