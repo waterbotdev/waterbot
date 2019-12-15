@@ -110,7 +110,7 @@ async def dog(ctx):
 async def help(ctx):
     embed = discord.Embed(colour=0xd1e9fd, title="Waterbot Help", url="https://example.com")
     embed.set_author(name="Waterbot", icon_url="https://cdn.discordapp.com/avatars/155149108183695360/3ac2fbefebd4de9ffeefcb0f2cb15ecd.png?size=256")
-    ctx.send(embed=embed)
+   await ctx.send(embed=embed)
 
 
 bot.run(token)
