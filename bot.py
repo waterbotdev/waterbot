@@ -83,7 +83,7 @@ async def _8ball(ctx, *, question):
 
    
 @bot.command()
-async def pets(ctx,pet="random"):
+async def pet(ctx,pet="random"):
     async with ctx.channel.typing():
         if pet == 'random':
             pet = random.choice(['dog','cat'])
