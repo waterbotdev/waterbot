@@ -116,7 +116,7 @@ async def bunj(ctx):
 
 @bot.command()
 async def troll(ctx):
-    await ctx.send('https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
+    await ctx.send('get trolled loser https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
 
 
 bot.run(token)
