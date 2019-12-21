@@ -154,4 +154,14 @@ async def troll(ctx):
     await ctx.send('get trolled loser https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
 
 
+@bot.command()
+async def invite(ctx):     
+    embed=discord.Embed(title="Invite Waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128", description="use this link to add waterbot to your server!", color=0x8cff8f)
+    embed.set_author(name="bunj", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
+    embed.add_field(name="https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot", value="", inline=False)
+    await ctx.send(embed=embed)
+
+
+
 bot.run(token)
