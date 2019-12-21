@@ -82,30 +82,7 @@ async def _8ball(ctx, *, question):
                 'Very doubtful.']
     embed = discord.Embed(title='8 Ball Response', colour=0x000000,description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
     await ctx.send(embed=embed)
-
-
-@bot.command()
-async def cat(ctx):
-    async with ctx.channel.typing():
-      rawres = requests.get('https://api.thecatapi.com/v1/images/search')
-      parres = json.loads(rawres.text)
-      url = parres[0]["url"]
-      embed = discord.Embed(title="Random Cat Image")
-      embed.set_image(url=url)
-      embed.set_footer(text="Powered by thecatapi.com!")
-    await ctx.send(embed=embed)
-
-
-@bot.command()
-async def dog(ctx):
-    async with ctx.channel.typing():
-      rawres = requests.get('https://api.thedogapi.com/v1/images/search')
-      parres = json.loads(rawres.text)
-      url = parres[0]["url"]
-      embed = discord.Embed(title="Random Dog Image")
-      embed.set_image(url=url)
-      embed.set_footer(text="Powered by thedogapi.com!")
-    await ctx.send(embed=embed)
+    
 
 @bot.command()
 async def help(ctx):
@@ -123,7 +100,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def pets(ctx,pet="random"):
+async def pet(ctx,pet="random"):
     async with ctx.channel.typing():
         if pet == 'random':
             pet = random.choice(['dog','cat'])
