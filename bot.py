@@ -83,30 +83,6 @@ async def _8ball(ctx, *, question):
     embed = discord.Embed(title='8 Ball Response', colour=0x000000,description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
     await ctx.send(embed=embed)
 
-
-@bot.command()
-async def cat(ctx):
-    async with ctx.channel.typing():
-      rawres = requests.get('https://api.thecatapi.com/v1/images/search')
-      parres = json.loads(rawres.text)
-      url = parres[0]["url"]
-      embed = discord.Embed(title="Random Cat Image")
-      embed.set_image(url=url)
-      embed.set_footer(text="Powered by thecatapi.com!")
-    await ctx.send(embed=embed)
-
-
-@bot.command()
-async def dog(ctx):
-    async with ctx.channel.typing():
-      rawres = requests.get('https://api.thedogapi.com/v1/images/search')
-      parres = json.loads(rawres.text)
-      url = parres[0]["url"]
-      embed = discord.Embed(title="Random Dog Image")
-      embed.set_image(url=url)
-      embed.set_footer(text="Powered by thedogapi.com!")
-    await ctx.send(embed=embed)
-
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/")
@@ -123,7 +99,7 @@ async def help(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def pets(ctx,pet="random"):
+async def pet(ctx,pet="random"):
     async with ctx.channel.typing():
         if pet == 'random':
             pet = random.choice(['dog','cat'])
@@ -138,4 +114,36 @@ async def pets(ctx,pet="random"):
         else:
             await ctx.send('Invalid pet specified.')
 
+<<<<<<< HEAD
+=======
+
+
+@bot.command()
+async def bunj(ctx):
+    embed=discord.Embed(title="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", description="bunj", color=0x8cff8f)
+    embed.set_author(name="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
+    embed.add_field(name="bunj", value="bunj", inline=False)
+    await ctx.send(embed=embed)
+
+
+@bot.command()
+async def troll(ctx):
+    await ctx.send('get trolled loser https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
+
+
+@bot.command()
+async def invite(ctx):
+    embed=discord.Embed(title="Invite Waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128", description="use this link to add waterbot to your server!", color=0x8cff8f)
+    embed.set_author(name="waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
+    embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
+    embed.add_field(name="https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot", value="waterbot", inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def say(ctx, *, text):
+    await ctx.send(text)
+
+
+>>>>>>> d16caeb827c8b1a7bbd9a53460175a9b6bbf5bc7
 bot.run(token)
