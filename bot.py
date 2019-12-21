@@ -82,7 +82,7 @@ async def _8ball(ctx, *, question):
                 'Very doubtful.']
     embed = discord.Embed(title='8 Ball Response', colour=0x000000,description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
     await ctx.send(embed=embed)
-    
+
 
 @bot.command()
 async def help(ctx):
@@ -139,6 +139,9 @@ async def invite(ctx):
     embed.add_field(name="https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot", value="waterbot", inline=False)
     await ctx.send(embed=embed)
 
+@bot.command()
+async def say(ctx, *, text):
+    await ctx.send(text)
 
 
 bot.run(token)
