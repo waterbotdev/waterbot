@@ -1,5 +1,5 @@
 import discord
-import random 
+import random
 import requests
 import json
 from discord.ext import commands
@@ -28,12 +28,9 @@ async def fuck(ctx):
 async def e(ctx):
     await ctx.send('e')
 
-
-
 @bot.command()
 async def fatfuck(ctx):
     await ctx.send('https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png')
-
 
 @bot.command(pass_context=True)
 async def boostinfo(ctx):
@@ -47,13 +44,18 @@ async def boostinfo(ctx):
 
 
 @bot.command()
-@commands.is_owner()
-async def activity(ctx) :
-    '''Changes the status of the bot
-    Bot Owner Only.
-    '''
-    await ctx.send(":ok_hand:")
-
+#@commands.is_owner()
+async def activity(ctx,*,text):
+    """Sets the bots status (OWNER)"""
+    #await ctx.send(content=" :ok_hand: What is the message you want in status")
+    #message = await client.wait_for('message')
+    #game = discord.Game(message.content)
+    game = discord.Game(text)
+    await bot.change_presence(status=discord.Status.online, activity=game)
+    await ctx.send(':ok_hand: Done.')
+@activity.error
+async def activityError(ctx,error):
+    await ctx.send("Command errored.\n{}".format(error))
 
 @bot.command(aliases=['8ball'])
 async def _8ball(ctx, *, question):
@@ -84,27 +86,42 @@ async def _8ball(ctx, *, question):
 
 @bot.command()
 async def cat(ctx):
-    async with ctx.channel.typing():                            
+    async with ctx.channel.typing():
       rawres = requests.get('https://api.thecatapi.com/v1/images/search')
       parres = json.loads(rawres.text)
       url = parres[0]["url"]
       embed = discord.Embed(title="Random Cat Image")
       embed.set_image(url=url)
-      embed.set_footer(text="Powered by thecatapi.com!")                                                              
+      embed.set_footer(text="Powered by thecatapi.com!")
     await ctx.send(embed=embed)
 
 
 @bot.command()
 async def dog(ctx):
-    async with ctx.channel.typing():                            
+    async with ctx.channel.typing():
       rawres = requests.get('https://api.thedogapi.com/v1/images/search')
       parres = json.loads(rawres.text)
       url = parres[0]["url"]
       embed = discord.Embed(title="Random Dog Image")
       embed.set_image(url=url)
-      embed.set_footer(text="Powered by thedogapi.com!")                                                              
+      embed.set_footer(text="Powered by thedogapi.com!")
     await ctx.send(embed=embed)
-   
+
+@bot.command()
+async def help(ctx):
+    embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/")
+    embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
+    embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url=ctx.author.avatar_url)
+    help = {
+        "Moderation":{
+
+        }
+    }
+    embed.add_field(name="Moderation", value=".mute, add whatever you want")
+    embed.add_field(name="Utility", value=".activity, add whatever you want")
+    embed.add_field(name="Fun", value=".8ball, add whatever you want")
+    await ctx.send(embed=embed)
+
 @bot.command()
 async def pets(ctx,pet="random"):
     async with ctx.channel.typing():
