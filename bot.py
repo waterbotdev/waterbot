@@ -179,4 +179,6 @@ async def ping(ctx):
     else:
         color = 0xff5555
     await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
+
+# Run the bot
 bot.run(token)
