@@ -142,8 +142,19 @@ async def invite(ctx):
 async def say(ctx, *, text):
     await ctx.send(text)
 
-# 
+@bot.command
+async def userinfo(ctx,member:discord.Member=None):
+    '''Get member info
+    '''
+    # Find user roles.
+    roles = [role for role in member.roles]
 
-
+    embed = discord.Embed(color=member.color,title=f"Profile of user {member.name}", timestamp=ctx.message.created_at)
+    embed.add_field(name="Username",value=member.name)
+    embed.add_field(name="User ID",value=member.id)
+    embed.set_thumbnail(url=member.avatar_url)
+    embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
+    embed.add_field(name="Is bot?", value=member.bot)
+    await ctx.send(embed=embed)
 
 bot.run(token)
