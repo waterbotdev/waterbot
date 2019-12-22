@@ -2,12 +2,14 @@ import discord
 import random
 import requests
 import json
+import os
 from discord.ext import commands
 import base64
-tokenfile = open('token.txt','r')
-etokenb = tokenfile.read().encode()
-tokenb = base64.b64decode(etokenb)
-token = tokenb.decode()
+# tokenfile = open('token.txt','r')
+# etokenb = tokenfile.read().encode()
+# tokenb = base64.b64decode(etokenb)
+# token = tokenb.decode()
+token = os.environ["BOT_TOKEN"]
 bot = commands.Bot(command_prefix='.')
 
 bot.remove_command('help')
@@ -155,6 +157,7 @@ async def userinfo(ctx,member:discord.Member=None):
     embed.set_thumbnail(url=member.avatar_url)
     embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
     embed.add_field(name="Is bot?", value=member.bot)
+    embed.add_field(name=f"User Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
     await ctx.send(embed=embed)
 
 bot.run(token)
