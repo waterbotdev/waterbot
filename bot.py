@@ -144,7 +144,7 @@ async def invite(ctx):
 async def say(ctx, *, text):
     await ctx.send(text)
 
-@bot.command
+@bot.command()
 async def userinfo(ctx,member:discord.Member=None):
     '''Get member info
     '''
