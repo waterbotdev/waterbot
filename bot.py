@@ -152,7 +152,8 @@ async def userinfo(ctx,member:discord.Member=None):
         member = ctx.author
     # Find user roles.
     roles = [role for role in member.roles]
-    roles.remove(0)
+    roles = roles.remove(roles[0])
+    #roles.remove(0)
     embed = discord.Embed(color=member.color, timestamp=ctx.message.created_at)
     embed.set_author(name=f"User Information - **{member}**")
     embed.set_thumbnail(url=member.avatar_url)
