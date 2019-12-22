@@ -46,7 +46,7 @@ async def boostinfo(ctx):
 
 
 @bot.command()
-#@commands.is_owner()
+@commands.is_owner()
 async def activity(ctx,*,text):
     """Sets the bots status (OWNER)"""
     #await ctx.send(content=" :ok_hand: What is the message you want in status")
@@ -148,16 +148,34 @@ async def say(ctx, *, text):
 async def userinfo(ctx,member:discord.Member=None):
     '''Get member info
     '''
+    if member == None:
+        member = ctx.author
     # Find user roles.
     roles = [role for role in member.roles]
-
-    embed = discord.Embed(color=member.color,title=f"Profile of user {member.name}", timestamp=ctx.message.created_at)
-    embed.add_field(name="Username",value=member.name)
-    embed.add_field(name="User ID",value=member.id)
+    roles.remove(0)
+    embed = discord.Embed(color=member.color, timestamp=ctx.message.created_at)
+    embed.set_author(name=f"User Information - **{member}**")
     embed.set_thumbnail(url=member.avatar_url)
+    embed.add_field(name="User ID:", value=member.id)
+    embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
     embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
-    embed.add_field(name="Is bot?", value=member.bot)
-    embed.add_field(name=f"User Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
+    embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
+    embed.add_field(name="Top Role:", value=member.top.role.mention)
+    embed.add_field(name="Is Bot?",  value=member.bot)
+
     await ctx.send(embed=embed)
 
+@bot.command(name='ping')
+async def ping(ctx):
+    '''Get the ping of the bot to discord.
+    Also used to check if bot is online.
+    '''
+    botping = ctx.bot.latency*1000
+    if botping < 100:
+        color = 0x55aa55
+    elif botping < 500:
+        color = 0xffff55
+    else:
+        color = 0xff5555
+    await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 bot.run(token)
