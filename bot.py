@@ -142,4 +142,8 @@ async def invite(ctx):
 async def say(ctx, *, text):
     await ctx.send(text)
 
+# 
+
+
+
 bot.run(token)
