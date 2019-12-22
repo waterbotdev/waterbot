@@ -62,21 +62,21 @@ async def _8ball(ctx, *, question):
     responses = ['It is certain.',
                 'It is decidedly so.',
                 'Without a doubt.',
-                'Yes - definitely.',
+                'Yes, definitely.',
                 'You may rely on it.',
                 'As I see it, yes.',
                 'Most likely.',
                 'Outlook good.',
                 'Yes.',
                 'Signs point to yes.',
-                'Reply hazy, _try again.',
-                'Oh! i forgot. It is tea time, _try another time!',
+                'Reply hazy, _try again._',
+                'Oh! i forgot. It is tea time, _try another time!_',
                 'Ask again later, I am too busy.',
-                'Better _not tell you now.',
+                'Better _not tell you now._',
                 'Cannot predict now.',
-                'Concentrate _and ask again.',
+                'Concentrate _and ask again_.',
                 'Don\'t count on it.'
-                'My reply _is no.',
+                'My reply _is no_.',
                 'My sources say no.',
                 'Outlook not so good',
                 'Very doubtful.']
@@ -88,11 +88,13 @@ async def help(ctx):
     embed = discord.Embed(colour=discord.Colour(0xd1e9fd), url="https://discordapp.com/")
     embed.set_author(name="waterbot - help", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
     embed.set_footer(text=f"Executed by {ctx.message.author}", icon_url=ctx.author.avatar_url)
-    help = {
-        "Moderation":{
-
-        }
-    }
+    # help = {
+    #     "Moderation":{
+    #             ".mute":{
+    #
+    #             }
+    #     }
+    # }
     embed.add_field(name="Moderation", value=".mute, add whatever you want")
     embed.add_field(name="Utility", value=".activity, add whatever you want")
     embed.add_field(name="Fun", value=".8ball, add whatever you want")
@@ -113,10 +115,6 @@ async def pet(ctx,pet="random"):
             return
         else:
             await ctx.send('Invalid pet specified.')
-
-<<<<<<< HEAD
-=======
-
 
 @bot.command()
 async def bunj(ctx):
@@ -144,6 +142,4 @@ async def invite(ctx):
 async def say(ctx, *, text):
     await ctx.send(text)
 
-
->>>>>>> d16caeb827c8b1a7bbd9a53460175a9b6bbf5bc7
 bot.run(token)
