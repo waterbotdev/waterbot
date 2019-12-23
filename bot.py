@@ -4,7 +4,7 @@ import discord
 # import json
 import os
 from discord.ext import commands
-token = os.environ["BOT_TOKEN"]
+token = os.environ["WATER_TOKEN"]
 bot = commands.Bot(command_prefix='.')
 
 bot.remove_command('help')

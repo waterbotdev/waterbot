@@ -8,7 +8,7 @@ class Utils(commands.Cog):
         self.bot = bot
 
     @commands.command(name='ping')
-    async def ping(ctx):
+    async def ping(self,ctx):
         '''Get the bot latency
         Also used to check if bot is online.
         '''
@@ -22,7 +22,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
     @commands.command()
-    async def userinfo(ctx,member:discord.Member=None):
+    async def userinfo(self,ctx,member:discord.Member=None):
         '''Get member info
         '''
         if member == None:
@@ -44,7 +44,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def boostinfo(ctx):
+    async def boostinfo(self,ctx):
         embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xd399f0)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
