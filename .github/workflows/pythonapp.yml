@@ -21,6 +21,6 @@ jobs:
     - name: Compiles bot
       run: |
         python -m py_compile bot.py
-    - name: Lint code
-      run: |
-        python -m pylint bot.py
+    #- name: Lint code
+    #  run: |
+    #    python -m pylint bot.py
