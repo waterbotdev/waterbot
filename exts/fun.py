@@ -10,26 +10,26 @@ class Fun(commands.Cog):
 
     # Start of commands
     @commands.command()
-    async def fuck(ctx):
+    async def fuck(self,ctx):
         '''Screw Kenny he's a dumbass
         - Kenny
         '''
         await ctx.send('shit')
 
     @commands.command()
-    async def e(ctx):
+    async def e(self,ctx):
         '''Something
         '''
         await ctx.send('e')
 
     @commands.command()
-    async def fatfuck(ctx):
+    async def fatfuck(self,ctx):
         '''Surprise.
         '''
-        await ctx.send('https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png')
+        await ctx.send(embed=discord.Embed().set_image(url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
 
     @commands.command(aliases=['8ball'])
-    async def _8ball(ctx, *, question):
+    async def _8ball(self,ctx, *, question):
         '''Ask 8ball a question. You'll get a good answer.
         '''
         responses = ['It is certain.',
@@ -57,9 +57,12 @@ class Fun(commands.Cog):
             colour=0x000000,
             description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
         await ctx.send(embed=embed)
+    @_8ball.error
+    async def _8ballerr(self,ctx,error):
+        await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bunj(ctx):
+    async def bunj(self,ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
         '''
         embed=discord.Embed(title="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", description="bunj", color=0x8cff8f)
@@ -69,10 +72,10 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def troll(ctx):
+    async def troll(self,ctx):
         '''Troll a user
         '''
-        await ctx.send('get trolled loser https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg')
+        await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
 def setup(bot):
     bot.add_cog(Fun(bot))

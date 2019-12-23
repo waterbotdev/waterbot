@@ -32,7 +32,7 @@ class Utils(commands.Cog):
         #roles = roles.remove(roles[0])
         #roles.remove(0)
         embed = discord.Embed(color=member.color, timestamp=ctx.message.created_at)
-        embed.set_author(name=f"User Information - **{member}**")
+        embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name="User ID:", value=member.id)
         embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
