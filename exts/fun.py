@@ -71,7 +71,7 @@ class Fun(commands.Cog):
         embed.add_field(name="bunj", value="bunj", inline=False)
         await ctx.send(embed=embed)
 
-    @bot.command()
+    @commands.command()
     async def pets(ctx,pet="random"):
         '''Get a pet image
         '''
