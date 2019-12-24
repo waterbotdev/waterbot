@@ -72,7 +72,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def pets(ctx,pet="random"):
+    async def pets(self,ctx,pet="random"):
         '''Get a pet image
         '''
         async with ctx.channel.typing():
