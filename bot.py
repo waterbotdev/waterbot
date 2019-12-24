@@ -1,8 +1,8 @@
+import os
 import discord
 # import random
 # import requests
 # import json
-import os
 from discord.ext import commands
 token = os.environ["WATER_TOKEN"]
 bot = commands.Bot(command_prefix='.')
@@ -15,11 +15,13 @@ async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
 
-# # This command had to stay here or else i am ready to kill the whole bot.
-# @bot.command()
-# async def help(ctx):
-#     '''Help command
-#     '''
+# This command had to stay here or else i am ready to kill the whole bot.
+@bot.command()
+async def help(ctx):
+    '''Help command
+    '''
+    for i in ctx.bot.commands:
+
 
 # Used extentions because why not.
 cogs = [

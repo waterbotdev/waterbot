@@ -71,6 +71,24 @@ class Fun(commands.Cog):
         embed.add_field(name="bunj", value="bunj", inline=False)
         await ctx.send(embed=embed)
 
+    @bot.command()
+    async def pets(ctx,pet="random"):
+        '''Get a pet image
+        '''
+        async with ctx.channel.typing():
+            if pet == 'random':
+                pet = random.choice(['dog','cat'])
+                if pet == 'dog' or 'cat':
+                    rawres = requests.get(f'https://api.the{pet}api.com/v1/images/search')
+                    url = json.loads(rawres.text)[0]['url']
+                    embed = discord.Embed(title=f"Random {pet} image")
+                    embed.set_image(url=url)
+                    embed.set_footer(text=f"Powered by the{pet}api.com")
+                    await ctx.send(embed=embed)
+                    return
+                else:
+                    await ctx.send('Invalid pet specified.')
+
     @commands.command()
     async def troll(self,ctx):
         '''Troll a user
