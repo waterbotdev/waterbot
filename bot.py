@@ -16,11 +16,11 @@ async def on_ready():
     print(f'With ID: {bot.user.id}')
 
 # This command had to stay here or else i am ready to kill the whole bot.
-@bot.command()
-async def help(ctx):
-    '''Help command
-    '''
-    for i in ctx.bot.commands:
+# @bot.command()
+# async def help(ctx):
+#     '''Help command
+#     '''
+#     for i in ctx.bot.commands:
 
 
 # Used extentions because why not.
