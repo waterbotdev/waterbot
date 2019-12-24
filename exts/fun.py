@@ -1,5 +1,6 @@
 import discord
 import random
+import requests
 from discord.ext import commands
 
 class Fun(commands.Cog):
