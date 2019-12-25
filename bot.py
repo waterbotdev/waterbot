@@ -22,13 +22,12 @@ async def help(ctx,command:str=None):
     '''
     if command == None:
         commands = {}
-        for i in ctx.bot.commands:
+        for i in ctx.bot.commands: # init arrays
             commands[i.cog_name] = []
         for i in ctx.bot.commands:
             commands[i.cog_name].append("."+i.name)
         for i in commands:
-            # This is still hell.
-            # Tell me how to fucking do this shit
+            
     else:
         await ctx.send("Not implemented yet.")
 
