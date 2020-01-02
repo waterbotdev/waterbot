@@ -19,15 +19,19 @@ async def on_ready():
 @bot.command()
 async def help(ctx,command:str=None):
     '''Help command
+    This command only include available extensions/cogs/categories, and
     '''
-    if command == None:
-        commands = {}
-        for i in ctx.bot.commands: # init arrays
-            commands[i.cog_name] = []
+    if command is None:
+        cognames = []
         for i in ctx.bot.commands:
-            commands[i.cog_name].append("."+i.name)
-        for i in commands:
-            
+            if i.cog_name not in cognames:
+                cognames.append(i.cogname)
+        out = "`"
+        for i in cognames:
+            out += f"{i}\n"
+        out += "`"
+        embed = discord.Embed(title="Waterbot Help",colour=0xfffbb)
+        embed.add_field(name="Available modules of waterbot",value=out)
     else:
         await ctx.send("Not implemented yet.")
 
