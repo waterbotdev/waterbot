@@ -57,7 +57,7 @@ class Core(commands.Cog):
             for i in cognames:
                 out += f"{i}\n"
             out += "`"
-            embed = discord.Embed(title="Waterbot Help", colour=0xfffbb)
+            embed = discord.Embed(title="Waterbot Help",description='Use .cmds <category name>` to get the available commands in a category', colour=0xfffbb)
             embed.add_field(name="Available modules of waterbot", value=out)
             embed.set_footer(text="Remove `<>` and `[]`s when using a command.")
             return await ctx.send(embed=embed)
@@ -66,7 +66,7 @@ class Core(commands.Cog):
 
     # TODO: LIST COMMANDS IN A MODULE
     @commands.command(name="cmds")
-    async def cmds(self, ctx, cog):
+    async def cmds(self, ctx, cog=None):
         '''List commands available in an extension
         Usage: cmds <category name>
         '''
