@@ -18,12 +18,11 @@ class Core(commands.Cog):
     @commands.command()
     @commands.is_owner()
     async def activity(self,ctx,*,text):
-        """Sets the bots status (OWNER)"""
-        #await ctx.send(content=" :ok_hand: What is the message you want in status")
-        #message = await client.wait_for('message')
-        #game = discord.Game(message.content)
+        '''Sets the bots status (OWNER)
+        Usage: activity <Status Text>
+        '''
         game = discord.Game(text)
-        await bot.change_presence(status=discord.Status.online, activity=game)
+        await ctx.bot.change_presence(status=discord.Status.online, activity=game)
         await ctx.send(':ok_hand: Done.')
     @activity.error
     async def activityError(self,ctx,error):
@@ -33,11 +32,50 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def say(self,ctx, *, text):
         '''Make the bot say something
+        Usage: say <text>
         You need to have the manage messages permisson to do this.
         '''
         await ctx.send(text)
+
+    # Error handler of the say command
     @say.error
     async def sayError(self,ctx,error):
         await ctx.send("Command errored.\n{}".format(error))
+
+    # This command had to stay here or else i am ready to kill the whole bot.
+    @commands.command()
+    async def help(self, ctx, command: str = None):
+        '''Help command
+        This command only include available extensions/cogs/categories, and
+        '''
+        if command is None:
+            cognames = []
+            for i in ctx.bot.commands:
+                if i.cog_name not in cognames:
+                    cognames.append(i.cog_name)
+            out = "`"
+            for i in cognames:
+                out += f"{i}\n"
+            out += "`"
+            embed = discord.Embed(title="Waterbot Help", colour=0xfffbb)
+            embed.add_field(name="Available modules of waterbot", value=out)
+            embed.set_footer(text="Remove `<>` and `[]`s when using a command.")
+            return await ctx.send(embed=embed)
+        else:
+            await ctx.send("Not implemented yet.")
+
+    # TODO: LIST COMMANDS IN A MODULE
+    @commands.command()
+    async def cmds(self, ctx, command):
+        '''List commands available in an extension
+        Usage: cmds <command name>
+        '''
+        cmds = {}
+        for i in ctx.bot.commands:
+            if i.cog_name not in cmds:
+                cmds[i.cog_name] = []
+            cmds[i.cog_name].append(i.name)
+
+
 def setup(bot):
     bot.add_cog(Core(bot))

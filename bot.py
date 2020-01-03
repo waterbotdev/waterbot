@@ -15,28 +15,6 @@ async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
 
-# This command had to stay here or else i am ready to kill the whole bot.
-@bot.command()
-async def help(ctx,command:str=None):
-    '''Help command
-    This command only include available extensions/cogs/categories, and
-    '''
-    if command is None:
-        cognames = []
-        for i in ctx.bot.commands:
-            if i.cog_name not in cognames:
-                cognames.append(i.cog_name)
-        out = "`"
-        for i in cognames:
-            out += f"{i}\n"
-        out += "`"
-        embed = discord.Embed(title="Waterbot Help",colour=0xfffbb)
-        embed.add_field(name="Available modules of waterbot",value=out)
-        return await ctx.send(embed=embed)
-    else:
-        await ctx.send("Not implemented yet.")
-
-
 # Used extentions because why not.
 cogs = [
     'exts.core',
