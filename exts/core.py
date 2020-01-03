@@ -66,16 +66,25 @@ class Core(commands.Cog):
 
     # TODO: LIST COMMANDS IN A MODULE
     @commands.command()
-    async def cmds(self, ctx, command):
+    async def cmds(self, ctx, cog):
         '''List commands available in an extension
-        Usage: cmds <command name>
+        Usage: cmds <category name>
         '''
+        # Grab the command list
         cmds = {}
         for i in ctx.bot.commands:
             if i.cog_name not in cmds:
                 cmds[i.cog_name] = []
             cmds[i.cog_name].append(i.name)
-
+        if cog not in cmds:
+            return await ctx.send(embed=discord.Embed(description="No such category.",colour=0xff5555))
+        out = "`"
+        for i in cmds[cog]:
+            out += f"{i}\n"
+        embed = discord.Embed(title=f"Commands in category `{cog}`",colour=0xa12ba1)
+        embed.add_field(name="Category description", value=f"`{i.cog.description}`")
+        embed.add_field(name="Available commands", value=f"{out}`")
+        return await ctx.send(embed=embed)
 
 def setup(bot):
     bot.add_cog(Core(bot))

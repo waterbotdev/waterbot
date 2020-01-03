@@ -46,7 +46,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577963794592</updated>
-      <workItem from="1578050892503" duration="9002000" />
+      <workItem from="1578050892503" duration="12140000" />
     </task>
     <servers />
   </component>
@@ -65,6 +65,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog" timestamp="1578068395883">
+      <screen x="0" y="0" width="1360" height="768" />
+    </state>
+    <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
   </component>
   <component name="masterDetails">
     <states>

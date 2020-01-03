@@ -1,8 +1,5 @@
 import os
 import discord
-# import random
-# import requests
-# import json
 from discord.ext import commands
 token = os.environ["WATER_TOKEN"]
 bot = commands.Bot(command_prefix='.')
