@@ -83,7 +83,7 @@ class Core(commands.Cog):
         for i in cmds[cog]:
             out += f"{i}\n"
         embed = discord.Embed(title=f"Commands in category `{cog}`",colour=0xa12ba1)
-        embed.add_field(name="Category description", value=f"`{cmds[cog+'_des']}`",inline=False)
+        embed.add_field(name="Category description", value=f"`{cmds[cog+'_des'].splitlines()[0]}`",inline=False)
         embed.add_field(name="Available commands", value=f"{out}`", inline=False)
         return await ctx.send(embed=embed)
 
