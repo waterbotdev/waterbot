@@ -25,7 +25,7 @@ async def help(ctx,command:str=None):
         cognames = []
         for i in ctx.bot.commands:
             if i.cog_name not in cognames:
-                cognames.append(i.cogname)
+                cognames.append(i.cog_name)
         out = "`"
         for i in cognames:
             out += f"{i}\n"
