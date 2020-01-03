@@ -78,7 +78,7 @@ class Core(commands.Cog):
                 cmds[i.cog_name+'_des'] = i.cog.description
             cmds[i.cog_name].append(ctx.bot.command_prefix+i.name)
         if cog not in cmds:
-            return await ctx.send(embed=discord.Embed(description="No such category.",colour=0xff5555))
+            return await ctx.send(embed=discord.Embed(description=f"No such category({cog}).",colour=0xff5555))
         out = "`"
         for i in cmds[cog]:
             out += f"{i}\n"
