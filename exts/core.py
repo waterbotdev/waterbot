@@ -28,7 +28,7 @@ class Core(commands.Cog):
     async def activityError(self,ctx,error):
         await ctx.send("Command errored.\n{}".format(error))
 
-    @commands.command()
+    @commands.command(name='say')
     @commands.has_permissions(manage_messages=True)
     async def say(self,ctx, *, text):
         '''Make the bot say something
@@ -43,7 +43,7 @@ class Core(commands.Cog):
         await ctx.send("Command errored.\n{}".format(error))
 
     # This command had to stay here or else i am ready to kill the whole bot.
-    @commands.command()
+    @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
         '''Help command
         This command only include available extensions/cogs/categories, and
@@ -65,7 +65,7 @@ class Core(commands.Cog):
             await ctx.send("Not implemented yet.")
 
     # TODO: LIST COMMANDS IN A MODULE
-    @commands.command()
+    @commands.command(name="cmds")
     async def cmds(self, ctx, cog):
         '''List commands available in an extension
         Usage: cmds <category name>
