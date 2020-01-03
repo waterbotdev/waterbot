@@ -32,6 +32,7 @@ async def help(ctx,command:str=None):
         out += "`"
         embed = discord.Embed(title="Waterbot Help",colour=0xfffbb)
         embed.add_field(name="Available modules of waterbot",value=out)
+        return await ctx.send(embed=embed)
     else:
         await ctx.send("Not implemented yet.")
 
