@@ -1,22 +1,33 @@
 import discord
 import inspect
 from discord.ext import commands
-from .helpers.check import checks
 
+
+def is_dev():
+    developers = [
+        513603936033177620,
+        513603936033177620,
+        397029587965575170,
+        397273885701177347
+    ]
+    async def predicate(ctx):
+        return ctx.author.id in developers
+    return commands.check(predicate)
 class Dev(commands.Cog):
     '''Developer commands
     '''
     def __init__(self,bot):
         self.bot = bot
-
+        
     @commands.command(name='die',aliases=['disconnect'])
-    @checks.is_dev()
+    @is_dev()
     async def die(self,ctx):
         '''Kills the bot
         '''
         await ctx.send('Disconnecting...')
         await ctx.bot.logout()
 
+    @is_dev()
     @commands.command(aliases=['eval'])
     async def evaluate(self, ctx, *, code:str):
         '''Run some code.

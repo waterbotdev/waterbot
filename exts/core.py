@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 
-
 class Core(commands.Cog):
     '''Core commands
     '''
@@ -10,8 +9,6 @@ class Core(commands.Cog):
 
     @commands.command()
     async def invite(self,ctx):
-        '''Sends the invite of the bot to a text channel
-        '''
         embed=discord.Embed(title="Invite Waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128", description="use this link to add waterbot to your server!", color=0x8cff8f)
         embed.set_author(name="waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
         embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
@@ -45,11 +42,10 @@ class Core(commands.Cog):
     async def sayError(self,ctx,error):
         await ctx.send("Command errored.\n{}".format(error))
 
-
+    # This command had to stay here or else i am ready to kill the whole bot.
     @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
         '''Help command
-        Usage: help [command]
         This command only include available extensions/cogs/categories, and
         '''
         if command is None:
@@ -90,7 +86,6 @@ class Core(commands.Cog):
         embed.add_field(name="Category description", value=f"`{cmds[cog+'_des'].splitlines()[0]}`",inline=False)
         embed.add_field(name="Available commands", value=f"{out}`", inline=False)
         return await ctx.send(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(Core(bot))
