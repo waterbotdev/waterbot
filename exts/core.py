@@ -122,7 +122,7 @@ class Core(commands.Cog):
                 embed.add_field(name="Usage",value=ctx.bot.command_prefix+doc[2])
                 embed.add_field(name="Main Help", value=re.sub('\\n','\n',doc[1]))
                 embed.add_field(name="Command Checks",value=doc[3])
-
+            await ctx.send(embed=embed)
     @commands.command(name="cmds")
     async def cmds(self, ctx, cog=None):
         '''List commands available in an extension
