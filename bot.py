@@ -1,10 +1,14 @@
 import os
 import discord
+import json
 from discord.ext import commands
-token = os.environ["WATER_TOKEN"]
-bot = commands.Bot(command_prefix='.')
 
+botConfig = json.load(open('config.json','r'))
+token = os.environ["WATER_TOKEN"]
+
+bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
+
 
 @bot.event
 async def on_ready():
@@ -22,15 +26,10 @@ if __name__ == '__main__':
     for cog in cogs:
         bot.load_extension(cog)
 
+
 def is_dev():
-    developers = [
-        513603936033177620,
-        513603936033177620,
-        397029587965575170,
-        397273885701177347
-    ]
     async def predicate(ctx):
-        return ctx.author.id in developers
+        return ctx.author.id in botConfig["developers"]
     return commands.check(predicate)
 
 @is_dev()
@@ -48,5 +47,7 @@ async def reload(self, ctx):
             pass
         bot.load_extension(i)
         print(f'Loaded extension {i}')
+
+
 # Run the bot
 bot.run(token)

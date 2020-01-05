@@ -14,26 +14,33 @@ class Fun(commands.Cog):
     @commands.command()
     async def fuck(self,ctx):
         '''Screw Kenny he's a dumbass
-        - Kenny
-        '''
+        Use this command to see :P
+        fuck
+        None'''
         await ctx.send('shit')
 
     @commands.command()
     async def e(self,ctx):
         '''Something
-        '''
+        Something
+        e
+        None'''
         await ctx.send('e')
 
     @commands.command()
     async def fatfuck(self,ctx):
         '''Surprise.
-        '''
+        Use the command to see :P
+        fatfuck
+        None'''
         await ctx.send(embed=discord.Embed().set_image(url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
 
     @commands.command(aliases=['8ball'])
     async def _8ball(self,ctx, *, question):
         '''Ask 8ball a question. You'll get a good answer.
-        '''
+        None
+        8ball <question>
+        None'''
         responses = ['It is certain.',
                     'It is decidedly so.',
                     'Without a doubt.',
@@ -66,7 +73,9 @@ class Fun(commands.Cog):
     @commands.command()
     async def bunj(self,ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
-        '''
+        None
+        bunj
+        None'''
         embed=discord.Embed(title="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", description="bunj", color=0x8cff8f)
         embed.set_author(name="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
@@ -76,7 +85,9 @@ class Fun(commands.Cog):
     @commands.command()
     async def pets(self,ctx,pet="random"):
         '''Get a pet image
-        '''
+        Get a pet image if you don't specify which pet. \\nCurrently supports [cat,dog]\\nWill output a random pet picture if not specified.
+        pet [animal]
+        None'''
         async with ctx.channel.typing():
             if pet == 'random':
                 pet = random.choice(['dog','cat'])
@@ -94,7 +105,9 @@ class Fun(commands.Cog):
     @commands.command()
     async def troll(self,ctx):
         '''Troll a user
-        '''
+        ok
+        troll
+        None'''
         await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
 def setup(bot):

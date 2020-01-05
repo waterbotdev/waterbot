@@ -11,7 +11,8 @@ class Utils(commands.Cog):
     async def ping(self,ctx):
         '''Get the bot latency
         Also used to check if bot is online.
-        '''
+        ping
+        None'''
         botping = ctx.bot.latency*1000
         if botping < 100:
             color = 0x55aa55
@@ -24,7 +25,9 @@ class Utils(commands.Cog):
     @commands.command()
     async def userinfo(self,ctx,member:discord.Member=None):
         '''Get member info
-        '''
+        Get the info of a user. Leave the command as is to check your own info.
+        userinfo [UserID/Mention]
+        None'''
         if member == None:
             member = ctx.author
         # Find user roles.
@@ -45,6 +48,10 @@ class Utils(commands.Cog):
 
     @commands.command()
     async def boostinfo(self,ctx):
+        '''Check the server's boost level
+        None
+        boostinfo
+        None'''
         embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xd399f0)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
