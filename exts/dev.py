@@ -1,6 +1,7 @@
 import discord
 import inspect
 import json
+import re
 from discord.ext import commands
 
 botConfig = json.load(open('config.json','r'))

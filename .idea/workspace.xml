@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/dev.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/fun.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/fun.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +50,7 @@
       <workItem from="1578050892503" duration="18381000" />
       <workItem from="1578146800692" duration="28379000" />
       <workItem from="1578226455954" duration="1706000" />
-      <workItem from="1578228988515" duration="4175000" />
+      <workItem from="1578228988515" duration="14788000" />
     </task>
     <servers />
   </component>

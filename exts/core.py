@@ -53,7 +53,7 @@ class Core(commands.Cog):
     @commands.command()
     async def sayembed(self, ctx, *, param):
         '''Make the bot say something
-        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMkae sure not to put ANY `|` in your text or else the code won't work.
+        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMake sure not to put ANY `|` in your text or else the code won't work.
         sayembed <body>|[color]|[title]|[footer]
         Manage Messages'''
         sppar = param.split('|')
@@ -69,7 +69,7 @@ class Core(commands.Cog):
         except Exception as e:
             pass
         if color is not None:
-            if len(color) is 9:
+            if len(color) == 9:
                 color = discord.Colour.from_rgb(int(color[0]+color[1]+color[2]), int(color[3]+color[4]+color[5]), int(color[6]+color[7]+color[8]))
             else:
                 return ctx.send(embed=discord.Embed(title='Command Errored',
@@ -110,21 +110,22 @@ class Core(commands.Cog):
             result = None
             for i in ctx.bot.commands:
                 if i.name == command:
+                    #print('Searching command {command} in commands list (C: {})')
                     stat = 1
                     result = i
                     break
             if stat == 0:
-                return ctx.send(embed=discord.Embed(description=f"No such command. ({command}) Use .help to list all available modules and use .cmds <module name> to check the available commands in that module.", colour=0xff5555))
+                return await ctx.send(embed=discord.Embed(description=f"No such command. ({command}) \nUse `.help` to list all available modules and use `.cmds <module name>` to check the available commands in that module.", colour=0xff5555))
             else:
                 doc = result.help.splitlines()
-                embed = discord.Embed(title=f"Help for command {command}", colour=0xa12ba1)
-                embed.add_field(name="Short Description",value=doc[0])
-                embed.add_field(name="Usage",value=ctx.bot.command_prefix+doc[2])
-                embed.add_field(name="Main Help", value=re.sub('\\n','\n',doc[1]))
-                embed.add_field(name="Command Checks",value=doc[3])
+                embed = discord.Embed(title=f"Help for command `{command}`", colour=0xa12ba1, timestamp=ctx.message.created_at)
+                embed.add_field(name="Short Description",value=doc[0],inline=False)
+                embed.add_field(name="Usage",value=ctx.bot.command_prefix+doc[2],inline=False)
+                embed.add_field(name="Description", value=re.sub('\\\\n', '\n', doc[1]),inline=False)
+                embed.add_field(name="Command Checks",value=doc[3],inline=False)
             await ctx.send(embed=embed)
     @commands.command(name="cmds")
-    async def cmds(self, ctx, cog=None):
+    async def cmds(self, ctx, cogr=None):
         '''List commands available in an extension
         List all commands in an extension/category
         cmds <category name>
@@ -132,18 +133,25 @@ class Core(commands.Cog):
         '''
         # Grab the command list
         cmds = {}
+        excluded = [
+            'reload'
+        ]
         for i in ctx.bot.commands:
-            if i.cog_name not in cmds:
-                cmds[i.cog_name] = []
-                cmds[i.cog_name+'_des'] = i.cog.description
-            cmds[i.cog_name].append(ctx.bot.command_prefix+i.name)
-        if cog not in cmds:
-            return await ctx.send(embed=discord.Embed(description=f"No such category({cog}).",colour=0xff5555))
+            if i.name not in excluded:
+                #print(f"Loading command {i}")
+                if i.cog_name not in cmds:
+                    cmds[i.cog_name] = []
+                    cmds[i.cog_name+'_des'] = i.cog.description
+                cmds[i.cog_name].append(ctx.bot.command_prefix+i.name)
+        if cogr not in cmds:
+            return await ctx.send(embed=discord.Embed(description=f"No such category({cogr}).",colour=0xff5555))
+        else:
+            await ctx.send("Loading",delete_after=5)
         out = "`"
-        for i in cmds[cog]:
+        for i in cmds[cogr]:
             out += f"{i}\n"
-        embed = discord.Embed(title=f"Commands in category `{cog}`",colour=0xa12ba1)
-        embed.add_field(name="Category description", value=f"`{cmds[cog+'_des'].splitlines()[0]}`",inline=False)
+        embed = discord.Embed(title=f"Commands in category `{cogr}`",colour=0xa12ba1)
+        embed.add_field(name="Category description", value=f"`{cmds[cogr+'_des'].splitlines()[0]}`",inline=False)
         embed.add_field(name="Available commands", value=f"{out}`", inline=False)
         return await ctx.send(embed=embed)
 
