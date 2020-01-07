@@ -1,15 +1,13 @@
 import discord
+import json
 from discord.ext import commands
 
-devs = [
-    513603936033177620,
-    513603936033177620,
-    397029587965575170,
-    397273885701177347
-]
+config = json.load(open('config.json'))
 
-class checks():
+
+class Checks():
+    @staticmethod
     def is_dev():
         async def predicate(ctx):
-            return ctx.author.id in devs
+            return ctx.author.id in config["developers"]
         return commands.check(predicate)

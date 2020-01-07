@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/exts/mod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/helpers/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/helpers/check.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +17,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="waterbot" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +61,9 @@
       <workItem from="1578050892503" duration="18381000" />
       <workItem from="1578146800692" duration="28379000" />
       <workItem from="1578226455954" duration="1706000" />
-      <workItem from="1578228988515" duration="14788000" />
+      <workItem from="1578228988515" duration="16022000" />
+      <workItem from="1578367530620" duration="1959000" />
+      <workItem from="1578381057893" duration="14530000" />
     </task>
     <servers />
   </component>
@@ -79,10 +92,10 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
-    <state x="388" y="212" key="com.intellij.ide.util.TipDialog" timestamp="1578229013863">
+    <state x="388" y="212" key="com.intellij.ide.util.TipDialog" timestamp="1578381227205">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
-    <state x="388" y="212" key="com.intellij.ide.util.TipDialog/0.0.1360.768@0.0.1360.768" timestamp="1578229013863" />
+    <state x="388" y="212" key="com.intellij.ide.util.TipDialog/0.0.1360.768@0.0.1360.768" timestamp="1578381227205" />
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578103977786">
       <screen x="0" y="0" width="1360" height="768" />
     </state>

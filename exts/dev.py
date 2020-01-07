@@ -2,20 +2,17 @@ import discord
 import inspect
 import json
 import re
+
+from .helpers.check import Checks
 from discord.ext import commands
 
-botConfig = json.load(open('config.json','r'))
-def is_dev():
-    async def predicate(ctx):
-        return ctx.author.id in botConfig["developers"]
-    return commands.check(predicate)
 class Dev(commands.Cog):
     '''Developer commands'''
     def __init__(self,bot):
         self.bot = bot
 
     @commands.command(name='die',aliases=['disconnect'])
-    @is_dev()
+    @Checks.is_dev()
     async def die(self,ctx):
         '''Kills the bot
         Kills the bot
@@ -25,7 +22,7 @@ class Dev(commands.Cog):
         await ctx.bot.logout()
 
     @commands.command(aliases=['eval'])
-    @is_dev()
+    @Checks.is_dev()
     async def evaluate(self, ctx, *, code:str):
         '''Run some code.
         Runs a code snippet

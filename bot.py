@@ -2,7 +2,7 @@ import os
 import discord
 import json
 from discord.ext import commands
-
+from exts.helpers.check import Checks as check
 botConfig = json.load(open('config.json','r'))
 token = os.environ["WATER_TOKEN"]
 
@@ -20,7 +20,8 @@ cogs = [
     'exts.core',
     'exts.fun',
     'exts.utils',
-    'exts.dev'
+    'exts.dev',
+    'exts.mod'
     ]
 if __name__ == '__main__':
     for cog in cogs:
@@ -32,21 +33,25 @@ def is_dev():
         return ctx.author.id in botConfig["developers"]
     return commands.check(predicate)
 
-@is_dev()
+
+@check.is_dev()
 @bot.command()
 async def reload(self, ctx):
     '''Reload all extensions
     Usage: reload
     '''
+    log = ""
     for i in cogs:
         try:
             bot.unload_extension(i)
             print(f'Unloaded extension {i}')
+            log += f'Unloaded extension {i}\n'
         except Exception as e:
             print(e)
             pass
         bot.load_extension(i)
         print(f'Loaded extension {i}')
+    await ctx.send()
 
 
 # Run the bot
