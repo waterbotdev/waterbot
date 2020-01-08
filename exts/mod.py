@@ -1,5 +1,5 @@
 import discord
-from mysql import connector
+import mysql.connector as con
 from discord.ext import commands
 
 
