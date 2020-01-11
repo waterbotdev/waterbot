@@ -22,7 +22,7 @@ class Utils(commands.Cog):
             color = 0xff5555
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
-    @comamands.command)
+    @commands.command(name='avatar',aliases=['av'])
     async def avatar(ctx, member: discord.Member):
         embed = discord.Embed(colour=discord.Colour(0x1), url="https://discordapp.com/%22)
         embed.set_author(name=f"{member}'s avatar")
