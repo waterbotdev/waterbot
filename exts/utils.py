@@ -23,14 +23,14 @@ class Utils(commands.Cog):
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
     @commands.command(name='avatar',aliases=['av'])
-    async def avatar(ctx, member: discord.Member):
-        embed = discord.Embed(colour=discord.Colour(0x1), url="https://discordapp.com/%22)
-        embed.set_author(name=f"{member}'s avatar")
-        embed.set_image(url=member.avatar_url)
-        embed.add_field(name="Avatar:", value=f"[Link]({member.avatar_url})")
-
-        embed.set_image(url=str(member.avatar_url))
-        embed.set_footer(text=f"User ID: {member.id}")
+    async def avatar(ctx, user: discord.Member=ctx.message.author):
+        embed = discord.Embed(colour=user.colour)
+        embed.set_author(name=f"{user}'s avatar")
+        embed.set_image(url=user.avatar_url)
+        embed.add_field(name="Avatar:", value=f"[Link]({user.avatar_url})")
+        
+        embed.set_image(url=str(user.avatar_url))
+        embed.set_footer(text=f"User ID: {user.id}")
     
         await ctx.send(embed=embed)
         
