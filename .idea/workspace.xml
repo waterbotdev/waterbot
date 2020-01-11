@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/waterbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/waterbot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/mod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,12 +28,16 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1Vsnj5A84gZk0zIWi6oteAR1TuL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -41,7 +48,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,7 +65,11 @@
       <workItem from="1578226455954" duration="1706000" />
       <workItem from="1578228988515" duration="16022000" />
       <workItem from="1578367530620" duration="1959000" />
-      <workItem from="1578381057893" duration="20832000" />
+      <workItem from="1578381057893" duration="21730000" />
+      <workItem from="1578469895188" duration="9434000" />
+      <workItem from="1578549137705" duration="2770000" />
+      <workItem from="1578572606350" duration="18922000" />
+      <workItem from="1578659182673" duration="12136000" />
     </task>
     <servers />
   </component>
@@ -78,7 +89,14 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="134" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578471571499">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="134" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1360.738@0.0.1360.738" timestamp="1578471571499" />
     <state x="360" y="115" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578146353786">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
@@ -87,14 +105,39 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
-    <state x="388" y="212" key="com.intellij.ide.util.TipDialog" timestamp="1578381227205">
-      <screen x="0" y="0" width="1360" height="768" />
+    <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl" timestamp="1578552664572">
+      <screen x="0" y="0" width="1360" height="738" />
     </state>
+    <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl/0.0.1360.738@0.0.1360.738" timestamp="1578552664572" />
+    <state x="444" y="292" key="GitCloneDialog" timestamp="1578489284894">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="444" y="292" key="GitCloneDialog/0.0.1360.738@0.0.1360.738" timestamp="1578489284894" />
+    <state x="260" y="107" key="IDE.errors.dialog" timestamp="1578572841340">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="260" y="107" key="IDE.errors.dialog/0.0.1360.738@0.0.1360.738" timestamp="1578572841340" />
+    <state x="183" y="15" key="SettingsEditor" timestamp="1578481713823">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="183" y="15" key="SettingsEditor/0.0.1360.738@0.0.1360.738" timestamp="1578481713823" />
+    <state x="309" y="96" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1578659297162">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="309" y="96" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1360.738@0.0.1360.738" timestamp="1578659297162" />
+    <state x="388" y="204" key="com.intellij.ide.util.TipDialog" timestamp="1578659192120">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="388" y="204" key="com.intellij.ide.util.TipDialog/0.0.1360.738@0.0.1360.738" timestamp="1578659192120" />
     <state x="388" y="212" key="com.intellij.ide.util.TipDialog/0.0.1360.768@0.0.1360.768" timestamp="1578381227205" />
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578103977786">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768@0.0.1360.768" timestamp="1578103977786" />
+    <state x="343" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1578486392142">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="343" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1360.738@0.0.1360.738" timestamp="1578486392142" />
   </component>
   <component name="masterDetails">
     <states>

@@ -36,10 +36,10 @@ class Dev(commands.Cog):
                 result = eval(code, env)
                 if inspect.isawaitable(result):
                     result = await result
-                await ctx.message.add_reaction("✔️")
+                await ctx.message.add_reaction("✔")
             except Exception as e:
                 result = type(e).__name__ + ': ' + str(e)
-                await ctx.message.add_reaction("✖️")
+                await ctx.message.add_reaction("✖")
         try:
             await ctx.channel.send('```py\n{}```'.format(result))
         except discord.errors.Forbidden:
