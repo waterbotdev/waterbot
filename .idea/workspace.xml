@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/waterbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/waterbot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/dev.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/mod.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +104,10 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
+    <state x="285" y="0" key="CommitChangelistDialog2" timestamp="1578751647616">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="285" y="0" key="CommitChangelistDialog2/0.0.1360.738@0.0.1360.738" timestamp="1578751647616" />
     <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl" timestamp="1578552664572">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
@@ -117,6 +120,10 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="260" y="107" key="IDE.errors.dialog/0.0.1360.738@0.0.1360.738" timestamp="1578572841340" />
+    <state x="392" y="87" key="MultipleFileMergeDialog" timestamp="1578751435498">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="392" y="87" key="MultipleFileMergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1578751435498" />
     <state x="183" y="15" key="SettingsEditor" timestamp="1578481713823">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
