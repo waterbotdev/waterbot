@@ -23,7 +23,9 @@ class Utils(commands.Cog):
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
     @commands.command(name='avatar',aliases=['av'])
-    async def avatar(ctx, user: discord.Member=ctx.message.author):
+    async def avatar(ctx, user: discord.Member=None):
+        if user is None:
+            user = ctx.message.author
         embed = discord.Embed(colour=user.colour)
         embed.set_author(name=f"{user}'s avatar")
         embed.set_image(url=user.avatar_url)
