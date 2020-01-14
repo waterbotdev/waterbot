@@ -72,6 +72,10 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def bean(self, ctx, user:discord.Member,*,reason:str="Nein."):
+        '''Bean a user
+        bean
+        bean
+        None'''
         await ctx.send(f":knife {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
     async def beanerror(ctx,error):
