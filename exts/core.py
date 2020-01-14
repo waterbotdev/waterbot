@@ -1,5 +1,6 @@
 import discord
 import re
+from .helpers.check import Checks
 from discord.ext import commands
 
 class Core(commands.Cog):
@@ -22,6 +23,7 @@ class Core(commands.Cog):
 
     @commands.command()
     @commands.is_owner()
+    @Checks.is_dev() 
     async def activity(self,ctx,*,text):
         '''Sets the bots status
         Set the bot's playing status
@@ -37,6 +39,7 @@ class Core(commands.Cog):
 
     @commands.command(name='say')
     @commands.has_permissions(manage_messages=True)
+    @Checks.is_dev()
     async def say(self,ctx, *, text):
         '''Make the bot say something
         Self-explanatory
@@ -51,6 +54,7 @@ class Core(commands.Cog):
 
     @commands.has_permissions(manage_messages=True)
     @commands.command()
+    @Checks.is_dev()
     async def sayembed(self, ctx, *, param):
         '''Make the bot say something
         Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMake sure not to put ANY `|` in your text or else the code won't work.
