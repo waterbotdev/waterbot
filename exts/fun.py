@@ -71,7 +71,7 @@ class Fun(commands.Cog):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(ctx, user:discord.Member,*,reason:str="Nein."):
+    async def bean(self, ctx, user:discord.Member,*,reason:str="Nein."):
         await ctx.send(f":knife {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
     async def beanerror(ctx,error):
