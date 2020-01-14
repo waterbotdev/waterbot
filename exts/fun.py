@@ -76,7 +76,7 @@ class Fun(commands.Cog):
         bean
         bean
         None'''
-        await ctx.send(f":knife {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
+        await ctx.send(f":knife: {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
     async def beanerror(ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
