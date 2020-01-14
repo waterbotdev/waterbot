@@ -39,7 +39,7 @@ class Fun(commands.Cog):
     async def _8ball(self,ctx, *, question):
         '''Ask 8ball a question. You'll get a good answer. Or not. :eyes:
         None
-        .8ball <question>
+        8ball <question>
         None'''
         responses = ['It is certain.',
                     'It is decidedly so.',
@@ -74,7 +74,7 @@ class Fun(commands.Cog):
     async def bean(self, ctx, user:discord.Member,*,reason:str="Nein."):
         '''Bean a user
         bean someone lol
-        .bean <usage> [user]
+        bean <usage> [user]
         None'''
         await ctx.send(f":knife: {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
