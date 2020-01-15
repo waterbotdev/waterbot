@@ -57,7 +57,19 @@ class Utils(commands.Cog):
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][len([role.mention for role in [role for role in member.roles]])-1])
         embed.add_field(name="Is Bot?",  value=member.bot)
-
+        
+        if member.status == discord.Status.online:
+            embed.add_field(name = "Status", value = ":green_circle: Online :green_circle:")
+        elif member.status == discord.Status.idle:
+            embed.add_field(name = "Status", value = ":orange_circle: Idle :orange_circle:")
+        elif member.status == discord.Status.dnd:
+            embed.add_field(name = "Status", value = ":red_circle: Do Not Disturb :red_circle:")
+        elif member.status == discord.Status.offline:
+            embed.add_field(name = "Status", value = ":black_circle: Sleeping :black_circle:")
+        else:
+            return member.status
+            return False
+        
         await ctx.send(embed=embed)
 
     @commands.command()
