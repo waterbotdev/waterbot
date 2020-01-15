@@ -37,7 +37,7 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['8ball'])
     async def _8ball(self,ctx, *, question):
-        '''Ask 8ball a question. You'll get a good answer.
+        '''Ask 8ball a question. You'll get a good answer. Or not. :eyes:
         None
         8ball <question>
         None'''
@@ -70,6 +70,18 @@ class Fun(commands.Cog):
     async def _8ballerr(self,ctx,error):
         await ctx.send(f"Command errored.\n{error}")
 
+    @commands.command()
+    async def bean(self, ctx, user:discord.Member,*,reason:str="Nein."):
+        '''Bean a user
+        bean someone lol
+        bean <usage> [user]
+        None'''
+        await ctx.send(f":knife: {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
+    @bean.error
+    async def beanerror(ctx,error):
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
+
+        
     @commands.command()
     async def bunj(self,ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ

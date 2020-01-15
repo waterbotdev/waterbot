@@ -22,6 +22,20 @@ class Utils(commands.Cog):
             color = 0xff5555
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
+    @commands.command(name='avatar',aliases=['av'])
+    async def avatar(self, ctx, user: discord.Member=None):
+        if user is None:
+            user = ctx.message.author
+        embed = discord.Embed(colour=user.colour)
+        embed.set_author(name=f"{user}'s avatar")
+        embed.set_image(url=user.avatar_url)
+        embed.add_field(name="Avatar:", value=f"[Link]({user.avatar_url})")
+        
+        embed.set_image(url=str(user.avatar_url))
+        embed.set_footer(text=f"User ID: {user.id}")
+    
+        await ctx.send(embed=embed)
+        
     @commands.command()
     async def userinfo(self,ctx,member:discord.Member=None):
         '''Get member info
