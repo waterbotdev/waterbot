@@ -71,12 +71,12 @@ class Fun(commands.Cog):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(self, ctx, user:discord.Member,*,reason:str="Nein."):
+    async def bean(self, ctx, user:discord.User,*,reason:str="Nein."):
         '''Bean a user
         bean someone lol
         bean <usage> [user]
         None'''
-        await ctx.send(f":knife: {ctx.author} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
+        await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
     async def beanerror(ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
