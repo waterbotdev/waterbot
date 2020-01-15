@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/mod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/temp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +68,9 @@
       <workItem from="1578469895188" duration="9434000" />
       <workItem from="1578549137705" duration="2770000" />
       <workItem from="1578572606350" duration="18922000" />
-      <workItem from="1578659182673" duration="12136000" />
+      <workItem from="1578659182673" duration="12407000" />
+      <workItem from="1578753507412" duration="10028000" />
+      <workItem from="1579005908883" duration="3475000" />
     </task>
     <servers />
   </component>
@@ -104,10 +106,6 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
-    <state x="285" y="0" key="CommitChangelistDialog2" timestamp="1578751647616">
-      <screen x="0" y="0" width="1360" height="738" />
-    </state>
-    <state x="285" y="0" key="CommitChangelistDialog2/0.0.1360.738@0.0.1360.738" timestamp="1578751647616" />
     <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl" timestamp="1578552664572">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
@@ -120,10 +118,6 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="260" y="107" key="IDE.errors.dialog/0.0.1360.738@0.0.1360.738" timestamp="1578572841340" />
-    <state x="392" y="87" key="MultipleFileMergeDialog" timestamp="1578751435498">
-      <screen x="0" y="0" width="1360" height="738" />
-    </state>
-    <state x="392" y="87" key="MultipleFileMergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1578751435498" />
     <state x="183" y="15" key="SettingsEditor" timestamp="1578481713823">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
@@ -132,10 +126,10 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="309" y="96" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1360.738@0.0.1360.738" timestamp="1578659297162" />
-    <state x="388" y="204" key="com.intellij.ide.util.TipDialog" timestamp="1578659192120">
+    <state x="388" y="204" key="com.intellij.ide.util.TipDialog" timestamp="1579005919241">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
-    <state x="388" y="204" key="com.intellij.ide.util.TipDialog/0.0.1360.738@0.0.1360.738" timestamp="1578659192120" />
+    <state x="388" y="204" key="com.intellij.ide.util.TipDialog/0.0.1360.738@0.0.1360.738" timestamp="1579005919241" />
     <state x="388" y="212" key="com.intellij.ide.util.TipDialog/0.0.1360.768@0.0.1360.768" timestamp="1578381227205" />
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578103977786">
       <screen x="0" y="0" width="1360" height="768" />

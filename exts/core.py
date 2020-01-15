@@ -1,5 +1,6 @@
 import discord
 import re
+from .helpers.check import chceck
 from discord.ext import commands
 
 class Core(commands.Cog):
@@ -19,6 +20,7 @@ class Core(commands.Cog):
         embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
         embed.add_field(name="https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot", value="waterbot", inline=False)
         await ctx.send(embed=embed)
+        embed.set_footer()
 
     @commands.command()
     @commands.is_owner()
@@ -132,6 +134,10 @@ class Core(commands.Cog):
         None
         '''
         # Grab the command list
+        try:
+            cogr = cogr.capitalize()
+        except:
+            pass
         cmds = {}
         excluded = [
             'reload'
