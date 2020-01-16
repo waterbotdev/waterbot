@@ -8,17 +8,16 @@ class Core(commands.Cog):
     '''
     def __init__(self,bot):
         self.bot = bot
-
+    
     @commands.command()
-    async def invite(self,ctx):
+    async def invite (self, ctx):
         '''Sends a link to invite the bot to your server
         Self-explanatory
         invite
         None'''
-        embed=discord.Embed(title="Invite Waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128", description="use this link to add waterbot to your server!", color=0x8cff8f)
-        embed.set_author(name="waterbot", url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.png?size=128")
-        embed.add_field(name="https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot", value="waterbot", inline=False)
+        embed = discord.Embed(color=ctx.author.colour, url="https://discordapp.com", description="Waterbot is a bot to invite to your Discord server to have a nice environment in the community. We offer highly, easy ~~meme~~ commands for everyone to use. Such as moderation, fun command and even more nonsense, If you want to add Waterbot to your server, click the following link.\n\n**[Click here to add Waterbot](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)**")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618797799655473201/619221825687257088/568466408548335650.png")
+        embed.set_author(name="Invite Waterbot", url="https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.webp?size=1024")
         await ctx.send(embed=embed)
         embed.set_footer()
 
