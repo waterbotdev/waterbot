@@ -74,7 +74,7 @@ class Fun(commands.Cog):
     async def bean(self, ctx, user:discord.User,*,reason:str="Nein."):
         '''Bean a user
         bean someone lol
-        bean <usage> [user]
+        bean [user] <user>
         None'''
         await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
