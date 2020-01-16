@@ -10,7 +10,7 @@ class Core(commands.Cog):
         self.bot = bot
     
     @commands.command()
-    async def invite (self, ctx):
+    async def invite(self, ctx):
         '''Sends a link to invite the bot to your server
         Self-explanatory
         invite
