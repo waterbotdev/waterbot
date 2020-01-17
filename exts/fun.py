@@ -78,12 +78,12 @@ class Fun(commands.Cog):
         None'''
         await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
-    async def beanerror(ctx,error):
+    async def beanerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
    
     @commands.command()
-    async def reverse(ctx, *, text: str):
+    async def reverse(self, ctx, *, text: str):
         '''Let the bot reverse your text.
         reverse any text you'd like 
         reverse [text]
