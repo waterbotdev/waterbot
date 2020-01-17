@@ -88,9 +88,17 @@ class Fun(commands.Cog):
         reverse any text you'd like 
         reverse [text]
         None'''
-
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"{t_rev}")
+
+    @commands.command()
+    async def rate(self, ctx, *, thing: commands.clean_content):
+        '''Let the bot rate someone
+        Rate your crush's status with you 😳 
+        rate 
+        None'''
+        num = random.randint(100, 10000)/100
+        await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
     @commands.command()
     async def bunj(self,ctx):
