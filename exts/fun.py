@@ -81,7 +81,17 @@ class Fun(commands.Cog):
     async def beanerror(ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
-        
+   
+    @commands.command()
+    async def reverse(ctx, *, text: str):
+        '''Let the bot reverse your text.
+        reverse any text you'd like 
+        reverse [text]
+        None'''
+
+        t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
+        await ctx.send(f"{t_rev}")
+
     @commands.command()
     async def bunj(self,ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
