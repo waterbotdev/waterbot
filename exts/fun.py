@@ -101,7 +101,7 @@ class Fun(commands.Cog):
         await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
     @commands.command()
-    async def f(self, ctx, *, text: commands.clean_content = None):
+    async def respect(self, ctx, *, text: commands.clean_content = None):
         '''f in chat
         If you don't know this meme, jump in a microwave.
         f
