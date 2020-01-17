@@ -20,6 +20,7 @@ class Utils(commands.Cog):
             color = 0xffff55
         else:
             color = 0xff5555
+        await ctx.message.delete()    
         await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
 
     @commands.command(name='avatar',aliases=['av'])
