@@ -101,6 +101,13 @@ class Fun(commands.Cog):
         await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
     @commands.command()
+    async def respect(self, ctx, *, text: commands.clean_content = None):
+        hearts = [':red_heart:', ':yellow_heart:', ':green_heart:', ':blue_heart:', ':purple_heart:']
+        reason = f"for **{text}** " if text else ""
+        await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
+    
+        
+    @commands.command()
     async def bunj(self,ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
         None
