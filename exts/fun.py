@@ -101,7 +101,11 @@ class Fun(commands.Cog):
         await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
     @commands.command()
-    async def respect(self, ctx, *, text: commands.clean_content = None):
+    async def f(self, ctx, *, text: commands.clean_content = None):
+        '''f in chat
+        If you don't know this meme, jump in a microwave.
+        f
+        None'''
         hearts = [':red_heart:', ':yellow_heart:', ':green_heart:', ':blue_heart:', ':purple_heart:']
         reason = f"for **{text}** " if text else ""
         await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
