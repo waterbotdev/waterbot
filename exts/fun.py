@@ -81,6 +81,13 @@ class Fun(commands.Cog):
     async def beanerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
+    @comands.command()
+    async def choose(ctx, *choices: str):
+        '''Choose something.
+        Let the bot decide something for you.
+        choose [objct1], [object2]
+        None'''
+        await ctx.send((random.choice(choices)) + ', I choose you!')
    
     @commands.command()
     async def reverse(self, ctx, *, text: str):
