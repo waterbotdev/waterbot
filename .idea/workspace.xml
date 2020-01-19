@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/pythonapp.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/mod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +75,7 @@
       <workItem from="1579005908883" duration="5198000" />
       <workItem from="1579183491754" duration="5392000" />
       <workItem from="1579329295880" duration="1815000" />
-      <workItem from="1579356317145" duration="22590000" />
+      <workItem from="1579356317145" duration="31076000" />
     </task>
     <servers />
   </component>
@@ -103,6 +107,10 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="360" y="115" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1360.768@0.0.1360.768" timestamp="1578146353786" />
+    <state x="410" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1579429043948">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="410" y="119" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1360.738@0.0.1360.738" timestamp="1579429043948" />
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog" timestamp="1578068395883">
       <screen x="0" y="0" width="1360" height="768" />
     </state>

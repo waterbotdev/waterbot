@@ -15,6 +15,8 @@ async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
 
+
+
 # Used extentions because why not.
 cogs = [
     'exts.core',
@@ -36,7 +38,7 @@ def is_dev():
 
 @check.is_dev()
 @bot.command()
-async def reload(self, ctx):
+async def reload(ctx):
     '''Reload all extensions
     Usage: reload
     '''
@@ -51,7 +53,7 @@ async def reload(self, ctx):
             pass
         bot.load_extension(i)
         print(f'Loaded extension {i}')
-    await ctx.send()
+    await ctx.send(log)
 
 
 # Run the bot
