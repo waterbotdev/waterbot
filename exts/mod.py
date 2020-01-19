@@ -34,6 +34,7 @@ class Mod(commands.Cog):
         Clear a number of messages, either globally or just from a user.
         [prune|remove|clear] <amount of messages> [User mention(s)]
         Manage Messages'''
+        time = ctx.message.created_at
         await ctx.message.delete()
         users = ''
         if members is not None:
@@ -56,7 +57,8 @@ class Mod(commands.Cog):
             except Exception as e:
                 return await ctx.send(embed=discord.Embed(title='Command Errored.',description=e))
         sornah = "s" if len(ret) > 1 else ""
-        embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}')
+        embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}',timestamp=time)
+        embed.set_footer(text='This message will be deleted in 5 seconds.')
         await ctx.send(embed=embed)
 
 
