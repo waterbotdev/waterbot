@@ -37,7 +37,7 @@ class Mod(commands.Cog):
         if members is not None:
             def check(m):
                 for i in members:
-                    if m.author == i.author:
+                    if m == i.author:
                         return True
                     else:
                         pass
@@ -50,7 +50,7 @@ class Mod(commands.Cog):
                 users += i.mention
         else:
             try:
-                ret = await ctx.channel.purge(limit=amount,check=check)
+                ret = await ctx.channel.purge(limit=amount)
             except Exception as e:
                 return await ctx.send(embed=discord.Embed(title='Command Errored.',description=e))
         embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}')
