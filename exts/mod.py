@@ -21,7 +21,8 @@ class Mod(commands.Cog):
         # await ctx.send('Connecting...',delete_after=4)
         async with ctx.channel.typing():
             embed = discord.Embed(title='Non',description='Not finished yet please stop using :pleading_face;')
-        await ctx.send(embed)
+        await ctx.send(embed=embed)
+
     @mute.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.'))
