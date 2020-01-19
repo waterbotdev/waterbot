@@ -38,7 +38,7 @@ class Mod(commands.Cog):
         if members is not None:
             def check(m):
                 for i in members:
-                    if m == i.author:
+                    if m.author == i:
                         return True
                     else:
                         pass
