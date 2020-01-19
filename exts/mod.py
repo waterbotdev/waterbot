@@ -34,6 +34,7 @@ class Mod(commands.Cog):
         Clear a number of messages, either globally or just from a user.
         [prune|remove|clear] <amount of messages> [User mention(s)]
         Manage Messages'''
+        await ctx.message.delete()
         users = ''
         if members is not None:
             def check(m):
