@@ -59,7 +59,7 @@ class Mod(commands.Cog):
         sornah = "s" if len(ret) > 1 else ""
         embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}',timestamp=time)
         embed.set_footer(text='This message will be deleted in 5 seconds.')
-        await ctx.send(embed=embed)
+        await ctx.send(embed=embed,delete_after=5)
 
 
 def setup(bot):
