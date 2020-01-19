@@ -54,8 +54,8 @@ class Mod(commands.Cog):
                 ret = await ctx.channel.purge(limit=amount)
             except Exception as e:
                 return await ctx.send(embed=discord.Embed(title='Command Errored.',description=e))
+        sornah = "s" if len(ret) > 1 else ""
         embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}')
-        sornah = "s" if len(ret)>1 else ""
         await ctx.send(embed=embed)
 
 
