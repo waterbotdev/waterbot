@@ -3,7 +3,10 @@ import discord
 import json
 from discord.ext import commands
 from exts.helpers.check import Checks as check
-botConfig = json.load(open('config.json','r'))
+
+botConfig = json.load(open('config.json'))
+guildconf = json.load(open('guildconfig.json'))
+
 token = os.environ["WATER_TOKEN"]
 
 bot = commands.Bot(command_prefix='.')
@@ -35,6 +38,23 @@ def is_dev():
         return ctx.author.id in botConfig["developers"]
     return commands.check(predicate)
 
+@bot.event
+async def on_member_join(member):
+    for i in guildconf:
+        if member.guild.id == int(i):
+            if 'joinchannel' in guildconf[i]:
+                if guildconf[i]['joinchannel'] is not None:
+                    channel = bot.get_channel(guildconf[i]['joinchannel'])
+                    try:
+                        embed = discord.Embed(title='Welcome new member!',
+                                              description=f'Welcome {member.name} to {member.guild.name}.'
+                                                          f'There are now {len(member.guild.members)} members.',
+                                              color=0xffffff)
+                        channel.send(embed=embed)
+                    except Exception as e:
+                        bot.get_channel(668447749443813416).send(f'Error in event on_member_join'
+                                                                 f'Server: {member.guild.name}({member.guild.id})'
+                                                                 f'Messag: {e}')
 
 @check.is_dev()
 @bot.command()
@@ -54,7 +74,6 @@ async def reload(ctx):
         bot.load_extension(i)
         print(f'Loaded extension {i}')
     await ctx.send(log)
-
 
 # Run the bot
 bot.run(token)

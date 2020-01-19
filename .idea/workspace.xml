@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/guildconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/core.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/fun.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/fun.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +73,7 @@
       <workItem from="1579183491754" duration="5392000" />
       <workItem from="1579329295880" duration="1815000" />
       <workItem from="1579356317145" duration="31076000" />
-      <workItem from="1579430592355" duration="2974000" />
+      <workItem from="1579430592355" duration="12500000" />
     </task>
     <servers />
   </component>
