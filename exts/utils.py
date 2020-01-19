@@ -58,15 +58,17 @@ class Utils(commands.Cog):
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][len([role.mention for role in [role for role in member.roles]])-1])
         embed.add_field(name="Is Bot?",  value=member.bot)
+        embed.add_field(name = "Animated Avatar", value = member.is_avatar_animated())
+        embed.add_field(name = "Avatar URL", value = "[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
         
         if member.status == discord.Status.online:
-            embed.add_field(name = "Status", value = ":green_circle: Online :green_circle:")
+            embed.add_field(name = "Status", value = "<:Online:668360009960128522>")
         elif member.status == discord.Status.idle:
-            embed.add_field(name = "Status", value = ":orange_circle: Idle :orange_circle:")
+            embed.add_field(name = "Status", value = "<:Idle:668360068206559232>")
         elif member.status == discord.Status.dnd:
-            embed.add_field(name = "Status", value = ":red_circle: Do Not Disturb :red_circle:")
+            embed.add_field(name = "Status", value = "<:DND:668360143867478036>")
         elif member.status == discord.Status.offline:
-            embed.add_field(name = "Status", value = ":black_circle: Sleeping :black_circle:")
+            embed.add_field(name = "Status", value = "<:Invisible:668360216491982858>")
         else:
             return member.status
             return False
