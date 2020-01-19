@@ -18,13 +18,45 @@ class Mod(commands.Cog):
         Mute a user to their mute jail cell\\nWho told them to misbehave, do this when you need to, but not abuse it.
         mute <user> [Reason]
         Manage messages, Manage roles'''
-        await ctx.send('Connecting...',delete_after=4)
+        # await ctx.send('Connecting...',delete_after=4)
         async with ctx.channel.typing():
-            0
-
+            embed = discord.Embed(title='Non',description='Not finished yet please stop using :pleading_face;')
+        await ctx.send(embed)
     @mute.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.'))
+
+    @commands.has_permissions(manage_messages=True)
+    @commands.command(name='prune',aliases=['remove','clear'])
+    async def prune(self, ctx, amount:int, members:commands.Greedy[discord.Member]=None):
+        '''Clear messages
+        Clear a number of messages, either globally or just from a user.
+        [prune|remove|clear] <amount of messages> [User mention(s)]
+        Manage Messages'''
+        users = ''
+        if members is not None:
+            def check(m):
+                for i in members:
+                    if m.author == i.author:
+                        return True
+                    else:
+                        pass
+                return False
+            try:
+                ret = await ctx.channel.purge(limit=amount,check=check)
+            except Exception as e:
+                return await ctx.send(embed=discord.Embed(title='Command Errored.',description=e))
+            for i in members:
+                users += i.mention
+        else:
+            try:
+                ret = await ctx.channel.purge(limit=amount,check=check)
+            except Exception as e:
+                return await ctx.send(embed=discord.Embed(title='Command Errored.',description=e))
+        embed = discord.Embed(description=f'Deleted {len(ret)} message{sornah} {f"from {users}" if users != "" else ""}')
+        sornah = "s" if len(ret)>1 else ""
+        await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Mod(bot))
