@@ -12,7 +12,7 @@ class Utils(commands.Cog):
         '''Get the bot latency
         Also used to check if bot is online.
         ping
-        None'''
+        Send messages'''
         botping = ctx.bot.latency*1000
         if botping < 100:
             color = 0x55aa55
@@ -25,6 +25,10 @@ class Utils(commands.Cog):
 
     @commands.command(name='avatar',aliases=['av'])
     async def avatar(self, ctx, user: discord.Member=None):
+        '''Avatar
+        Get a user's/your avatar, with link.
+        avatar [user mention]
+        Send messages'''
         if user is None:
             user = ctx.message.author
         embed = discord.Embed(colour=user.colour)
@@ -42,13 +46,13 @@ class Utils(commands.Cog):
         '''Get member info
         Get the info of a user. Leave the command as is to check your own info.
         userinfo [UserID/Mention]
-        None'''
+        Send messages'''
         if member == None:
             member = ctx.author
         # Find user roles.
         roles = [role for role in member.roles]
-        #roles = roles.remove(roles[0])
-        #roles.remove(0)
+        # roles = roles.remove(roles[0])
+        # roles.remove(0)
         embed = discord.Embed(color=member.color, timestamp=ctx.message.created_at)
         embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
@@ -60,27 +64,24 @@ class Utils(commands.Cog):
         embed.add_field(name="Is Bot?",  value=member.bot)
         embed.add_field(name = "Animated Avatar", value = member.is_avatar_animated())
         embed.add_field(name = "Avatar URL", value = "[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
-        
+        status = ""
         if member.status == discord.Status.online:
-            embed.add_field(name = "Status", value = "<:Online:668360009960128522> Online")
+            status = "<:Online:668360009960128522> Online"
         elif member.status == discord.Status.idle:
-            embed.add_field(name = "Status", value = "<:Idle:668360068206559232> Idle")
+            status = "<:Idle:668360068206559232> Idle"
         elif member.status == discord.Status.dnd:
-            embed.add_field(name = "Status", value = "<:DND:668360143867478036> Do Not Disturb")
+            status = "<:DND:668360143867478036> Do Not Disturb"
         elif member.status == discord.Status.offline:
-            embed.add_field(name = "Status", value = "<:Invisible:668360216491982858> Invisble")
-        else:
-            return member.status
-            return False
-        
+            status = "<:Invisible:668360216491982858> Invisble"
+        embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
     @commands.command()
     async def boostinfo(self,ctx):
         '''Check the server's boost level
-        None
+        Get the server's boost level\\n Altering boost level picture Soon:tm:
         boostinfo
-        None'''
+        Send messages'''
         embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xd399f0)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)

@@ -3,6 +3,7 @@ import re
 from .helpers.check import Checks
 from discord.ext import commands
 
+
 class Core(commands.Cog):
     '''Core commands
     '''
@@ -14,7 +15,7 @@ class Core(commands.Cog):
         '''Sends a link to invite the bot to your server
         Self-explanatory
         invite
-        None'''
+        Send messages'''
         embed = discord.Embed(color=ctx.author.colour, url="https://discordapp.com", description="Waterbot is a bot to invite to your Discord server to have a nice environment in the community. We offer highly, easy ~~meme~~ commands for everyone to use. Such as moderation, fun command and even more nonsense, If you want to add Waterbot to your server, click the following link.\n\n**[Click here to add Waterbot](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)**")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/618797799655473201/619221825687257088/568466408548335650.png")
         embed.set_author(name="Invite Waterbot", url="https://www.youtube.com/watch?v=dQw4w9WgXcQ", icon_url="https://cdn.discordapp.com/avatars/655262203309719552/ca12b1a43ea265c81535b83fb4d6fb21.webp?size=1024")
@@ -94,8 +95,7 @@ class Core(commands.Cog):
         '''Help command
         This command only include available extensions/cogs/categories, and in-depth explanations of the specified command.
         help [command name]
-        None
-        '''
+        Send messages'''
         if command is None:
             cognames = []
             for i in ctx.bot.commands:
@@ -133,8 +133,7 @@ class Core(commands.Cog):
         '''List commands available in an extension
         List all commands in an extension/category
         cmds <category name>
-        None
-        '''
+        Send messages'''
         # Grab the command list
         try:
             cogr = cogr.capitalize()

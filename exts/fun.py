@@ -13,10 +13,10 @@ class Fun(commands.Cog):
     # Start of commands
     @commands.command()
     async def fuck(self,ctx):
-        '''Screw Kenny he's a dumbass
-        Use this command to see :P
+        '''Fuck
+        Fuck
         fuck
-        None'''
+        Send messages'''
         await ctx.send('shit')
 
     @commands.command()
@@ -24,7 +24,7 @@ class Fun(commands.Cog):
         '''Something
         Something
         e
-        None'''
+        Send messages'''
         await ctx.send('e')
 
     @commands.command()
@@ -32,7 +32,7 @@ class Fun(commands.Cog):
         '''Surprise.
         Use the command to see :P
         fatfuck
-        None'''
+        Send messages'''
         await ctx.send(embed=discord.Embed().set_image(url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
 
     @commands.command(aliases=['8ball'])
@@ -40,7 +40,7 @@ class Fun(commands.Cog):
         '''Ask 8ball a question. You'll get a good answer. Or not. :eyes:
         None
         8ball <question>
-        None'''
+        Send messages'''
         responses = ['It is certain.',
                     'It is decidedly so.',
                     'Without a doubt.',
@@ -75,26 +75,26 @@ class Fun(commands.Cog):
         '''Bean a user
         bean someone lol
         bean [user] <reason>
-        None'''
+        Send messages'''
         await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
     @bean.error
     async def beanerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
     @commands.command()
-    async def choose(ctx, *choices: str):
+    async def choose(ctx, *, choices: str):
         '''Choose something.
         Let the bot decide something for you.
-        choose [objct1], [object2]
-        None'''
-        await ctx.send((random.choice(choices)) + ', I choose you!')
+        choose [objct1], [object2], ...
+        Send messages'''
+        await ctx.send(f'{(random.choice(choices.split(",")))}, I choose you!')
    
     @commands.command()
     async def reverse(self, ctx, *, text: str):
         '''Let the bot reverse your text.
         reverse any text you'd like 
         reverse [text]
-        None'''
+        Send messages'''
         t_rev = text[::-1].replace("@", "@\u200B").replace("&", "&\u200B")
         await ctx.send(f"{t_rev}")
 
@@ -103,7 +103,7 @@ class Fun(commands.Cog):
         '''Let the bot rate someone
         Rate your crush's status with you 😳 
         rate 
-        None'''
+        Send messages'''
         num = random.randint(100, 10000)/100
         await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
@@ -112,7 +112,7 @@ class Fun(commands.Cog):
         '''f in chat
         If you don't know this meme, jump in a microwave.
         f
-        None'''
+        Send messages'''
         hearts = [':red_heart:', ':yellow_heart:', ':green_heart:', ':blue_heart:', ':purple_heart:']
         reason = f"for **{text}** " if text else ""
         await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
@@ -123,7 +123,7 @@ class Fun(commands.Cog):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
         None
         bunj
-        None'''
+        Send messages'''
         embed=discord.Embed(title="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", description="bunj", color=0x8cff8f)
         embed.set_author(name="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
         embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
@@ -135,7 +135,7 @@ class Fun(commands.Cog):
         '''Get a pet image
         Get a pet image if you don't specify which pet. \\nCurrently supports [cat,dog]\\nWill output a random pet picture if not specified.
         pet [animal]
-        None'''
+        Send messages'''
         async with ctx.channel.typing():
             if pet == 'random':
                 pet = random.choice(['dog','cat'])
@@ -155,7 +155,7 @@ class Fun(commands.Cog):
         '''Troll a user
         ok
         troll
-        None'''
+        Send messages'''
         await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
 def setup(bot):
