@@ -62,13 +62,13 @@ class Utils(commands.Cog):
         embed.add_field(name = "Avatar URL", value = "[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
         
         if member.status == discord.Status.online:
-            embed.add_field(name = "Status", value = "<:Online:668360009960128522>")
+            embed.add_field(name = "Status", value = "<:Online:668360009960128522> onlinw")
         elif member.status == discord.Status.idle:
-            embed.add_field(name = "Status", value = "<:Idle:668360068206559232>")
+            embed.add_field(name = "Status", value = "<:Idle:668360068206559232> Idle")
         elif member.status == discord.Status.dnd:
-            embed.add_field(name = "Status", value = "<:DND:668360143867478036>")
+            embed.add_field(name = "Status", value = "<:DND:668360143867478036> Do Not Disturb")
         elif member.status == discord.Status.offline:
-            embed.add_field(name = "Status", value = "<:Invisible:668360216491982858>")
+            embed.add_field(name = "Status", value = "<:Invisible:668360216491982858> Invisble")
         else:
             return member.status
             return False
