@@ -103,5 +103,14 @@ class Utils(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command(aliases = ["wthr"])
+    async def weather(self, ctx, *, loc):
+        embed = discord.Embed(color=ctx.author.colour, timestamp=datetime.datetime.utcfromtimestamp(1578673591))
+        embed.set_image(url="https://wttr.in/{0}.png?m%22".format(loc))
+        embed.set_author(name=f"Weather in {loc}") 
+        embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
+
+        await ctx.send(embed=embed)
+
 def setup(bot):
     bot.add_cog(Utils(bot))
