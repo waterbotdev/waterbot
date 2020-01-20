@@ -158,5 +158,15 @@ class Fun(commands.Cog):
         Send messages'''
         await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
+    @commands.command()
+    async def coinflip(self, ctx):
+        '''Flip a coin
+        Flip that coin
+        coinflip 
+        None'''
+        choices = ["Heads!", "Tails!"]
+        rancoin = random.choice(choises)
+        await ctx.send(rancoin)
+
 def setup(bot):
     bot.add_cog(Fun(bot))
