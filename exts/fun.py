@@ -87,7 +87,7 @@ class Fun(commands.Cog):
         Beat the shit out of someone
         fight [user] <reason>
         Send messages'''
-        await ctx.send(f"<:catfight:668814428111896586>> {user.mention}, {ctx.author.name} is fighting you! For `{reason}`")
+        await ctx.send(f"<:catfight:668814428111896586> {user.mention}, {ctx.author.name} is fighting you! For `{reason}`")
     @bean.error
     async def fighterror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
