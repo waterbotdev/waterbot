@@ -76,10 +76,32 @@ class Fun(commands.Cog):
         bean someone lol
         bean [user] <reason>
         Send messages'''
-        await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
+        await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you! For `{reason}`")
     @bean.error
     async def beanerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
+
+    @commands.command()
+    async def fight(self, ctx, user:discord.User,*,reason:str="Nein."):
+        '''Fights a user
+        Beat the shit out of someone
+        fight [user] <reason>
+        Send messages'''
+        await ctx.send(f"<:catfight:668814428111896586>> {user.mention}, {ctx.author.name} is fighting you! For `{reason}`")
+    @bean.error
+    async def fighterror(self, ctx,error):
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
+
+    @commands.command()
+    async def spray(self, ctx, user:discord.User,*,reason:str="Nein."):
+        '''Spray a user
+        s p r a y
+        spray [user] <reason>
+        Send messages'''
+        await ctx.send(f"<a:sprayspray:668814655082463252> {user.mention} is spraying on you, {ctx.author.name}! For `{reason}`")
+    @bean.error
+    async def sprayerror(self, ctx,error):
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
 
     @commands.command()
     async def choose(ctx, *, choices: str):
