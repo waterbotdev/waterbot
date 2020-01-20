@@ -71,7 +71,7 @@ class Fun(commands.Cog):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(self, ctx, user:discord.User,*,reason:str="Nein."):
+    async def bean(self, ctx, user:discord.User,*,reason:str="No Reason"):
         '''Bean a user
         bean someone lol
         bean [user] <reason>
@@ -82,7 +82,7 @@ class Fun(commands.Cog):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
     @commands.command()
-    async def fight(self, ctx, user:discord.User,*,reason:str="Nein."):
+    async def fight(self, ctx, user:discord.User,*,reason:str="No Reason."):
         '''Fights a user
         Beat the shit out of someone
         fight [user] <reason>
@@ -93,7 +93,7 @@ class Fun(commands.Cog):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
 
     @commands.command()
-    async def spray(self, ctx, user:discord.User,*,reason:str="Nein."):
+    async def spray(self, ctx, user:discord.User,*,reason:str="No Reason."):
         '''Spray a user
         s p r a y
         spray [user] <reason>
