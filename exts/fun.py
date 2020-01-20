@@ -87,7 +87,7 @@ class Fun(commands.Cog):
         Beat the shit out of someone
         fight [user] <reason>
         Send messages'''
-        await ctx.send(f"<:catfight:668814428111896586> {user.mention}, {ctx.author.name} is fighting you! For `{reason}`")
+        await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention}. For `{reason}`")
     @bean.error
     async def fighterror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
@@ -98,7 +98,7 @@ class Fun(commands.Cog):
         s p r a y
         spray [user] <reason>
         Send messages'''
-        await ctx.send(f"<a:sprayspray:668814655082463252> {user.mention} is spraying on you, {ctx.author.name}! For `{reason}`")
+        await ctx.send(f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention}! For `{reason}`")
     @bean.error
     async def sprayerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
