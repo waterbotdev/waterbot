@@ -165,7 +165,7 @@ class Fun(commands.Cog):
         coinflip 
         None'''
         choices = ["Heads!", "Tails!"]
-        rancoin = random.choice(choises)
+        rancoin = random.choice(choices)
         await ctx.send(rancoin)
 
 def setup(bot):
