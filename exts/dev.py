@@ -18,7 +18,7 @@ class Dev(commands.Cog):
         Kills the bot
         die
         Developers only'''
-        await ctx.send(f'<:angrysponge:668767678273683474> You\'ve made a big fault, **{ctx.author.name}**. The bell of awakening is coming soon for you..')
+        await ctx.send(f'<:angrysponge:668767678273683474> You\'ve made a big fault, {ctx.author.mention}. The bell of awakening is coming soon for you..')
         await ctx.bot.logout()
 
     @commands.command(aliases=['eval'])
