@@ -47,8 +47,8 @@ async def on_member_join(member):
                     channel = bot.get_channel(guildconf[i]['joinchannel'])
                     try:
                         embed = discord.Embed(title='Welcome new member!',
-                                              description=f'Welcome {member.name} to {member.guild.name}.\n'
-                                                          f'There are now {len(member.guild.members)} members.',
+                                              description=f'Welcome **{member.name}** to **{member.guild.name}**.\n'
+                                                          f'There are now **{len(member.guild.members)}** members.',
                                               color=0xffffff)
                         await channel.send(embed=embed)
                     except Exception as e:
@@ -65,8 +65,8 @@ async def on_member_remove(member):
                     channel = bot.get_channel(guildconf[i]['leavechannel'])
                     try:
                         embed = discord.Embed(title='Welcome new member!',
-                                              description=f'Bye bye {member.name}.\n'
-                                                          f'There are now {len(member.guild.members)} members.',
+                                              description=f'Bye bye **{member.name}**.\n'
+                                                          f'There are now **{len(member.guild.members)}** members.',
                                               color=0xffffff)
                         await channel.send(embed=embed)
                     except Exception as e:
