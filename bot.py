@@ -19,7 +19,6 @@ async def on_ready():
     print(f'With ID: {bot.user.id}')
 
 
-
 # Used extentions because why not.
 cogs = [
     'exts.core',
@@ -27,7 +26,7 @@ cogs = [
     'exts.utils',
     'exts.dev',
     'exts.mod'
-    ]
+]
 if __name__ == '__main__':
     for cog in cogs:
         bot.load_extension(cog)
@@ -36,7 +35,9 @@ if __name__ == '__main__':
 def is_dev():
     async def predicate(ctx):
         return ctx.author.id in botConfig["developers"]
+
     return commands.check(predicate)
+
 
 @bot.event
 async def on_member_join(member):
@@ -53,8 +54,9 @@ async def on_member_join(member):
                         await channel.send(embed=embed)
                     except Exception as e:
                         await bot.get_channel(668447749443813416).send(f'Error in event on_member_join'
-                                                                 f'Server: {member.guild.name}({member.guild.id})'
-                                                                 f'Messag: {e}')
+                                                                       f'Server: {member.guild.name}({member.guild.id})'
+                                                                       f'Messag: {e}')
+
 
 @bot.event
 async def on_member_remove(member):
@@ -71,8 +73,9 @@ async def on_member_remove(member):
                         await channel.send(embed=embed)
                     except Exception as e:
                         await bot.get_channel(668447749443813416).send(f'Error in event on_member_leave'
-                                                                 f'Server: {member.guild.name}({member.guild.id})'
-                                                                 f'Messag: {e}')
+                                                                       f'Server: {member.guild.name}({member.guild.id})'
+                                                                       f'Messag: {e}')
+
 
 @check.is_dev()
 @bot.command()
@@ -92,6 +95,7 @@ async def reload(ctx):
         bot.load_extension(i)
         print(f'Loaded extension {i}')
     await ctx.send(log)
+
 
 # Run the bot
 bot.run(token)

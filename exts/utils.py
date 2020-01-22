@@ -2,30 +2,32 @@ import discord
 import datetime
 from discord.ext import commands
 
+
 class Utils(commands.Cog):
     '''Utility commands
     '''
-    def __init__(self,bot):
+
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command(name='ping')
-    async def ping(self,ctx):
+    async def ping(self, ctx):
         '''Get the bot latency
         Also used to check if bot is online.
         ping
         Send messages'''
-        botping = ctx.bot.latency*1000
+        botping = ctx.bot.latency * 1000
         if botping < 100:
             color = 0x55aa55
         elif botping < 500:
             color = 0xffff55
         else:
             color = 0xff5555
-        await ctx.message.delete()    
-        await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}",colour=color))
+        await ctx.message.delete()
+        await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}", colour=color))
 
-    @commands.command(name='avatar',aliases=['av'])
-    async def avatar(self, ctx, user: discord.Member=None):
+    @commands.command(name='avatar', aliases=['av'])
+    async def avatar(self, ctx, user: discord.Member = None):
         '''Avatar
         Get a user's/your avatar, with link.
         avatar [user mention]
@@ -36,19 +38,19 @@ class Utils(commands.Cog):
         embed.set_author(name=f"{user}'s avatar")
         embed.set_image(url=user.avatar_url)
         embed.add_field(name="Avatar:", value=f"[Link]({user.avatar_url})")
-        
+
         embed.set_image(url=str(user.avatar_url))
         embed.set_footer(text=f"User ID: {user.id}")
-    
+
         await ctx.send(embed=embed)
-        
+
     @commands.command()
-    async def userinfo(self,ctx,member:discord.Member=None):
+    async def userinfo(self, ctx, member: discord.Member = None):
         '''Get member info
         Get the info of a user. Leave the command as is to check your own info.
         userinfo [UserID/Mention]
         Send messages'''
-        if member == None:
+        if member is None:
             member = ctx.author
         # Find user roles.
         roles = [role for role in member.roles]
@@ -61,10 +63,11 @@ class Utils(commands.Cog):
         embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
         embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
-        embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][len([role.mention for role in [role for role in member.roles]])-1])
-        embed.add_field(name="Is Bot?",  value=member.bot)
-        embed.add_field(name = "Animated Avatar", value = member.is_avatar_animated())
-        embed.add_field(name = "Avatar URL", value = "[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
+        embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
+            len([role.mention for role in [role for role in member.roles]]) - 1])
+        embed.add_field(name="Is Bot?", value=member.bot)
+        embed.add_field(name="Animated Avatar", value=member.is_avatar_animated())
+        embed.add_field(name="Avatar URL", value="[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
         status = ""
         if member.status == discord.Status.online:
             status = "<:Online:668360009960128522> Online"
@@ -87,31 +90,36 @@ class Utils(commands.Cog):
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
         embed.add_field(name="Boost / Server Level", value=ctx.message.guild.premium_tier)
-   
+
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
 
         if ctx.guild.premium_tier == 0:
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png")
 
         elif ctx.guild.premium_tier == 1:
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png")
 
         elif ctx.guild.premium_tier == 2:
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png")
 
         elif ctx.guild.premium_tier == 3:
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png")
+            embed.set_thumbnail(
+                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png")
 
         await ctx.send(embed=embed)
 
-    @commands.command(aliases = ["wthr"])
+    @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):
         embed = discord.Embed(color=ctx.author.colour, timestamp=datetime.datetime.utcfromtimestamp(1578673591))
         embed.set_image(url="https://wttr.in/{0}.png?m%22".format(loc))
-        embed.set_author(name=f"Weather in {loc}") 
+        embed.set_author(name=f"Weather in {loc}")
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
 
         await ctx.send(embed=embed)
+
 
 def setup(bot):
     bot.add_cog(Utils(bot))

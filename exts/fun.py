@@ -4,15 +4,17 @@ import requests
 import json
 from discord.ext import commands
 
+
 class Fun(commands.Cog):
     '''Fun commands Category
     '''
-    def __init__(self,bot):
+
+    def __init__(self, bot):
         self.bot = bot
 
     # Start of commands
     @commands.command()
-    async def fuck(self,ctx):
+    async def fuck(self, ctx):
         '''Fuck
         Fuck
         fuck
@@ -20,7 +22,7 @@ class Fun(commands.Cog):
         await ctx.send('shit')
 
     @commands.command()
-    async def e(self,ctx):
+    async def e(self, ctx):
         '''Something
         Something
         e
@@ -28,89 +30,95 @@ class Fun(commands.Cog):
         await ctx.send('e')
 
     @commands.command()
-    async def fatfuck(self,ctx):
+    async def fatfuck(self, ctx):
         '''Surprise.
         Use the command to see :P
         fatfuck
         Send messages'''
-        await ctx.send(embed=discord.Embed().set_image(url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
+        await ctx.send(embed=discord.Embed().set_image(
+            url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
 
     @commands.command(aliases=['8ball'])
-    async def _8ball(self,ctx, *, question):
+    async def _8ball(self, ctx, *, question):
         '''Ask 8ball a question. You'll get a good answer. Or not. :eyes:
         None
         8ball <question>
         Send messages'''
         responses = ['It is certain.',
-                    'It is decidedly so.',
-                    'Without a doubt.',
-                    'Yes, definitely.',
-                    'You may rely on it.',
-                    'As I see it, yes.',
-                    'Most likely.',
-                    'Outlook good.',
-                    'Yes.',
-                    'Signs point to yes.',
-                    'Reply hazy, _try again._',
-                    'Oh! i forgot. It is tea time, _try another time!_',
-                    'Ask again later, I am too busy.',
-                    'Better _not tell you now._',
-                    'Cannot predict now.',
-                    'Concentrate _and ask again_.',
-                    'Don\'t count on it.'
-                    'My reply _is no_.',
-                    'My sources say no.',
-                    'Outlook not so good',
-                    'Very doubtful.']
+                     'It is decidedly so.',
+                     'Without a doubt.',
+                     'Yes, definitely.',
+                     'You may rely on it.',
+                     'As I see it, yes.',
+                     'Most likely.',
+                     'Outlook good.',
+                     'Yes.',
+                     'Signs point to yes.',
+                     'Reply hazy, _try again._',
+                     'Oh! i forgot. It is tea time, _try another time!_',
+                     'Ask again later, I am too busy.',
+                     'Better _not tell you now._',
+                     'Cannot predict now.',
+                     'Concentrate _and ask again_.',
+                     'Don\'t count on it.'
+                     'My reply _is no_.',
+                     'My sources say no.',
+                     'Outlook not so good',
+                     'Very doubtful.']
         embed = discord.Embed(title='8 Ball Response',
-            colour=0x000000,
-            description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
+                              colour=0x000000,
+                              description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
         await ctx.send(embed=embed)
+
     @_8ball.error
-    async def _8ballerr(self,ctx,error):
+    async def _8ballerr(self, ctx, error):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(self, ctx, user:discord.User,*,reason:str="No Reason"):
+    async def bean(self, ctx, user: discord.User, *, reason: str = "No Reason"):
         '''Bean a user
         bean someone lol
         bean [user] <reason>
         Send messages'''
         await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you! For `{reason}`")
+
     @bean.error
-    async def beanerror(self, ctx,error):
+    async def beanerror(self, ctx):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
 
     @commands.command()
-    async def fight(self, ctx, user:discord.User,*,reason:str="No Reason."):
+    async def fight(self, ctx, user: discord.User, *, reason: str = "No Reason."):
         '''Fights a user
         Beat the shit out of someone
         fight [user] <reason>
         Send messages'''
         await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention}. For `{reason}`")
+
     @bean.error
-    async def fighterror(self, ctx,error):
+    async def fighterror(self, ctx):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
 
     @commands.command()
-    async def spray(self, ctx, user:discord.User,*,reason:str="No Reason."):
+    async def spray(self, ctx, user: discord.User, *, reason: str = "No Reason."):
         '''Spray a user
         s p r a y
         spray [user] <reason>
         Send messages'''
-        await ctx.send(f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention}! For `{reason}`")
+        await ctx.send(
+            f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention}! For `{reason}`")
+
     @bean.error
-    async def sprayerror(self, ctx,error):
+    async def sprayerror(self, ctx):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
 
     @commands.command()
-    async def choose(ctx, *, choices: str):
+    async def choose(self, ctx, *, choices: str):
         '''Choose something.
         Let the bot decide something for you.
         choose [objct1], [object2], ...
         Send messages'''
         await ctx.send(f'{(random.choice(choices.split(",")))}, I choose you!')
-   
+
     @commands.command()
     async def reverse(self, ctx, *, text: str):
         '''Let the bot reverse your text.
@@ -126,7 +134,7 @@ class Fun(commands.Cog):
         Rate your crush's status with you 😳 
         rate 
         Send messages'''
-        num = random.randint(100, 10000)/100
+        num = random.randint(100, 10000) / 100
         await ctx.send(f"I'd rate `{thing}` a **{num} / 100**")
 
     @commands.command()
@@ -138,29 +146,33 @@ class Fun(commands.Cog):
         hearts = [':red_heart:', ':yellow_heart:', ':green_heart:', ':blue_heart:', ':purple_heart:']
         reason = f"for **{text}** " if text else ""
         await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
-    
-        
+
     @commands.command()
-    async def bunj(self,ctx):
+    async def bunj(self, ctx):
         '''BUNJ BUNJ BUNJ BUNJ BUNJ
         None
         bunj
         Send messages'''
-        embed=discord.Embed(title="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", description="bunj", color=0x8cff8f)
-        embed.set_author(name="bunj", url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg", icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
+        embed = discord.Embed(title="bunj",
+                              url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg",
+                              description="bunj", color=0x8cff8f)
+        embed.set_author(name="bunj",
+                         url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg",
+                         icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
+        embed.set_thumbnail(
+            url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
         embed.add_field(name="bunj", value="bunj", inline=False)
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def pets(self,ctx,pet="random"):
+    async def pets(self, ctx, pet="random"):
         '''Get a pet image
         Get a pet image if you don't specify which pet. \\nCurrently supports [cat,dog]\\nWill output a random pet picture if not specified.
         pet [animal]
         Send messages'''
         async with ctx.channel.typing():
             if pet == 'random':
-                pet = random.choice(['dog','cat'])
+                pet = random.choice(['dog', 'cat'])
                 if pet == 'dog' or 'cat':
                     rawres = requests.get(f'https://api.the{pet}api.com/v1/images/search')
                     url = json.loads(rawres.text)[0]['url']
@@ -173,12 +185,13 @@ class Fun(commands.Cog):
                     await ctx.send('Invalid pet specified.')
 
     @commands.command()
-    async def troll(self,ctx):
+    async def troll(self, ctx):
         '''Troll a user
         ok
         troll
         Send messages'''
-        await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
+        await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(
+            url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
     @commands.command()
     async def coinflip(self, ctx):
@@ -189,6 +202,7 @@ class Fun(commands.Cog):
         choices = ["Heads!", "Tails!"]
         rancoin = random.choice(choices)
         await ctx.send(rancoin)
+
 
 def setup(bot):
     bot.add_cog(Fun(bot))
