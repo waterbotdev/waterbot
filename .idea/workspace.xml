@@ -31,6 +31,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -74,7 +75,7 @@
       <workItem from="1579430592355" duration="13257000" />
       <workItem from="1579653760386" duration="244000" />
       <workItem from="1579654426700" duration="130000" />
-      <workItem from="1579654640899" duration="1078000" />
+      <workItem from="1579654640899" duration="1332000" />
     </task>
     <servers />
   </component>
