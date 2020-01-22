@@ -23,9 +23,6 @@ class Mod(commands.Cog):
             embed = discord.Embed(title='Non',description='Not finished yet please stop using :pleading_face;')
         await ctx.send(embed=embed)
 
-    @mute.error
-    async def moderr(self, ctx, error):
-        await ctx.send(embed=discord.Embed(title='Command errored.'))
 
     @commands.has_permissions(manage_messages=True)
     @commands.command(name='prune',aliases=['remove','clear'])
@@ -61,6 +58,10 @@ class Mod(commands.Cog):
         embed.set_footer(text='This message will be deleted in 5 seconds.')
         await ctx.send(embed=embed,delete_after=5)
 
+    @mute.error
+    @prune.error
+    async def moderr(self, ctx, error):
+        await ctx.send(embed=discord.Embed(title='Command errored.',description=error))
 
 def setup(bot):
     bot.add_cog(Mod(bot))
