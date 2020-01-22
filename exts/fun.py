@@ -71,15 +71,37 @@ class Fun(commands.Cog):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(self, ctx, user:discord.User,*,reason:str="Nein."):
+    async def bean(self, ctx, user:discord.User,*,reason:str="No Reason"):
         '''Bean a user
         bean someone lol
         bean [user] <reason>
         Send messages'''
-        await ctx.send(f":knife: {user} (`{ctx.author.id}`) has been beaned. Reason: `{reason}`")
+        await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you! For `{reason}`")
     @bean.error
     async def beanerror(self, ctx,error):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
+
+    @commands.command()
+    async def fight(self, ctx, user:discord.User,*,reason:str="No Reason."):
+        '''Fights a user
+        Beat the shit out of someone
+        fight [user] <reason>
+        Send messages'''
+        await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention}. For `{reason}`")
+    @bean.error
+    async def fighterror(self, ctx,error):
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
+
+    @commands.command()
+    async def spray(self, ctx, user:discord.User,*,reason:str="No Reason."):
+        '''Spray a user
+        s p r a y
+        spray [user] <reason>
+        Send messages'''
+        await ctx.send(f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention}! For `{reason}`")
+    @bean.error
+    async def sprayerror(self, ctx,error):
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
 
     @commands.command()
     async def choose(ctx, *, choices: str):
@@ -157,6 +179,16 @@ class Fun(commands.Cog):
         troll
         Send messages'''
         await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
+
+    @commands.command()
+    async def coinflip(self, ctx):
+        '''Flip a coin
+        Flip that coin
+        coinflip 
+        None'''
+        choices = ["Heads!", "Tails!"]
+        rancoin = random.choice(choices)
+        await ctx.send(rancoin)
 
 def setup(bot):
     bot.add_cog(Fun(bot))

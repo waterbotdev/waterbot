@@ -1,4 +1,5 @@
 import discord
+import datetime
 from discord.ext import commands
 
 class Utils(commands.Cog):
@@ -76,18 +77,40 @@ class Utils(commands.Cog):
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
-    @commands.command()
-    async def boostinfo(self,ctx):
+    @commands.command(pass_context=True)
+    async def boostinfo(self, ctx):
         '''Check the server's boost level
         Get the server's boost level\\n Altering boost level picture Soon:tm:
         boostinfo
         Send messages'''
-        embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xd399f0)
+        embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xff5e81)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
         embed.add_field(name="Boost / Server Level", value=ctx.message.guild.premium_tier)
-        embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/571045753091522607/618829850656112650/Excalibur.png")
+   
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
+
+        if ctx.guild.premium_tier == 0:
+            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png")
+
+        elif ctx.guild.premium_tier == 1:
+            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png")
+
+        elif ctx.guild.premium_tier == 2:
+            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png")
+
+        elif ctx.guild.premium_tier == 3:
+            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png")
+
+        await ctx.send(embed=embed)
+
+    @commands.command(aliases = ["wthr"])
+    async def weather(self, ctx, *, loc):
+        embed = discord.Embed(color=ctx.author.colour, timestamp=datetime.datetime.utcfromtimestamp(1578673591))
+        embed.set_image(url="https://wttr.in/{0}.png?m%22".format(loc))
+        embed.set_author(name=f"Weather in {loc}") 
+        embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
+
         await ctx.send(embed=embed)
 
 def setup(bot):
