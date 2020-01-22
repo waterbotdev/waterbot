@@ -64,10 +64,10 @@ async def on_member_remove(member):
                 if guildconf[i]['leavechannel'] is not None:
                     channel = bot.get_channel(guildconf[i]['leavechannel'])
                     try:
-                        embed = discord.Embed(title='Welcome new member!',
+                        embed = discord.Embed(title='Goodbye',
                                               description=f'Bye bye **{member.name}**.\n'
                                                           f'There are now **{len(member.guild.members)}** members.',
-                                              color=0xffffff)
+                                              color=0xaaaaaa)
                         await channel.send(embed=embed)
                     except Exception as e:
                         await bot.get_channel(668447749443813416).send(f'Error in event on_member_leave'
