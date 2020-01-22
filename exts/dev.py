@@ -30,7 +30,7 @@ class Dev(commands.Cog):
         Developers only'''
         async with ctx.channel.typing():
             result = None
-            env = {'ctx': ctx,}
+            env = {'ctx': ctx}
             env.update(globals())
             try:
                 result = eval(code, env)

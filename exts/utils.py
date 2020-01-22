@@ -65,9 +65,9 @@ class Utils(commands.Cog):
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
             len([role.mention for role in [role for role in member.roles]]) - 1])
-        embed.add_field(name="Is Bot?", value=member.bot)
+        embed.add_field(name="Is Bot User?", value=member.bot)
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated())
-        embed.add_field(name="Avatar URL", value="[Avatar URL]({0})".format(str(ctx.author.avatar_url)))
+        embed.add_field(name="Avatar URL", value=f"[Avatar URL]({ctx.author.avatar_url})")
         status = ""
         if member.status == discord.Status.online:
             status = "<:Online:668360009960128522> Online"
