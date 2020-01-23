@@ -95,6 +95,17 @@ class Core(commands.Cog):
     @sayembed.error
     async def sayembederror(self, ctx, error):
         await ctx.send(f"Command errored. \n{error}")
+    
+    @commands.command()
+    async def info(self, ctx):
+        '''Info command
+        This command gives you an invite link to the support server, and also gives you a user to send hatemails to.
+        info
+        Send messages'''
+        embed = discord.Embed(title='Info',description="Hello and welcome to the info section.")
+        embed.add_field(name="Support server",value="https://discord.gg/ATCjdFA")
+        embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email kcomain@protonmail.com")
+        await ctx.send()
 
     @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
