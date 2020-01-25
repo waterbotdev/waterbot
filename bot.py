@@ -1,6 +1,7 @@
 import os
 import discord
 import json
+from datetime import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as check
 
@@ -12,11 +13,14 @@ token = os.environ["WATER_TOKEN"]
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 
+primt('Sleeping 30 seconds to prevent discord from thinking we\'re ddosing their server.')
+sleep(30)
 
 @bot.event
 async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
+    await bot.get_channel(669867188231864361).send(embed=discord.Embed(title='Bot started.'))
 
 
 # Used extentions because why not.
@@ -35,7 +39,6 @@ if __name__ == '__main__':
 def is_dev():
     async def predicate(ctx):
         return ctx.author.id in botConfig["developers"]
-
     return commands.check(predicate)
 
 
