@@ -13,7 +13,7 @@ token = os.environ["WATER_TOKEN"]
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 
-primt('Sleeping 30 seconds to prevent discord from thinking we\'re ddosing their server.')
+print('Sleeping 30 seconds to prevent discord from thinking we\'re ddosing their server.')
 sleep(30)
 
 @bot.event
