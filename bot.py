@@ -1,7 +1,7 @@
 import os
 import discord
 import json
-from datetime import sleep
+from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as check
 
