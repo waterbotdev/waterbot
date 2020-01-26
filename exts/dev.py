@@ -72,7 +72,7 @@ class Dev(commands.Cog):
         await msg.edit(embed=discord.Embed(title='Running `git merge`...', description=f'```py\n{run.stdout.decode()}```', color=0xf7eb60))
         await asyncio.sleep(3)
         await msg.edit(embed=discord.Embed(title='Running `starter.bat`...', description='Restarting...', color=0x31d90b))
-        run = subprocess.run(['starter.bat'])
+        run = subprocess.run(['start','cmd','starter.bat'])
         await msg.edit(embed=None,content='Restarting...')
         await ctx.bot.logout()
 
