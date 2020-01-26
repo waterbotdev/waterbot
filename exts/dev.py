@@ -43,10 +43,14 @@ class Dev(commands.Cog):
             except Exception as e:
                 result = type(e).__name__ + ': ' + str(e)
                 await ctx.message.add_reaction("✖")
-        try:
-            await ctx.channel.send('```py\n{}```'.format(result))
-        except discord.errors.Forbidden:
-            pass
+
+            if len(result) >= 2000:
+                await ctx.send('Result length is larger than 2000! Sending the first 2000 characters.')
+                return await ctx.send(f'```py\n{result[0:2000]}```')
+            try:
+                await ctx.channel.send('```py\n{}```'.format(result))
+            except Exception as e:
+                await ctx.send(e)
 
 
 def setup(bot):
