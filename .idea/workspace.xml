@@ -10,6 +10,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="waterbot" />
   </component>
@@ -80,7 +94,7 @@
       <workItem from="1579654640899" duration="4927000" />
       <workItem from="1579660813473" duration="1271000" />
       <workItem from="1579662341671" duration="16833000" />
-      <workItem from="1580011215395" duration="1508000" />
+      <workItem from="1580011215395" duration="3446000" />
     </task>
     <servers />
   </component>

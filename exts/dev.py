@@ -1,7 +1,9 @@
+import asyncio
 import discord
 import inspect
 import json
 import re
+import subprocess
 
 from .helpers.check import Checks
 from discord.ext import commands
@@ -51,6 +53,28 @@ class Dev(commands.Cog):
                 await ctx.channel.send('```py\n{}```'.format(result))
             except Exception as e:
                 await ctx.send(e)
+
+    @Checks.is_dev()
+    @commands.command(name='gitpull', aliases=['gpull', 'pull'])
+    async def gitpull(self, ctx):
+        '''Update local repo
+        Updates local code repo from github.
+        [gitpull|gpull|pull]
+        Developers only'''
+        embed = discord.Embed(title='testing', description='0%')
+        msg = await ctx.send(embed)
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='10%', color=0xfcdb03))
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='20%', color=0xfcdb03))
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='30%', color=0xfcdb03))
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='40%', color=0xfcdb03))
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='50%', color=0xfcdb03))
+        await asyncio.sleep(2)
+        await msg.edit(embed=discord.Embed(title='testing', description='100%', color=0x31d90b))
 
 
 def setup(bot):
