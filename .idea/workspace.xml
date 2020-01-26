@@ -55,7 +55,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wumpifybot" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,7 +97,10 @@
       <workItem from="1579660813473" duration="1271000" />
       <workItem from="1579662341671" duration="16833000" />
       <workItem from="1580011215395" duration="4593000" />
-      <workItem from="1580015891239" duration="8946000" />
+      <workItem from="1580015891239" duration="9223000" />
+      <workItem from="1580040201947" duration="870000" />
+      <workItem from="1580043125907" duration="129000" />
+      <workItem from="1580043820880" duration="915000" />
     </task>
     <servers />
   </component>
@@ -136,10 +140,11 @@
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="628" y="149" width="563" height="569" key="#xdebugger.XInspectDialog/0.0.1360.768@0.0.1360.768" timestamp="1578068395883" />
-    <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl" timestamp="1578552664572">
-      <screen x="0" y="0" width="1360" height="738" />
+    <state x="197" y="85" width="424" height="489" key="FileChooserDialogImpl" timestamp="1580043252497">
+      <screen x="0" y="30" width="1024" height="738" />
     </state>
     <state x="262" y="59" width="832" height="679" key="FileChooserDialogImpl/0.0.1360.738@0.0.1360.738" timestamp="1578552664572" />
+    <state x="197" y="85" width="424" height="489" key="FileChooserDialogImpl/0.30.1024.738@0.30.1024.738" timestamp="1580043252497" />
     <state x="444" y="292" key="GitCloneDialog" timestamp="1578489284894">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
@@ -157,16 +162,20 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="309" y="96" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1360.738@0.0.1360.738" timestamp="1579661637360" />
-    <state x="292" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1580015890321">
+    <state x="292" y="226" key="com.intellij.ide.util.TipDialog" timestamp="1580043832025">
       <screen x="0" y="30" width="1024" height="738" />
     </state>
     <state x="388" y="204" key="com.intellij.ide.util.TipDialog/0.0.1360.738@0.0.1360.738" timestamp="1579662351107" />
     <state x="388" y="212" key="com.intellij.ide.util.TipDialog/0.0.1360.768@0.0.1360.768" timestamp="1578381227205" />
-    <state x="292" y="232" key="com.intellij.ide.util.TipDialog/0.30.1024.738@0.30.1024.738" timestamp="1580015890321" />
+    <state x="292" y="226" key="com.intellij.ide.util.TipDialog/0.30.1024.738@0.30.1024.738" timestamp="1580043832025" />
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578103977786">
       <screen x="0" y="0" width="1360" height="768" />
     </state>
     <state x="518" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1360.768@0.0.1360.768" timestamp="1578103977786" />
+    <state x="176" y="174" key="run.anything.popup" timestamp="1580043157371">
+      <screen x="0" y="30" width="1024" height="738" />
+    </state>
+    <state x="176" y="174" key="run.anything.popup/0.30.1024.738@0.30.1024.738" timestamp="1580043157370" />
     <state x="343" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1578486392142">
       <screen x="0" y="0" width="1360" height="738" />
     </state>

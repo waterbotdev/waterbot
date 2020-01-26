@@ -61,7 +61,7 @@ class Dev(commands.Cog):
         Updates local code repo from github.
         [gitpull|gpull|pull]
         Developers only'''
-        msg = await ctx.send(embed=discord.Embed(title='Updating...', description='Initalizing...'))
+        msg = await ctx.send(embed=discord.Embed(title='Updating...', description='Initializing...'))
         await asyncio.sleep(1)
         await msg.edit(embed=discord.Embed(title='Running `git fetch`...', description='Waiting for logs...', color=0xf7eb60))
         run = subprocess.run(['git','fetch'], stdout=subprocess.PIPE)
