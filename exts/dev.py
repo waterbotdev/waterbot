@@ -46,7 +46,7 @@ class Dev(commands.Cog):
                 result = type(e).__name__ + ': ' + str(e)
                 await ctx.message.add_reaction("✖")
 
-            if len(result) >= 2000:
+            if len(str(result)) >= 2000:
                 await ctx.send('Result length is larger than 2000! Sending the first 2000 characters.')
                 return await ctx.send(f'```py\n{result[0:2000]}```')
             try:
