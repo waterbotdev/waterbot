@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afc96a10-5fb2-4107-9a80-53937d56294f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exts/guilds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/core.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/dev.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/guilds.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/guilds.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts/helpers/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/helpers/check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guildconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/guildconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +30,7 @@
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1Vsnj5A84gZk0zIWi6oteAR1TuL" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -41,6 +42,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -83,6 +85,7 @@
       <workItem from="1579654640899" duration="4927000" />
       <workItem from="1579660813473" duration="1271000" />
       <workItem from="1579662341671" duration="16833000" />
+      <workItem from="1580011215395" duration="244000" />
     </task>
     <servers />
   </component>

@@ -10,4 +10,5 @@ class Checks():
     def is_dev():
         async def predicate(ctx):
             return ctx.author.id in config["developers"]
+
         return commands.check(predicate)

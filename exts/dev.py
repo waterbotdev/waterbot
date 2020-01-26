@@ -6,24 +6,27 @@ import re
 from .helpers.check import Checks
 from discord.ext import commands
 
+
 class Dev(commands.Cog):
     '''Developer commands'''
-    def __init__(self,bot):
+
+    def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='die',aliases=['disconnect'])
+    @commands.command(name='die', aliases=['disconnect'])
     @Checks.is_dev()
-    async def die(self,ctx):
+    async def die(self, ctx):
         '''Kills the bot
         Kills the bot
         die
         Developers only'''
-        await ctx.send(f'<:angrysponge:668767678273683474> You\'ve made a big fault, {ctx.author.mention}. The bell of awakening is coming soon for you..')
+        await ctx.send(
+            f'<:angrysponge:668767678273683474> You\'ve made a big fault, {ctx.author.mention}. The bell of awakening is coming soon for you..')
         await ctx.bot.logout()
 
     @commands.command(aliases=['eval'])
     @Checks.is_dev()
-    async def evaluate(self, ctx, *, code:str):
+    async def evaluate(self, ctx, *, code: str):
         '''Run some code.
         Runs a code snippet
         evaluate|eval <code>

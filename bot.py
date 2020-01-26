@@ -16,6 +16,7 @@ bot.remove_command('help')
 print('Sleeping 10 seconds to prevent discord from thinking we\'re ddosing their server.')
 sleep(10)
 
+
 @bot.event
 async def on_ready():
     print(f'Logged in as: {bot.user.name}')
@@ -39,6 +40,7 @@ if __name__ == '__main__':
 def is_dev():
     async def predicate(ctx):
         return ctx.author.id in botConfig["developers"]
+
     return commands.check(predicate)
 
 
