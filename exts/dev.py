@@ -61,20 +61,20 @@ class Dev(commands.Cog):
         Updates local code repo from github.
         [gitpull|gpull|pull]
         Developers only'''
-        embed = discord.Embed(title='testing', description='0%')
-        msg = await ctx.send(embed)
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='10%', color=0xfcdb03))
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='20%', color=0xfcdb03))
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='30%', color=0xfcdb03))
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='40%', color=0xfcdb03))
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='50%', color=0xfcdb03))
-        await asyncio.sleep(2)
-        await msg.edit(embed=discord.Embed(title='testing', description='100%', color=0x31d90b))
+        msg = await ctx.send(embed=discord.Embed(title='Updating...', description='Initalizing...'))
+        await asyncio.sleep(1)
+        await msg.edit(embed=discord.Embed(title='Running `git fetch`...', description='Waiting for logs...', color=0xf7eb60))
+        run = subprocess.run(['git','fetch'], stdout=subprocess.PIPE)
+        await msg.edit(embed=discord.Embed(title='Running git fetch...',description=f'```{run.stdout.decode()}```', color=0xf7eb60))
+        await asyncio.sleep(3)
+        await msg.edit(embed=discord.Embed(title='Running `git merge`...', description='Waiting for logs...', color=0xf7eb60))
+        run = subprocess.run(['git', 'merge'], stdout=subprocess.PIPE)
+        await msg.edit(embed=discord.Embed(title='Running `git merge`...', description=f'```py\n{run.stdout.decode()}```', color=0xf7eb60))
+        await asyncio.sleep(3)
+        await msg.edit(embed=discord.Embed(title='Running `starter.bat`...', description='Restarting...', color=0x31d90b))
+        run = subprocess.run(['starter.bat'])
+        await msg.edit(embed=None,content='Restarting...')
+        await ctx.bot.logout()
 
 
 def setup(bot):
