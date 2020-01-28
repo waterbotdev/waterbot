@@ -27,14 +27,19 @@ async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
     embed = discord.Embed(title='Bot started.', description=f'Time: {datetime.datetime.now().__str__()}')
-    embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%')
+    embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
     memory = psutil.virtual_memory()
-    embed.add_field(name='Memory Usage', value=f'```**Total**     {memory.total/1024/1024/1024} GB\n'
-                                               f'**Available** {memory.available/1024/1024/1024}'
-                                               f'**Used**      {memory.used/1024/1024/1024} ({memory.percent})'
-                                               f'**Free**      {memory.free/1024/1024/1024} ({100-memory.percent})```')
+    embed.add_field(name='Memory Usage',
+                    value=f'**``Total``**``     {memory.total/1024/1024/1024} GB``\n'
+                          f'**``Available``**`` {memory.available/1024/1024/1024}``\n'
+                          f'**``Used``**``      {memory.used/1024/1024/1024} ({memory.percent})``\n'
+                          f'**``Free``**``      {memory.free/1024/1024/1024} ({100-memory.percent})``\n',
+                    inline=False)
     platd = platform.uname()
-    embed.add_field(name='Platform details', value=f'{platd.system} Release {platd.release} Machine {platd.machine}\n{platd}')
+    embed.add_field(name='Platform details', value=f'{platd.system} '
+                                                   f'Release {platd.release} '
+                                                   f'Machine {platd.machine}\n'
+                                                   f'```{platd}```', inline=False)
     await bot.get_channel(botConfig['startchannel']).send(embed=embed)
 
 
