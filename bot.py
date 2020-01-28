@@ -1,9 +1,13 @@
 import os
 import discord
 import json
+import psutil
+import datetime
+
 from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as check
+
 
 botConfig = json.load(open('config.json'))
 guildconf = json.load(open('guildconfig.json'))
