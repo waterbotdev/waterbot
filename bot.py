@@ -3,6 +3,7 @@ import discord
 import json
 import platform
 import psutil
+import random
 import datetime
 
 from time import sleep
@@ -26,20 +27,20 @@ sleep(10)
 async def on_ready():
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
-    embed = discord.Embed(title='Bot started.', description=f'Time: {datetime.datetime.now().__str__()}')
-    embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
-    memory = psutil.virtual_memory()
-    embed.add_field(name='Memory Usage',
-                    value=f'**``Total``**``     {memory.total/1024/1024/1024} GB``\n'
-                          f'**``Available``**`` {memory.available/1024/1024/1024}``\n'
-                          f'**``Used``**``      {memory.used/1024/1024/1024} ({memory.percent})``\n'
-                          f'**``Free``**``      {memory.free/1024/1024/1024} ({100-memory.percent})``\n',
-                    inline=False)
     platd = platform.uname()
+    memory = psutil.virtual_memory()
+    color = discord.Color.from_rgb(random.randint(0,255), random.randint(0,255), random.randint(0,255))
+    embed = discord.Embed(title='Bot started.', description=f'Time: {datetime.datetime.now().__str__()}', color=color)
+    embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
+    embed.add_field(name='Memory Usage',
+                    value=f'**``Total``**``     {round(memory.total/1024/1024/1024, 2)} GB``\n'
+                          f'**``Available``**`` {round(memory.available/1024/1024/1024, 2)}``\n'
+                          f'**``Used``**``      {round(memory.used/1024/1024/1024, 2)} ({memory.percent})``\n'
+                          f'**``Free``**``      {round(memory.free/1024/1024/1024, 2)} ({100-memory.percent})``\n',
+                    inline=False)
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
-                                                   f'Machine {platd.machine}\n'
-                                                   f'```{platd}```', inline=False)
+                                                   f'{platd.machine}\n', inline=False)
     await bot.get_channel(botConfig['startchannel']).send(embed=embed)
 
 
