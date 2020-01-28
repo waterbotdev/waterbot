@@ -34,9 +34,9 @@ async def on_ready():
     embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
     embed.add_field(name='Memory Usage',
                     value=f'**``Total``**``     {round(memory.total/1024/1024/1024, 2)} GB``\n'
-                          f'**``Available``**`` {round(memory.available/1024/1024/1024, 2)}``\n'
-                          f'**``Used``**``      {round(memory.used/1024/1024/1024, 2)} ({memory.percent})``\n'
-                          f'**``Free``**``      {round(memory.free/1024/1024/1024, 2)} ({100-memory.percent})``\n',
+                          f'**``Available``**`` {round(memory.available/1024/1024/1024, 2)} GB``\n'
+                          f'**``Used``**``      {round(memory.used/1024/1024/1024, 2)} GB({memory.percent})``\n'
+                          f'**``Free``**``      {round(memory.free/1024/1024/1024, 2)}  GB({100-memory.percent})``\n',
                     inline=False)
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
