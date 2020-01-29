@@ -62,7 +62,7 @@ class Core(commands.Cog):
     @Checks.is_dev()
     async def sayembed(self, ctx, *, param):
         '''Make the bot say something
-        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMake sure not to put ANY `|` in your text or else the code won't work.
+        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMake sure not to put ANY `|` in your text or else the code won't work(WILL BE FIXED).
         sayembed <body>|[color]|[title]|[footer]
         Manage Messages'''
         sppar = param.split('|')
@@ -78,7 +78,7 @@ class Core(commands.Cog):
         except:
             pass
         if color is not None:
-            if len(color) == 9:
+            if len(str(color)) == 9:
                 color = discord.Colour.from_rgb(int(color[0] + color[1] + color[2]),
                                                 int(color[3] + color[4] + color[5]),
                                                 int(color[6] + color[7] + color[8]))
