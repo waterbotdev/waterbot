@@ -60,7 +60,7 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     @commands.command()
     @Checks.is_dev()
-    async def sayembed(self, ctx, body: str, title: str = None, footer: str = None, color: int = None):
+    async def sayembed(self, ctx, body: str, title: str = None, footer: str = None, color: int = discord.Embed.Empty):
         '''Make the bot say something
         Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074).
         sayembed <body>|[color]|[title]|[footer]
