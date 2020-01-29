@@ -60,40 +60,18 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     @commands.command()
     @Checks.is_dev()
-    async def sayembed(self, ctx, *, param):
+    async def sayembed(self, ctx, body: str, title: str, footer: str, color: int):
         '''Make the bot say something
-        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074) \\nMake sure not to put ANY `|` in your text or else the code won't work(WILL BE FIXED).
+        Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074).
         sayembed <body>|[color]|[title]|[footer]
         Manage Messages'''
-        sppar = param.split('|')
-        body = None
-        color = None
-        title = None
-        footer = None
-        try:
-            body = sppar[0]
-            color = int(sppar[1])
-            title = sppar[2]
-            footer = sppar[3]
-        except:
-            pass
         if color is not None:
-            if len(str(color)) == 9:
-                color = discord.Colour.from_rgb(int(color[0] + color[1] + color[2]),
-                                                int(color[3] + color[4] + color[5]),
-                                                int(color[6] + color[7] + color[8]))
-            else:
-                return ctx.send(embed=discord.Embed(title='Command Errored',
-                                                    description='Color must be a 9 digit RGB integer code\n '
-                                                                'e.g. `#0F13B4` would be `015019180`.Make sure there\'s'
-                                                                '**NO** spaces between them and try again.\n'
-                                                                'You can put 227229232 for light mode color '
-                                                                'and 032034037 for dark mode color',
-                                                    timestamp=ctx.message.created_at)
-                                .set_footer(text='This message will self-destruct in 5 seconds.'))
-        embed = discord.Embed(title=title, description=body)
+            color = discord.Color.from_rgb(int(color[0] + color[1] + color[2]),
+                                           int(color[3] + color[4] + color[5]),
+                                           int(color[6] + color[7] + color[8]))
+        embed = discord.Embed(title=title, description=body, color=color)
         if footer is not None:
-            embed.set_footer(text=footer,icon_url=self.bot.user.avatar_url)
+            embed.set_footer(text=footer, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=embed)
 
     @commands.command()
