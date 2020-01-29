@@ -13,22 +13,6 @@ class Utils(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name='ping')
-    async def ping(self, ctx):
-        '''Get the bot latency
-        Also used to check if bot is online.
-        ping
-        Send messages'''
-        botping = ctx.bot.latency * 1000
-        if botping < 100:
-            color = 0x55aa55
-        elif botping < 500:
-            color = 0xffff55
-        else:
-            color = 0xff5555
-        await ctx.message.delete()
-        await ctx.send(embed=discord.Embed(description=f"Bot ping: {botping}", colour=color))
-
     @commands.command(name='avatar', aliases=['av'])
     async def avatar(self, ctx, user: discord.Member = None):
         '''Avatar
@@ -147,6 +131,21 @@ class Utils(commands.Cog):
         embed.add_field(name='Uptime', value=th.sec_to_str(time.perf_counter()), inline=False)
         await ctx.send(embed=embed)
 
+    @commands.command(name='ping')
+    async def ping(self, ctx):
+        latency = self.bot.latency*1000
+        if latency < 100:
+            color = 0x55aa55
+        elif latency < 500:
+            color = 0xffff55
+        else:
+            color = 0xff5555
+        initt = time.perf_counter()
+        msg = await ctx.send(embed=discord.Embed(description=f'Ping! Latency: {latency}', color=color))
+        roundt = time.perf_counter() - initt
+        await msg.edit(embed=discord.Embed(description=f'Ping! Latency: {latency}\n'
+                                                       f'Message Roundtrip latency: {roundt}',
+                                           color=color))
 
 def setup(bot):
     bot.add_cog(Utils(bot))
