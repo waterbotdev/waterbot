@@ -82,7 +82,7 @@ class Core(commands.Cog):
         embed = discord.Embed(title='Info', description="Hello and welcome to the info section.")
         embed.add_field(name="Support server", value="https://discord.gg/ATCjdFA")
         embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email kcomain@protonmail.com")
-        await ctx.send()
+        await ctx.send(embed=embed)
 
     @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
