@@ -67,12 +67,12 @@ class Core(commands.Cog):
         Manage Messages'''
         sppar = param.split('|')
         body = None
-        color = 0
+        color = None
         title = None
         footer = None
         try:
             body = sppar[0]
-            color = sppar[1]
+            color = int(sppar[1])
             title = sppar[2]
             footer = sppar[3]
         except:
@@ -84,12 +84,16 @@ class Core(commands.Cog):
                                                 int(color[6] + color[7] + color[8]))
             else:
                 return ctx.send(embed=discord.Embed(title='Command Errored',
-                                                    description='Color must be a 9 digit RGB integer code\n e.g. `#0F13B4` would be `015019180`.Make sure there\'s **NO** spaces between them and try again.',
+                                                    description='Color must be a 9 digit RGB integer code\n '
+                                                                'e.g. `#0F13B4` would be `015019180`.Make sure there\'s'
+                                                                '**NO** spaces between them and try again.\n'
+                                                                'You can put 227229232 for light mode color '
+                                                                'and 032034037 for dark mode color',
                                                     timestamp=ctx.message.created_at)
                                 .set_footer(text='This message will self-destruct in 5 seconds.'))
         embed = discord.Embed(title=title, description=body)
         if footer is not None:
-            embed.set_footer()
+            embed.set_footer(text=footer,icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=embed)
 
     @commands.command()
