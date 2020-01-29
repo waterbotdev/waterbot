@@ -8,6 +8,7 @@ import subprocess
 from .helpers.check import Checks
 from discord.ext import commands
 
+botConfig = json.load(open('config.json'))
 
 class Dev(commands.Cog):
     '''Developer commands'''
@@ -77,6 +78,25 @@ class Dev(commands.Cog):
         await ctx.bot.logout()
 
 
+    @Checks.is_dev()
+    @commands.command(name='announce')
+    async def announce(self, ctx, size: str, title: str, *, details: str):
+        '''Announce something
+        Announce bot updates in the channel.
+        announce <s|b> <title> <details>
+        Developers only.'''
+        if size == "s":
+            channel = ctx.bot.get_channel(botConfig['minornews'])
+            color = 0xf5d442
+        elif size == "b":
+            channel = ctx.bot.get_channel(botConfig['majornews'])
+            color = 0xf7401b
+        else:
+            return await ctx.send('Invalid size. It have to be `s`(small/minor) or `b`(big/major).')
+        await ctx.message.delete()
+        embed = discord.Embed(color=color, title=title, description=details, timestamp=ctx.message.created_at)
+        embed.set_footer(text=ctx.author, icon_url=ctx.author.avatar_url)
+        await channel.send(embed=embed)
 def setup(bot):
     bot.add_cog(Dev(bot))
 
