@@ -133,6 +133,10 @@ class Utils(commands.Cog):
 
     @commands.command(name='ping')
     async def ping(self, ctx):
+        '''Check the bot's latency
+        Yes it checks the latency nothing more.
+        ping
+        Send messages'''
         latency = self.bot.latency*1000
         if latency < 100:
             color = 0x55aa55
