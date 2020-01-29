@@ -92,10 +92,6 @@ class Core(commands.Cog):
             embed.set_footer()
         await ctx.send(embed=embed)
 
-    @sayembed.error
-    async def sayembederror(self, ctx, error):
-        await ctx.send(f"Command errored. \n{error}")
-
     @commands.command()
     async def info(self, ctx):
         '''Info command
