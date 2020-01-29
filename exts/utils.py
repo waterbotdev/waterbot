@@ -1,7 +1,10 @@
-import discord
-import datetime
-from discord.ext import commands
+import datetime, time
+import platform, psutil
+import random
 
+import discord
+from discord.ext import commands
+from .helpers.util import TimeHelper as th
 
 class Utils(commands.Cog):
     '''Utility commands
@@ -118,6 +121,30 @@ class Utils(commands.Cog):
         embed.set_author(name=f"Weather in {loc}")
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
 
+        await ctx.send(embed=embed)
+
+    @commands.command(name='sysinfo', aliases=['botinfo'])
+    async def sysinfo(self, ctx):
+        '''Check the bot's system info
+        This command is used to check the bot's system info, such as CPU usage, RAM usage, etc.
+        [sysinfo|botinfo]
+        Send messages'''
+        platd = platform.uname()
+        memory = psutil.virtual_memory()
+        color = discord.Color.from_rgb(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        embed = discord.Embed(title='Bot stats', description=f'Time: {datetime.datetime.now().__str__()}',
+                              color=color)
+        embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
+        embed.add_field(name='Memory Usage',
+                        value=f'**``Total``**``     {round(memory.total / 1024 / 1024 / 1024, 2)} GB``\n'
+                              f'**``Available``**`` {round(memory.available / 1024 / 1024 / 1024, 2)} GB``\n'
+                              f'**``Used``**``      {round(memory.used / 1024 / 1024 / 1024, 2)} GB({memory.percent})``\n'
+                              f'**``Free``**``      {round(memory.free / 1024 / 1024 / 1024, 2)}  GB({100 - memory.percent})``\n',
+                        inline=False)
+        embed.add_field(name='Platform details', value=f'{platd.system} '
+                                                       f'Release {platd.release} '
+                                                       f'{platd.machine}\n', inline=False)
+        embed.add_field(name='Uptime', value=th.sec_to_str(time.perf_counter()), inline=False)
         await ctx.send(embed=embed)
 
 

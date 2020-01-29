@@ -10,7 +10,6 @@ from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as check
 
-
 botConfig = json.load(open('config.json'))
 guildconf = json.load(open('guildconfig.json'))
 
@@ -29,14 +28,14 @@ async def on_ready():
     print(f'With ID: {bot.user.id}')
     platd = platform.uname()
     memory = psutil.virtual_memory()
-    color = discord.Color.from_rgb(random.randint(0,255), random.randint(0,255), random.randint(0,255))
+    color = discord.Color.from_rgb(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
     embed = discord.Embed(title='Bot started.', description=f'Time: {datetime.datetime.now().__str__()}', color=color)
     embed.add_field(name='CPU Usage', value=f'{psutil.cpu_percent()}%', inline=False)
     embed.add_field(name='Memory Usage',
-                    value=f'**``Total``**``     {round(memory.total/1024/1024/1024, 2)} GB``\n'
-                          f'**``Available``**`` {round(memory.available/1024/1024/1024, 2)} GB``\n'
-                          f'**``Used``**``      {round(memory.used/1024/1024/1024, 2)} GB({memory.percent})``\n'
-                          f'**``Free``**``      {round(memory.free/1024/1024/1024, 2)}  GB({100-memory.percent})``\n',
+                    value=f'**``Total``**``     {round(memory.total / 1024 / 1024 / 1024, 2)} GB``\n'
+                          f'**``Available``**`` {round(memory.available / 1024 / 1024 / 1024, 2)} GB``\n'
+                          f'**``Used``**``      {round(memory.used / 1024 / 1024 / 1024, 2)} GB({memory.percent})``\n'
+                          f'**``Free``**``      {round(memory.free / 1024 / 1024 / 1024, 2)}  GB({100 - memory.percent})``\n',
                     inline=False)
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
