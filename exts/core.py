@@ -65,7 +65,7 @@ class Core(commands.Cog):
         Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074).
         sayembed <body>|[color]|[title]|[footer]
         Manage Messages'''
-        if color is not None:
+        if color is not discord.Embed.Empty:
             color = discord.Color.from_rgb(int(color[0] + color[1] + color[2]),
                                            int(color[3] + color[4] + color[5]),
                                            int(color[6] + color[7] + color[8]))
