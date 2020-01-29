@@ -143,8 +143,8 @@ class Utils(commands.Cog):
         initt = time.perf_counter()
         msg = await ctx.send(embed=discord.Embed(description=f'Ping! Latency: {latency}', color=color))
         roundt = time.perf_counter() - initt
-        await msg.edit(embed=discord.Embed(description=f'Ping! Latency: {latency}\n'
-                                                       f'Message Roundtrip latency: {roundt}',
+        await msg.edit(embed=discord.Embed(description=f'Ping! Latency: {round(latency, 4)} ms\n'
+                                                       f'Message Roundtrip latency: {round(roundt*1000, 4)} ms',
                                            color=color))
 
 def setup(bot):
