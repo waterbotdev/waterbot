@@ -97,7 +97,7 @@ class Dev(commands.Cog):
         embed = discord.Embed(color=color, title=title, description=details, timestamp=ctx.message.created_at)
         embed.set_footer(text=ctx.author, icon_url=ctx.author.avatar_url)
         await channel.send(embed=embed)
+
+
 def setup(bot):
     bot.add_cog(Dev(bot))
-
-# Testing 02

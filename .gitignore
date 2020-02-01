@@ -4,3 +4,6 @@ credentials.json
 
 # JetBrains stuff
 .idea/
+
+# PyInstaller files
+build/

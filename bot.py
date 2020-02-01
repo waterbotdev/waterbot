@@ -110,8 +110,8 @@ async def reload(ctx):
     log = ""
     for i in cogs:
         try:
-            bot.unload_extension(i)
             print(f'Unloaded extension {i}')
+            bot.unload_extension(i)
             log += f'Unloaded extension {i}\n'
         except Exception as e:
             print(e)

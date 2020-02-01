@@ -1,6 +1,5 @@
 import json
 import discord
-import mysql.connector as c
 from discord.ext import commands
 
 botconf = json.load(open('config.json'))

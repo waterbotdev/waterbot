@@ -1,4 +1,3 @@
-
 class TimeHelper:
     '''Useful module for converting times and shit.
     '''
