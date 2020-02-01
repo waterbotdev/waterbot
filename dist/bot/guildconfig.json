@@ -1,0 +1,34 @@
+{
+  "template": {
+    "modlogs": {
+      "join": 0,
+      "leave": 0,
+      "ban": 0,
+      "medit": 0,
+      "mdelete": 0,
+      "uaddrole": 0,
+      "udelrole": 0,
+      "unick": 0
+    },
+    "joinlogs": {
+      "joinchannel": 0,
+      "leavechannel": 0
+    }
+  },
+  "629113075592593444": {
+    "modlogs": {
+      "join": 0,
+      "leave": 0,
+      "ban": 0,
+      "medit": 0,
+      "mdelete": 0,
+      "uaddrole": 0,
+      "udelrole": 0,
+      "unick": 0
+    },
+    "joinlogs": {
+      "joinchannel": 668335664458104852,
+      "leavechannel": 668335664458104852
+    }
+  }
+}
