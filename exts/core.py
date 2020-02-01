@@ -44,7 +44,6 @@ class Core(commands.Cog):
 
     @commands.command(name='say')
     @commands.has_permissions(manage_messages=True)
-    @Checks.is_dev()
     async def say(self, ctx, *, text):
         '''Make the bot say something
         Self-explanatory
@@ -60,10 +59,10 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     @commands.command()
     @Checks.is_dev()
-    async def sayembed(self, ctx, body: str, title: str = None, footer: str = None, color: int = discord.Embed.Empty):
+    async def sayembed(self, ctx, body: str, title: str = None, footer: str = None, color: str = discord.Embed.Empty):
         '''Make the bot say something
         Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074).
-        sayembed <body>|[color]|[title]|[footer]
+        sayembed <body>|[title]|[footer]|[color]
         Manage Messages'''
         if color is not discord.Embed.Empty:
             color = discord.Color.from_rgb(int(color[0] + color[1] + color[2]),
@@ -83,7 +82,7 @@ class Core(commands.Cog):
         embed = discord.Embed(title='Info', description="Hello and welcome to the info section.")
         embed.add_field(name="Support server", value="https://discord.gg/ATCjdFA")
         embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email kcomain@protonmail.com")
-        await ctx.send()
+        await ctx.send(embed=embed)
 
     @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
