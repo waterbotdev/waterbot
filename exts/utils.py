@@ -61,7 +61,7 @@ class Utils(commands.Cog):
         elif member.status == discord.Status.idle:
             status = "<:Idle:668360068206559232> Idle"
         elif member.status == discord.Status.dnd:
-            status = "<:DND:668360143867478036> Do Not Disturb"
+            status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
             status = "<:Invisible:668360216491982858> Invisble"
         embed.add_field(name="Status", value=status)
