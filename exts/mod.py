@@ -72,7 +72,7 @@ async def ban (ctx, member:discord.User=None, reason =None)
         reason = ""
     message = f"You have been banned from {ctx.guild.name} for {reason}"
     await member.send(message)
-    # await ctx.guild.ban(member, reason=reason)
+     await ctx.guild.ban(member, reason=reason)
     await ctx.channel.send(f"{member} has been hit by the ban hammer..")
 
 
