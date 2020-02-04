@@ -148,23 +148,6 @@ class Fun(commands.Cog):
         await ctx.send(f"**{ctx.author.name}** has paid their respect {reason}{random.choice(hearts)}")
 
     @commands.command()
-    async def bunj(self, ctx):
-        '''BUNJ BUNJ BUNJ BUNJ BUNJ
-        None
-        bunj
-        Send messages'''
-        embed = discord.Embed(title="bunj",
-                              url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg",
-                              description="bunj", color=0x8cff8f)
-        embed.set_author(name="bunj",
-                         url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg",
-                         icon_url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
-        embed.set_thumbnail(
-            url="https://cdn.discordapp.com/attachments/583070530706604034/655630309290934273/Snapchat-446272952.jpg")
-        embed.add_field(name="bunj", value="bunj", inline=False)
-        await ctx.send(embed=embed)
-
-    @commands.command()
     async def pets(self, ctx, pet="random"):
         '''Get a pet image
         Get a pet image if you don't specify which pet. \\nCurrently supports [cat,dog]\\nWill output a random pet picture if not specified.
@@ -183,15 +166,6 @@ class Fun(commands.Cog):
                     return
                 else:
                     await ctx.send('Invalid pet specified.')
-
-    @commands.command()
-    async def troll(self, ctx):
-        '''Troll a user
-        ok
-        troll
-        Send messages'''
-        await ctx.send(embed=discord.Embed(title="Get trolled loser").set_image(
-            url='https://cdn.discordapp.com/attachments/583070530706604034/655643417992495134/maxresdefault.jpg'))
 
     @commands.command()
     async def coinflip(self, ctx):
