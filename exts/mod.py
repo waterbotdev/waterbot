@@ -61,9 +61,10 @@ class Mod(commands.Cog):
         await ctx.send(embed=embed, delete_after=5)
 
 #bans a user with a reason
-@client.command()
-@commands.has_any_role()
-async def ban (ctx, member:discord.User=None, reason =None):
+@commands.has_permissions(ban_members=True)
+@commands.command(name='ban')
+async def ban (ctx, member:discord.User=None, reason =None)
+'''bans members from the server'''
     if member == None or member == ctx.message.author:
         await ctx.channel.send("You cannot ban yourself")
         return
@@ -77,6 +78,7 @@ async def ban (ctx, member:discord.User=None, reason =None):
 
     @mute.error
     @prune.error
+    @ban.error 
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
 
