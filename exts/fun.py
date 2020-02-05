@@ -16,7 +16,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def fuck(self, ctx):
         '''Fuck
-        Fuck
+        For when you fucked up your life.
         fuck
         Send messages'''
         await ctx.send('shit')
@@ -24,7 +24,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def e(self, ctx):
         '''Something
-        Something
+        Mark is something wrong there? Why is your face square?
         e
         Send messages'''
         await ctx.send('e')
@@ -32,7 +32,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def fatfuck(self, ctx):
         '''Surprise.
-        Use the command to see :P
+        pika pika fuck
         fatfuck
         Send messages'''
         await ctx.send(embed=discord.Embed().set_image(
@@ -40,8 +40,8 @@ class Fun(commands.Cog):
 
     @commands.command(aliases=['8ball'])
     async def _8ball(self, ctx, *, question):
-        '''Ask 8ball a question. You'll get a good answer. Or not. :eyes:
-        None
+        '''Le Magiko 8 bowling ball
+        Ask 8ball a question. You'll get a good answer. Or not. :eyes:
         8ball <question>
         Send messages'''
         responses = ['It is certain.',
@@ -75,37 +75,37 @@ class Fun(commands.Cog):
         await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
-    async def bean(self, ctx, user: discord.User, *, reason: str = "No Reason"):
-        '''Bean a user
-        bean someone lol
+    async def bean(self, ctx, user: discord.User, *, reason: str = "no Reason"):
+        '''Ban a user
+        Sometimes you gotta humiliate your friends and feed them beans.
         bean [user] <reason>
         Send messages'''
-        await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you! For `{reason}`")
+        await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you because they said `{reason}`")
 
     @bean.error
     async def beanerror(self, ctx):
-        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]')
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]`')
 
     @commands.command()
-    async def fight(self, ctx, user: discord.User, *, reason: str = "No Reason."):
+    async def fight(self, ctx, user: discord.User, *, reason: str = "no Reason"):
         '''Fights a user
-        Beat the shit out of someone
+        Beat the shit out of someone, possibly your friend.
         fight [user] <reason>
         Send messages'''
-        await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention}. For `{reason}`")
+        await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention} for `{reason}`.")
 
     @bean.error
     async def fighterror(self, ctx):
-        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]')
+        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]`')
 
     @commands.command()
-    async def spray(self, ctx, user: discord.User, *, reason: str = "No Reason."):
+    async def spray(self, ctx, user: discord.User, *, reason: str = "no Reason"):
         '''Spray a user
-        s p r a y
+        s p  r   a    y
         spray [user] <reason>
         Send messages'''
         await ctx.send(
-            f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention}! For `{reason}`")
+            f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention} for `{reason}`!")
 
     @bean.error
     async def sprayerror(self, ctx):

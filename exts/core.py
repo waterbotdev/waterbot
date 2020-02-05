@@ -73,15 +73,24 @@ class Core(commands.Cog):
             embed.set_footer(text=footer, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(alises=['invite'])
     async def info(self, ctx):
         '''Info command
         This command gives you an invite link to the support server, and also gives you a user to send hatemails to.
         info
         Send messages'''
-        embed = discord.Embed(title='Info', description="Hello and welcome to the info section.")
-        embed.add_field(name="Support server", value="https://discord.gg/ATCjdFA")
-        embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email kcomain@protonmail.com")
+        embed = discord.Embed(title='Waterbot Useful links', description=None)
+        embed.add_field(name="Support server", value="[Here](https://discord.gg/ATCjdFA)")
+        embed.add_field(name="Bot invite (admin)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)")
+        embed.add_field(name="Bot invite (normal)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=2147483127&scope=bot)")
+        embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
+        embed.add_field(name="Developers", value="**Waterbot is made by a bunch of hobby developers.\n"
+                                                 "Here's a list of their names.**\n"
+                                                 "Creator: lindsey#2943 (374047038926618624) [Wind]\n"
+                                                 "Developers:\n"
+                                                 "```- Kenny_#2020 (397029587965575170)    [Earth]\n"
+                                                 "- Dragonic#3535 (513603936033177620)  [Fire]\n"
+                                                 "- appraiise#0004 (521656100924293141) [Zac]```", inline=False)
         await ctx.send(embed=embed)
 
     @commands.command(name="help", aliases=['h'])
