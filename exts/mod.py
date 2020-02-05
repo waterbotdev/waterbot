@@ -70,9 +70,15 @@ class Mod(commands.Cog):
         for member in members:
             await member.ban(delete_message_days=delete_days, reason=reason)
 
+@commands.has_permissions(kick_members=True)
+commands.command(name='ban')
+async def kick(ctx, userName: discord.User):
+    await bot.kick(userName)
+
     @mute.error
     @prune.error
     @ban.error
+    @kick.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
 
