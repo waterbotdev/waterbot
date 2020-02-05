@@ -6,6 +6,7 @@ import discord
 from discord.ext import commands
 from .helpers.util import TimeHelper as th
 
+
 class Utils(commands.Cog):
     '''Utility commands
     '''
@@ -25,10 +26,8 @@ class Utils(commands.Cog):
         embed.set_author(name=f"{user}'s avatar")
         embed.set_image(url=user.avatar_url)
         embed.add_field(name="Avatar:", value=f"[Link]({user.avatar_url})")
-
         embed.set_image(url=str(user.avatar_url))
         embed.set_footer(text=f"User ID: {user.id}")
-
         await ctx.send(embed=embed)
 
     @commands.command()
@@ -37,6 +36,7 @@ class Utils(commands.Cog):
         Get the info of a user. Leave the command as is to check your own info.
         userinfo [UserID/Mention]
         Send messages'''
+        status = ""
         if member is None:
             member = ctx.author
         # Find user roles.
@@ -55,7 +55,6 @@ class Utils(commands.Cog):
         embed.add_field(name="Is Bot User?", value=member.bot)
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated())
         embed.add_field(name="Avatar URL", value=f"[Avatar URL]({ctx.author.avatar_url})")
-        status = ""
         if member.status == discord.Status.online:
             status = "<:Online:668360009960128522> Online"
         elif member.status == discord.Status.idle:
@@ -63,7 +62,7 @@ class Utils(commands.Cog):
         elif member.status == discord.Status.dnd:
             status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
-            status = "<:Invisible:668360216491982858> Invisble"
+            status = "<:Invisible:668360216491982858> Invisible/Offline"
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
@@ -73,38 +72,37 @@ class Utils(commands.Cog):
         Get the server's boost level\\n Altering boost level picture Soon:tm:
         boostinfo
         Send messages'''
-        embed = discord.Embed(name="{}'s info".format(ctx.message.guild.name), color=0xff5e81)
+        embed = discord.Embed(name=f"{ctx.message.guild.name}'s info", color=0xff5e81)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
         embed.add_field(name="Boost / Server Level", value=ctx.message.guild.premium_tier)
-
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
-
-        if ctx.guild.premium_tier == 0:
-            embed.set_thumbnail(
-                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png")
-
-        elif ctx.guild.premium_tier == 1:
-            embed.set_thumbnail(
-                url="https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png")
-
-        elif ctx.guild.premium_tier == 2:
-            embed.set_thumbnail(
-                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png")
-
-        elif ctx.guild.premium_tier == 3:
-            embed.set_thumbnail(
-                url="https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png")
-
+        urls = {0: "https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png",
+                1: "https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png",
+                2: "https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png",
+                3: "https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png"}
+        features = {"VIP_REGIONS": "VIP voice regions",
+                    "VANITY_URL": "Vanity custom invite URL",
+                    "INVITE_SPLASH": "Custom invite page background",
+                    "VERIFIED": "Verified server",
+                    "PARTNERED": "Parenered server",
+                    "MORE_EMOJI": "Total Available emoji slots over 50",
+                    "DISCOVERABLE": "Can be added to Server Discovery",
+                    "COMMERCE": "Guild store channels",
+                    "PUBLIC": "Users can lurk via Discovery",
+                    "NEWS": "Guild news channels",
+                    "BANNER": "Guild Banner",
+                    "ANIMATED_ICON": "Animated Icon",
+                    "PUBLIC_DISABLED": "Server can't be public"}
+        embed.set_thumbnail(url=urls[ctx.guild.premium_tier])
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):
-        embed = discord.Embed(color=ctx.author.colour, timestamp=datetime.datetime.utcfromtimestamp(1578673591))
-        embed.set_image(url="https://wttr.in/{0}.png?m%22".format(loc))
+        embed = discord.Embed(color=ctx.author.colour, timestamp=ctx.message.created_at)
+        embed.set_image(url=f"https://wttr.in/{loc}.png?m%22")
         embed.set_author(name=f"Weather in {loc}")
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
-
         await ctx.send(embed=embed)
 
     @commands.command(name='sysinfo', aliases=['botinfo'])

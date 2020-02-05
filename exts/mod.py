@@ -62,16 +62,17 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[discord.Member], delete_days:int, *, reason: str="None given."):
-        '''Ban
+    async def ban(self, ctx, members: commands.Greedy[discord.Member], delete_days:int, *, reason: str):
+        '''Ban users
         Mass bans members with a delete_days parameter
         ban <member pings> <delete days> <reason>
         Ban members'''
         for member in members:
-            await member.ban(delete_message_days=0, reason=reason)
+            await member.ban(delete_message_days=delete_days, reason=reason)
 
     @mute.error
     @prune.error
+    @ban.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
 
