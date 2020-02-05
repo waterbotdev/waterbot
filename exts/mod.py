@@ -12,7 +12,7 @@ class Mod(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-    @commands.has_oermissions(manage_messages=True, manage_roles=True)
+    @commands.has_permissions(manage_messages=True, manage_roles=True)
     @commands.command(name='mute')
     async def mute(self, ctx, user: discord.Member, reason: str = "none"):
         guild = ctx.guild
