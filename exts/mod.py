@@ -60,14 +60,18 @@ class Mod(commands.Cog):
         embed.set_footer(text='This message will be deleted in 5 seconds.')
         await ctx.send(embed=embed, delete_after=5)
 
-@commands.has_permissions(ban_members=True)
-@commands.command(name='ban')
-async def ban(ctx, members: commands.Greedy[discord.Member],
-                   delete_days, *,
-                   reason: str):
-    """Mass bans members with an optional delete_days parameter"""
-    for member in members:
-        await member.ban(delete_message_days=0, reason=reason)
+    @commands.has_permissions(ban_members=True)
+    @commands.command(name='ban')
+    async def ban(ctx, 
+                  members: commands.Greedy[discord.Member],
+                  delete_days:int, *,
+                  reason: str):
+        '''Ban
+        Mass bans members with a delete_days parameter
+        ban <member pings> <delete days> <reason>
+        Ban members'''
+        for member in members:
+            await member.ban(delete_message_days=0, reason=reason)
 
     @mute.error
     @prune.error
