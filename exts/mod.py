@@ -61,7 +61,7 @@ class Mod(commands.Cog):
         await ctx.send(embed=embed, delete_after=5)
 
 @commands.has_permissions(ban_members=True)
-@commands.command()
+@commands.command(name='ban')
 async def ban(ctx, members: commands.Greedy[discord.Member],
                    delete_days, *,
                    reason: str):
