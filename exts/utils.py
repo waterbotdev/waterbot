@@ -77,24 +77,29 @@ class Utils(commands.Cog):
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
         embed.add_field(name="Boost / Server Level", value=ctx.message.guild.premium_tier)
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
-        urls = {0: "https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png",
-                1: "https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png",
-                2: "https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png",
-                3: "https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png"}
-        features = {"VIP_REGIONS": "VIP voice regions",
-                    "VANITY_URL": "Vanity custom invite URL",
-                    "INVITE_SPLASH": "Custom invite page background",
-                    "VERIFIED": "Verified server",
-                    "PARTNERED": "Parenered server",
-                    "MORE_EMOJI": "Total Available emoji slots over 50",
-                    "DISCOVERABLE": "Can be added to Server Discovery",
-                    "COMMERCE": "Guild store channels",
-                    "PUBLIC": "Users can lurk via Discovery",
-                    "NEWS": "Guild news channels",
-                    "BANNER": "Guild Banner",
-                    "ANIMATED_ICON": "Animated Icon",
-                    "PUBLIC_DISABLED": "Server can't be public"}
+        urls = {
+            0: "https://cdn.discordapp.com/attachments/668332945748262933/668445394929319936/612036452779425792.png",
+            1: "https://cdn.discordapp.com/attachments/668332945748262933/668445395411795977/612036451843964978.png",
+            2: "https://cdn.discordapp.com/attachments/668332945748262933/668445394639781926/612036451873325076.png",
+            3: "https://cdn.discordapp.com/attachments/668332945748262933/668445394317082634/612036451806478346.png"}
+        featuresd = {"VIP_REGIONS": "VIP voice regions",
+                     "VANITY_URL": "Vanity custom invite URL",
+                     "INVITE_SPLASH": "Custom invite page background",
+                     "VERIFIED": "Verified server",
+                     "PARTNERED": "Parenered server",
+                     "MORE_EMOJI": "Total Available emoji slots over 50",
+                     "DISCOVERABLE": "Can be added to Server Discovery",
+                     "COMMERCE": "Guild store channels",
+                     "PUBLIC": "Users can lurk via Discovery",
+                     "NEWS": "Guild news channels",
+                     "BANNER": "Guild Banner",
+                     "ANIMATED_ICON": "Animated Icon",
+                     "PUBLIC_DISABLED": "Server can't be public"}
         embed.set_thumbnail(url=urls[ctx.guild.premium_tier])
+        feat = ""
+        for i in ctx.guild.features:
+            feat += f"{featuresd[i]} "
+        embed.add_field(name="Server (Un)Features", value=feat, inline=False)
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["wthr"])
@@ -135,7 +140,7 @@ class Utils(commands.Cog):
         Yes it checks the latency nothing more.
         ping
         Send messages'''
-        latency = self.bot.latency*1000
+        latency = self.bot.latency * 1000
         if latency < 100:
             color = 0x55aa55
         elif latency < 500:
@@ -146,8 +151,9 @@ class Utils(commands.Cog):
         msg = await ctx.send(embed=discord.Embed(description=f'Ping! Latency: {latency}', color=color))
         roundt = time.perf_counter() - initt
         await msg.edit(embed=discord.Embed(description=f'Ping! Latency: {round(latency, 4)} ms\n'
-                                                       f'Message Roundtrip latency: {round(roundt*1000, 4)} ms',
+                                                       f'Message Roundtrip latency: {round(roundt * 1000, 4)} ms',
                                            color=color))
+
 
 def setup(bot):
     bot.add_cog(Utils(bot))
