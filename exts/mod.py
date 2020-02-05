@@ -74,6 +74,7 @@ class Mod(commands.Cog):
 @commands.command(name='kick')
 async def kick(self, ctx, member: discord.Member, *, reason=None):
     await member.kick(reason=reason)
+    await ctx.send(f"Sucesfully kicked `{member.name}`.")
 
     @mute.error
     @prune.error
