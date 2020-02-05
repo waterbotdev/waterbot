@@ -70,11 +70,11 @@ class Mod(commands.Cog):
         for member in members:
             await member.ban(delete_message_days=delete_days, reason=reason)
 
-@commands.has_permissions(kick_members=True)
-@commands.command(name='kick')
-async def kick(self, ctx, member: discord.Member, *, reason=None):
-    await member.kick(reason=reason)
-    await ctx.send(f"Sucesfully kicked `{member.name}`.")
+    @commands.has_permissions(kick_members=True)
+    @commands.command(name='kick')
+    async def kick(self, ctx, member: discord.Member, *, reason=None):
+        await member.kick(reason=reason)
+        await ctx.send(f"Sucesfully kicked `{member.name}`.")
 
     @mute.error
     @prune.error
