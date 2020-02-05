@@ -66,6 +66,7 @@ class Core(commands.Cog):
         Send messages'''
         embed = discord.Embed(title='Waterbot Useful links', description=None)
         embed.add_field(name="Support server", value="[Here](https://discord.gg/ATCjdFA)")
+        embed.add_field(name="Guilds", value=f"{len(self.bot.guilds)}", inline=True)
         embed.add_field(name="Bot invite (admin)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)")
         embed.add_field(name="Bot invite (normal)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=2147483127&scope=bot)")
         embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
