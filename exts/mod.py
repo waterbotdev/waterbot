@@ -71,7 +71,7 @@ class Mod(commands.Cog):
             await member.ban(delete_message_days=delete_days, reason=reason)
 
 @commands.has_permissions(kick_members=True)
-commands.command(name='ban')
+commands.command(name='kick')
 async def kick(ctx, userName: discord.User):
     await bot.kick(userName)
 
