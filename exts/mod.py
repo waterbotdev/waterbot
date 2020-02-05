@@ -72,8 +72,8 @@ class Mod(commands.Cog):
 
 @commands.has_permissions(kick_members=True)
 @commands.command(name='kick')
-async def kick(ctx, userName: discord.User):
-    await bot.kick(userName)
+async def kick(self, ctx, member: discord.User, *, reason=None):
+    await member.kick(reason=reason)
 
     @mute.error
     @prune.error
