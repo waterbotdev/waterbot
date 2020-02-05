@@ -11,18 +11,26 @@ class Mod(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-
-    @commands.has_permissions(manage_messages=True, manage_roles=True)
+        
+    @commands.has_oermissions(manage_messages=True, manage_roles=True)
     @commands.command(name='mute')
-    async def mute(self, ctx, user: discord.Member, reason: str = "Shut the up user"):
-        '''Mute a user
-        Mute a user to their mute jail cell\\nWho told them to misbehave, do this when you need to, but not abuse it.
-        mute <user> [Reason]
-        Manage messages, Manage roles'''
-        # await ctx.send('Connecting...',delete_after=4)
-        async with ctx.channel.typing():
-            embed = discord.Embed(title='Non', description='Not finished yet please stop using :pleading_face;')
-        await ctx.send(embed=embed)
+    async def mute(self, ctx, user: discord.Member, reason: str = "none"):
+        guild = ctx.guild
+        
+        for role in guild.roles :
+            if role.name == "Muted"
+                await member.add_roles(role)
+                await ctx.send(f"`{member.name}` has been muted. {reason}")
+                return
+            
+                overwrite = discord.PermissionsOverwrite(send_message=False)
+                newRole = await guild.create_role(name="Muted")
+                
+                for channel in guild.text_channels:
+                    await channel.set_permissions(newRole,overwrite=overwrite)
+                    
+                await member.add_roles(newRole)
+                await ctx.send(f"`{member.name}` has been muted. {reason}")
 
     @commands.has_permissions(manage_messages=True)
     @commands.command(name='prune', aliases=['remove', 'clear'])
