@@ -60,22 +60,14 @@ class Mod(commands.Cog):
         embed.set_footer(text='This message will be deleted in 5 seconds.')
         await ctx.send(embed=embed, delete_after=5)
 
-#bans a user with a reason
-@commands.has_permissions(Administrator=True)
-@commands.command(name='ban')
-async def ban (ctx, member:discord.User=None, reason =None)
-'''bans members from the server'''
-    if member == None or member == ctx.message.author:
-        await ctx.channel.send("You cannot ban yourself")
-        return
-    if reason == None:
-        reason = ""
-    message = f"You have been banned from {ctx.guild.name} for {reason}"
-    await member.send(message)
-     await ctx.guild.ban(member, reason=reason)
-    await ctx.channel.send(f"{member} has been hit by the ban hammer..")
-
-
+@bot.command()
+async def ban(ctx, members: commands.Greedy[discord.Member],
+                   delete_days: typing.Optional[int] = 0, *,
+                   reason: str):
+    """Mass bans members with an optional delete_days parameter"""
+    for member in members:
+        await member.ban(delete_message_days=delete_days, reason=reason)
+        
     @mute.error
     @prune.error
     @ban.error 
