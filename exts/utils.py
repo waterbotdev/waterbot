@@ -96,7 +96,7 @@ class Utils(commands.Cog):
                      "ANIMATED_ICON": "Animated Icon",
                      "PUBLIC_DISABLED": "Server can't be public"}
         embed.set_thumbnail(url=urls[ctx.guild.premium_tier])
-        feat = ""
+        feat = "None"
         for i in ctx.guild.features:
             feat += f"{featuresd[i]} "
         embed.add_field(name="Server (Un)Features", value=feat, inline=False)
