@@ -61,7 +61,7 @@ class Mod(commands.Cog):
         await ctx.send(embed=embed, delete_after=5)
 
 #bans a user with a reason
-@commands.has_permissions(ban_members=True)
+@commands.has_permissions(Administrator=True)
 @commands.command(name='ban')
 async def ban (ctx, member:discord.User=None, reason =None)
 '''bans members from the server'''
