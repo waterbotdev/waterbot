@@ -44,11 +44,14 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     @commands.command()
     @Checks.is_dev()
-    async def sayembed(self, ctx, body: str, title: str = None, footer: str = None, color: str = discord.Embed.Empty):
+    async def sayembed(self, ctx, body: str, title: str = None, channel: discord.TextChannel = None, footer: str = None,
+                       color: str = discord.Embed.Empty):
         '''Make the bot say something
         Make the bot say something in embeds. \\nColor have to be a rgb integer number(155012074).
-        sayembed <body>|[title]|[footer]|[color]
+        sayembed <body> [title] [channel] [footer] [color]
         Manage Messages'''
+        if channel is None:
+            channel = ctx.channel
         if color is not discord.Embed.Empty:
             color = discord.Color.from_rgb(int(color[0] + color[1] + color[2]),
                                            int(color[3] + color[4] + color[5]),
@@ -56,7 +59,7 @@ class Core(commands.Cog):
         embed = discord.Embed(title=title, description=body, color=color)
         if footer is not None:
             embed.set_footer(text=footer, icon_url=self.bot.user.avatar_url)
-        await ctx.send(embed=embed)
+        await channel.send(embed=embed)
 
     @commands.command(alises=['invite'])
     async def info(self, ctx):
@@ -66,8 +69,10 @@ class Core(commands.Cog):
         Send messages'''
         embed = discord.Embed(title='Waterbot Useful links', description=None)
         embed.add_field(name="Support server", value="[Here](https://discord.gg/ATCjdFA)")
-        embed.add_field(name="Bot invite (admin)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)")
-        embed.add_field(name="Bot invite (normal)", value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=2147483127&scope=bot)")
+        embed.add_field(name="Bot invite (admin)",
+                        value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=8&scope=bot)")
+        embed.add_field(name="Bot invite (normal)",
+                        value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=2147483127&scope=bot)")
         embed.add_field(name="Guilds", value=f"{len(self.bot.guilds)}")
         embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
         embed.add_field(name="Developers", value="**Waterbot is made by a bunch of hobby developers.\n"
