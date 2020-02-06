@@ -1,6 +1,6 @@
 import json
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 
 botconf = json.load(open('config.json'))
 
@@ -75,6 +75,12 @@ class Mod(commands.Cog):
     @ban.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
+
+    # LOOPING TASKS
+    @tasks.loop(seconds=5)
+    async def unmuteloop(self):
+        '''Check if any users is ok for unmuting.
+        '''
 
 
 def setup(bot):
