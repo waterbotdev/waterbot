@@ -11,7 +11,7 @@ class Mod(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-
+        
     @commands.has_permissions(manage_messages=True, manage_roles=True)
     @commands.command(name='mute')
     async def mute(self, ctx, user: discord.Member, reason: str = "Shut the up user"):
@@ -21,7 +21,7 @@ class Mod(commands.Cog):
         Manage messages, Manage roles'''
         # await ctx.send('Connecting...',delete_after=4)
         async with ctx.channel.typing():
-            embed = discord.Embed(title='Non', description='Not finished yet please stop using :pleading_face;')
+            embed = discord.Embed(title='Non', description='Not finished yet please stop using :pleading_face:')
         await ctx.send(embed=embed)
 
     @commands.has_permissions(manage_messages=True)
@@ -70,9 +70,16 @@ class Mod(commands.Cog):
         for member in members:
             await member.ban(delete_message_days=delete_days, reason=reason)
 
+    @commands.has_permissions(kick_members=True)
+    @commands.command(name='kick')
+    async def kick(self, ctx, member: discord.Member, *, reason=None):
+        await member.kick(reason=reason)
+        await ctx.send(f"Sucesfully kicked `{member.name}`.")
+
     @mute.error
     @prune.error
     @ban.error
+    @kick.error
     async def moderr(self, ctx, error):
         await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
 
