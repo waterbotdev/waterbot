@@ -2,7 +2,7 @@ import json
 import discord
 from discord.ext import commands, tasks
 
-botconf = json.load(open('config.json'))
+botconf = json.load(open('configs/config.json'))
 
 
 # noinspection PyShadowingNames
