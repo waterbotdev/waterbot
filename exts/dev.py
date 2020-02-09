@@ -7,7 +7,7 @@ import subprocess
 from .helpers.check import Checks
 from discord.ext import commands
 
-botConfig = json.load(open('config.json'))
+botConfig = json.load(open('configs/config.json'))
 
 
 class Dev(commands.Cog):
