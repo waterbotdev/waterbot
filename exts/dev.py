@@ -107,9 +107,12 @@ class Dev(commands.Cog):
     @Checks.is_dev()
     @commands.command()
     async def fjaosfhuaihfus89679y(self, ctx, count: int = 20):
+        messages = []
         for i in range(count):
             msg = await ctx.send('<@513603936033177620>')
-            await msg.delete()
+            messages.append(msg)
+        for i in messages:
+            await i.delete()
 
 
 def setup(bot):
