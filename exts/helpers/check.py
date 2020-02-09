@@ -1,7 +1,7 @@
 import json
 from discord.ext import commands
 
-config = json.load(open('config.json'))
+config = json.load(open('configs/config.json'))
 
 
 class Checks():
