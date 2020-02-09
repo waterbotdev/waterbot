@@ -1,7 +1,6 @@
-![GitHub check statjus](https://github.com/austiko/waterbot/workflows/Build%20bot/badge.svg)
-
-<img style="text-align: center;" src="https://avatars1.githubusercontent.com/u/60726662?s=400&v=4" alt="waterbot icon">
-<h5 style="text-align: center;">Waterbot</h5>
+![GitHub check status](https://github.com/austiko/waterbot/workflows/Build%20bot/badge.svg)
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/waterbotdev/waterbot/?ref=repository-badge)
+# Waterbot
 
 An all-in-one Discord.py bot, simple, funny, but robust.
 

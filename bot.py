@@ -10,8 +10,8 @@ from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as check
 
-botConfig = json.load(open('config.json'))
-guildconf = json.load(open('guildconfig.json'))
+botConfig = json.load(open('configs/config.json'))
+guildconf = json.load(open('configs/guildconfig.json'))
 
 token = os.environ["WATER_TOKEN"]
 

@@ -2,13 +2,13 @@ import asyncio
 import discord
 import inspect
 import json
-import re
 import subprocess
 
 from .helpers.check import Checks
 from discord.ext import commands
 
 botConfig = json.load(open('config.json'))
+
 
 class Dev(commands.Cog):
     '''Developer commands'''
@@ -24,7 +24,8 @@ class Dev(commands.Cog):
         die
         Developers only'''
         await ctx.send(
-            f'<:angrysponge:668767678273683474> You\'ve made a big fault, {ctx.author.mention}. The bell of awakening is coming soon for you..')
+            f'<:angrysponge:668767678273683474> You\'ve made a big fault, {ctx.author.mention}. '
+            f'The bell of awakening is coming soon for you..')
         await ctx.bot.logout()
 
     @commands.command(aliases=['eval'])
@@ -64,19 +65,24 @@ class Dev(commands.Cog):
         Developers only'''
         msg = await ctx.send(embed=discord.Embed(title='Updating...', description='Initializing...'))
         await asyncio.sleep(1)
-        await msg.edit(embed=discord.Embed(title='Running `git fetch`...', description='Waiting for logs...', color=0xf7eb60))
-        run = subprocess.run(['git','fetch'], stdout=subprocess.PIPE)
-        await msg.edit(embed=discord.Embed(title='Running git fetch...',description=f'```{"No Logs."}```', color=0xf7eb60))
+        await msg.edit(
+            embed=discord.Embed(title='Running `git fetch`...', description='Waiting for logs...', color=0xf7eb60))
+        run = subprocess.run(['git', 'fetch'], stdout=subprocess.PIPE)
+        await msg.edit(
+            embed=discord.Embed(title='Running git fetch...', description=f'```{"No Logs."}```', color=0xf7eb60))
         await asyncio.sleep(3)
-        await msg.edit(embed=discord.Embed(title='Running `git merge`...', description='Waiting for logs...', color=0xf7eb60))
+        await msg.edit(
+            embed=discord.Embed(title='Running `git merge`...', description='Waiting for logs...', color=0xf7eb60))
         run = subprocess.run(['git', 'merge'], stdout=subprocess.PIPE)
-        await msg.edit(embed=discord.Embed(title='Running `git merge`...', description=f'```py\n{run.stdout.decode()}```', color=0xf7eb60))
+        await msg.edit(
+            embed=discord.Embed(title='Running `git merge`...', description=f'```py\n{run.stdout.decode()}```',
+                                color=0xf7eb60))
         await asyncio.sleep(3)
-        await msg.edit(embed=discord.Embed(title='Running `starter.bat`...', description='Restarting...', color=0x31d90b))
-        run = subprocess.run(['cmd','/K','starter.bat'])
-        await msg.edit(embed=None,content='Restarting...')
+        await msg.edit(
+            embed=discord.Embed(title='Running `starter.bat`...', description='Restarting...', color=0x31d90b))
+        run = subprocess.run(['cmd', '/K', 'starter.bat'])
+        await msg.edit(embed=None, content='Restarting...')
         await ctx.bot.logout()
-
 
     @Checks.is_dev()
     @commands.command(name='announce')
@@ -97,6 +103,13 @@ class Dev(commands.Cog):
         embed = discord.Embed(color=color, title=title, description=details, timestamp=ctx.message.created_at)
         embed.set_footer(text=ctx.author, icon_url=ctx.author.avatar_url)
         await channel.send(embed=embed)
+
+    @Checks.is_dev()
+    @commands.command()
+    async def fjaosfhuaihfus89679y(self, ctx, count: int = 20):
+        for i in range(count):
+            msg = await ctx.send('<@513603936033177620>')
+            await msg.delete()
 
 
 def setup(bot):

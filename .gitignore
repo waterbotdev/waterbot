@@ -1,6 +1,6 @@
 # Python shit
 __pycache__/
-credentials.json
+configs/credentials.json
 
 # Visual Studio Code
 .vscode/
@@ -11,3 +11,6 @@ credentials.json
 # PyInstaller Shit
 build/
 dist/
+
+# Site stuff
+site/
