@@ -114,6 +114,33 @@ class Dev(commands.Cog):
         for i in messages:
             await i.delete()
 
+    @Checks.is_dev()
+    @commands.command()
+    async def status(self,ctx, stat: str, text: str = None):
+        '''Change the overall status of the bot
+        The command have 3 different modes: operational(online), temporary outage(idle) and Severe outage(dnd)
+        status <online|idle|dnd>
+        Developers only'''
+        if stat == 'online':
+            if text is not None:
+                with open('configs/config.json') as f:
+                    que = json.load(f)
+                    que['status'] = text
+                    f.close()
+                return await self.bot.change_presence(status='online', activity=discord.Game(name=text))
+            else:
+                return await ctx.send('U wot? missing text parameter.')
+        elif stat == 'idle':
+            if text is None:
+                text = "Temporary Outage."
+                return await self.bot.change_presence(status='online', activity=discord.Game(name=text))
+            else:
+                return await self.bot.change_presence(status='idle', activity=discord.Game(name=f'Temporary Outage|{text}'))
+        elif stat == 'dnd':
+            return await self.bot.change_presence(
+                status='dnd',
+                activity=discord.Game(
+                name='Major outage' if text is not None else f'Outage: {text}'))
 
 def setup(bot):
     bot.add_cog(Dev(bot))

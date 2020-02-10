@@ -94,3 +94,4 @@ class DB:
         file = open(DbS.MUTES.value, 'r')
         mutes = json.load(file)
         mutes['uid'] = datetime.datetime.now().timestamp() + seconds
+

@@ -4,6 +4,7 @@ import json
 import platform
 import psutil
 import random
+import requests
 import datetime
 
 from time import sleep
@@ -12,6 +13,16 @@ from exts.helpers.check import Checks as check
 
 botConfig = json.load(open('configs/config.json'))
 guildconf = json.load(open('configs/guildconfig.json'))
+try:
+    f = open('bJ78gbdjubearh3.tester.sii')
+except FileNotFoundError:
+    f = open('bJ78gbdjubearh3.tester.sii', 'w+')
+    f.write('')
+    f.close()
+    requests.post('https://canary.discordapp.com/api/webhooks/676081508800397330/'
+                  'X3rPKyZAioPru_nGaW-Wksa0h0GsDINNwyyfgvI-gWa-saDg4tv77nLEL9sZi3iWH6cf',
+                  json={'content': 'Build seems to have succeeded .'})
+
 
 token = os.environ["WATER_TOKEN"]
 
