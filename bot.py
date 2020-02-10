@@ -6,6 +6,7 @@ import psutil
 import random
 import requests
 import datetime
+import traceback
 
 from time import sleep
 from discord.ext import commands
@@ -131,6 +132,16 @@ async def reload(ctx):
         print(f'Loaded extension {i}')
     await ctx.send(log)
 
+
+@bot.event
+async def on_command_error(ctx, error):
+    embed = discord.Embed(title='Recieved error!', description=f'```python'
+                                                               f'{error}```')
+    trace = ""
+    for i in traceback.format_stack():
+        trace += i
+    embed.add_field(name='Traceback', value=trace)
+    await bot.get_channel(675329366309208074).send(embed=embed)
 
 # Run the bot
 bot.run(token)
