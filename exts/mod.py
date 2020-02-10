@@ -29,6 +29,17 @@ class Mod(commands.Cog):
         embed = discord.Embed(title='User(s) muted.')
         await ctx.send(embed=embed)
 
+    @mute.error
+    async def er_error(self, error, ctx):
+        if isinstance(error, discord.ext.commands.CheckFailure):
+            userID = (ctx.message.author.id)
+            await self.bot.send_message(ctx.message.author,f"{ctx.author.mention} **You don't have permission to perform this action**" % (userID))
+            await self.bot.delete_message(ctx.message)
+        
+        elif isinstance(error, discord.ext.commands.CommandInvokeError):
+            userID = (ctx.message.author.id)
+            await self.bot.send_message(ctx.message.channel, f"{ctx.author.mention} **Invalid role.** Make sure to check that your spelling was right." % (userID))    
+        
     @commands.has_permissions(manage_messages=True)
     @commands.command(name='prune', aliases=['remove', 'clear'])
     async def prune(self, ctx, amount: int, members: commands.Greedy[discord.Member] = None):
