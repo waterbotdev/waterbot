@@ -123,10 +123,13 @@ class Dev(commands.Cog):
         Developers only'''
         if stat == 'online':
             if text is not None:
-                with open('configs/config.json') as f:
-                    que = json.load(f)
-                    que['status'] = text
-                    f.close()
+                f = open('configs/config.json')
+                que = json.load(f)
+                que['status'] = text
+                f.close()
+                f = open('configs/config.json', 'w')
+                json.dump(que, f)
+                f.close()
                 return await self.bot.change_presence(status='online', activity=discord.Game(name=text))
             else:
                 return await ctx.send('U wot? missing text parameter.')
