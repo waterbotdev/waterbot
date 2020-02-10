@@ -94,7 +94,7 @@ class Fun(commands.Cog):
         Send messages'''
         await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention} for `{reason}`.")
 
-    @bean.error
+    @fight.error
     async def fighterror(self, ctx):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]`')
 
@@ -107,7 +107,7 @@ class Fun(commands.Cog):
         await ctx.send(
             f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention} for `{reason}`!")
 
-    @bean.error
+    @spray.error
     async def sprayerror(self, ctx):
         await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
 
