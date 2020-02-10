@@ -22,7 +22,7 @@ except FileNotFoundError:
     f.close()
     requests.post('https://canary.discordapp.com/api/webhooks/676081508800397330/'
                   'X3rPKyZAioPru_nGaW-Wksa0h0GsDINNwyyfgvI-gWa-saDg4tv77nLEL9sZi3iWH6cf',
-                  json={'content': 'Build seems to have succeeded .'})
+                  json={'content': 'Build finished.'})
 
 
 token = os.environ["WATER_TOKEN"]
@@ -135,12 +135,15 @@ async def reload(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
-    embed = discord.Embed(title='Recieved error!', description=f'```python'
-                                                               f'{error}```')
-    trace = ""
-    for i in traceback.format_stack():
-        trace += i
-    embed.add_field(name='Traceback', value=trace)
+    embed = discord.Embed(title='Recieved error!',
+                          description=f'```python'
+                                      f'{error}```')
+    embed.add_field(name='Server', value=f'```{ctx.guild.id} ({ctx.guild.name})```', inline=False)
+    embed.add_field(name='User', value=f'```{ctx.author.id}```', inline=False)
+    # trace = ""
+    # for i in traceback.format_stack():
+    #     trace += i
+    # embed.add_field(name='Traceback', value=f'```{trace}```')
     await bot.get_channel(675329366309208074).send(embed=embed)
 
 # Run the bot
