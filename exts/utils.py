@@ -66,6 +66,26 @@ class Utils(commands.Cog):
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def serverinfo(self, ctx, guild: discord.Guild=None):
+        '''Get server info
+        Get the info of a server.
+        serverinfo [UserID/Mention]
+        Send messages'''
+        if guild is None:
+            guild = ctx.guild
+        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_author(name=f"Guild Name - {guild.name}")
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+        embed.set_thumbnail(url=guild.icon_url)
+        embed.add_field(name="Guild ID", value=guild.id, inline=True)
+        embed.add_field(name="Owner", value=guild.owner, inline=True)
+        embed.add_field(name="Members", value=guild.member_count, inline=True)
+        embed.add_field(name="Roles", value=guild.roles)
+        embed.add_field(name="Categories", value=guild.categories)
+        embed.add_field(name="Verification Level", value=guild.verification_level)
+        await ctx.send(embed=embed)
+
     @commands.command(pass_context=True)
     async def boostinfo(self, ctx):
         '''Check the server's boost level
