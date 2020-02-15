@@ -72,8 +72,7 @@ class Utils(commands.Cog):
         Get the info of a server.
         serverinfo [UserID/Mention]
         Send messages'''
-        if guild is None:
-            guild = ctx.guild
+        guild = ctx.guild if not guild else guild
         embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
         embed.set_author(name=f"Guild Name - {guild.name}")
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
@@ -81,8 +80,17 @@ class Utils(commands.Cog):
         embed.add_field(name="Guild ID", value=guild.id, inline=True)
         embed.add_field(name="Owner", value=guild.owner, inline=True)
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        #embed.add_field(name="Roles", value=guild.roles.name)
-        embed.add_field(name="Categories", value=guild.categories)
+        roles = []
+        for role in guild.roles:
+            if role.name == "@everyone":
+                return
+            else:
+                roles.append(role.name)
+        embed.add_field(name = "Roles", value = ", ".join(roles))
+        categories = []
+        for category in guild.categories:
+            categories.append(category.name)
+        embed.add_field(name="Categories", value=categories)
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
 
