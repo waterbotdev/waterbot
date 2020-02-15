@@ -81,7 +81,7 @@ class Utils(commands.Cog):
         embed.add_field(name="Guild ID", value=guild.id, inline=True)
         embed.add_field(name="Owner", value=guild.owner, inline=True)
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        embed.add_field(name="Roles", value=guild.roles.name)
+        #embed.add_field(name="Roles", value=guild.roles.name)
         embed.add_field(name="Categories", value=guild.categories)
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
