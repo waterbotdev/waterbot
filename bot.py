@@ -15,7 +15,7 @@ from discord.ext import commands
 from exts.helpers.check import Checks as Check
 
 # Configurations
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 botConfig = json.load(open('configs/config.json'))
 guildconf = json.load(open('dbs/guild.json'))
 
