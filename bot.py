@@ -215,7 +215,7 @@ async def on_command_error(ctx, error):
 
     embed = discord.Embed(title='Error', description=f'```\n{error}```')
     embed.add_field(name='Server', value=f'{ctx.guild.name} ({ctx.guild.id})', inline=False)
-    embed.add_field(name='User Responsible', value=f'{ctx.user.id} ({ctx.author.name})', inline=False)
+    embed.add_field(name='User Responsible', value=f'{ctx.author.id} ({ctx.author.name})', inline=False)
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed)
 
 
