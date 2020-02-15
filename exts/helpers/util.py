@@ -39,6 +39,7 @@ class DbS(Enum):
     KICKS = 'dbs/kicks.json'
     BANS = 'dbs/bans.json'
     LOGS = 'dbs/logs.json'
+    GUILDS = 'dbs/guild.json'
 
 
 class DB:

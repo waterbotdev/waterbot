@@ -70,9 +70,9 @@ class Fun(commands.Cog):
                               description=f"**Question**: {question}\n**Answer**: {random.choice(responses)} ")
         await ctx.send(embed=embed)
 
-    @_8ball.error
-    async def _8ballerr(self, ctx, error):
-        await ctx.send(f"Command errored.\n{error}")
+    # @_8ball.error
+    # async def _8ballerr(self, ctx, error):
+    #     await ctx.send(f"Command errored.\n{error}")
 
     @commands.command()
     async def bean(self, ctx, user: discord.User, *, reason: str = "no Reason"):
@@ -82,9 +82,9 @@ class Fun(commands.Cog):
         Send messages'''
         await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you because they said `{reason}`")
 
-    @bean.error
-    async def beanerror(self, ctx):
-        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]`')
+    # @bean.error
+    # async def beanerror(self, ctx):
+    #     await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.bean <user> [reason>]`')
 
     @commands.command()
     async def fight(self, ctx, user: discord.User, *, reason: str = "no Reason"):
@@ -94,9 +94,9 @@ class Fun(commands.Cog):
         Send messages'''
         await ctx.send(f"<:catfight:668814428111896586> {ctx.author.name} is killing {user.mention} for `{reason}`.")
 
-    @fight.error
-    async def fighterror(self, ctx):
-        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]`')
+    # @fight.error
+    # async def fighterror(self, ctx):
+    #     await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.fight <user> [reason>]`')
 
     @commands.command()
     async def spray(self, ctx, user: discord.User, *, reason: str = "no Reason"):
@@ -107,9 +107,9 @@ class Fun(commands.Cog):
         await ctx.send(
             f"<a:sprayspray:668814655082463252> {ctx.author.name} is spraying on you, {user.mention} for `{reason}`!")
 
-    @spray.error
-    async def sprayerror(self, ctx):
-        await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
+    # @spray.error
+    # async def sprayerror(self, ctx):
+    #     await ctx.send(f':kite: Invalid argument.\nCommand Usage: `.spray <user> [reason>]')
 
     @commands.command()
     async def choose(self, ctx, *, choices: str):
@@ -131,7 +131,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def rate(self, ctx, *, thing: commands.clean_content):
         '''Let the bot rate someone
-        Rate your crush's status with you 😳 
+        Rate your crush's status with you 😳
         rate 
         Send messages'''
         num = random.randint(100, 10000) / 100
