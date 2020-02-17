@@ -142,7 +142,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
         
     @commands.command(name='permissions', aliases=['perms'])
-    async def permissions(self, ctx, member:discord.Member = None):
+    async def permissions(self, ctx, member: discord.Member = None):
         '''Check the permissions of a member
         Check the permissions that the member have.
         permissions [user mention]
