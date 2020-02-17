@@ -83,7 +83,7 @@ class Utils(commands.Cog):
         embed.set_thumbnail(url=guild.icon_url)
         embed.add_field(name="Guild ID", value=guild.id, inline=True)
         embed.add_field(name="Owner", value=f"{guild.owner} (`{guild.owner_id}`)", inline=True)   
-        embed.add_field(name="Created", value=guild.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}, inline=True)
+        embed.add_field(name="Created", value=guild.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC'), inline=True)
         embed.add_field(name="Region", value=guild.region, inline=True)
         embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)     
         embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inlne=True)     
