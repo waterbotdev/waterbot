@@ -90,18 +90,17 @@ class Utils(commands.Cog):
         embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)
         embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        # embed.add_field(name="Role Count", value=guild.roles)
-        # roles = []
-        # for role in guild.roles:
-        # if role.name == "@everyone":
-        # return
-        # else:
-        # roles.append(role.name)
-        # embed.add_field(name = "Roles", value = ", ".join(roles))
-        # categories = []
-        # for category in guild.categories:
-        # categories.append(category.name)
-        # embed.add_field(name="Categories", value=guild.categories)
+        roles = []
+        for role in guild.roles:
+            if role.name == "@everyone":
+                pass
+            else:
+                roles.append(role.name)
+        embed.add_field(name = "Roles", value = ", ".join(roles))
+        categories = []
+        for category in guild.categories:
+            categories.append(category.name)
+        embed.add_field(name="Categories", value=", ".join(categories))
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
 
