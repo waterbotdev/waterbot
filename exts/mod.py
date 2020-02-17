@@ -41,7 +41,7 @@ class Member(commands.Converter):
             except ValueError:
                 raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
             except ModExceptions.MemberNotFound:
-                return type('ID User', (), {'id': member_id, '__str__': lambda s: f'Member ID {s.id}'})()
+                return type('ID User', (), {'id': member_id, '__str__': lambda s: f'Member ID {s.id}', 'mention': f'<@{member_id}>'})()
         if not can_execute_action(ctx, ctx.author, m):
             raise commands.BadArgument('You cannot do this action on this user due to role hierarchy.')
         return m
@@ -144,19 +144,12 @@ class Mod(commands.Cog):
             await i.kick(reason=f'Responsible user: {ctx.author}|reason: {reason}')
         await ctx.send(f"{ctx.author} Successfully kicked {len(members)}(`{membs}`)  member(s), with reason {reason}")
 
-    @mute.error
-    @prune.error
-    @ban.error
-    @kick.error
-    async def moderr(self, ctx, error):
-        await ctx.send(embed=discord.Embed(title='Command errored.', description=error))
-
     # LOOPING TASKS
     @tasks.loop(seconds=10)
     async def unmuteloop(self):
         '''Check if any users is ok for unmuting.
         '''
-        list = open('dbs/mutes.json')
+        mutelist = open('dbs/mutes.json')
 
 
 def setup(bot):
