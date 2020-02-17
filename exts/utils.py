@@ -154,7 +154,7 @@ class Utils(commands.Cog):
             if permissions[1]:
                 perms.append(permissions[0].upper())
         server_perms = ', '.join(perms)
-        embed = discord.Embed(title='Guild permissions of {}', description=server_perms)
+        embed = discord.Embed(title=f'Guild permissions of {member.name}', description=server_perms)
         await ctx.send(embed=embed)
 
     @commands.command(aliases=["wthr"])
