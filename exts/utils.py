@@ -95,9 +95,9 @@ class Utils(commands.Cog):
             #else:
                 #roles.append(role.name)
         #embed.add_field(name = "Roles", value = ", ".join(roles))
-        #categories = []
-        #for category in guild.categories:
-            #categories.append(category.name)
+        categories = []
+        for category in guild.categories:
+            categories.append(category.name)
         embed.add_field(name="Categories", value=guild.categories)
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
