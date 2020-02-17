@@ -76,24 +76,29 @@ class Utils(commands.Cog):
         serverinfo [UserID/Mention]
         Send messages'''
         guild = ctx.guild if not guild else guild
-        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed = discord.Embed(color=0x36393f, timestamp=ctx.message.created_at)
         embed.set_author(name=f"Guild Name - {guild.name}")
+        embed.add_field(name="Name", value=guild.name, inline=True)
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
         embed.set_thumbnail(url=guild.icon_url)
         embed.add_field(name="Guild ID", value=guild.id, inline=True)
-        embed.add_field(name="Owner", value=guild.owner, inline=True)
+        embed.add_field(name="Owner", value=f"{guild.owner} (`{guild.owner_id}`)", inline=True)   
+        embed.add_field(name="Created", value=guild.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}, inline=True)
+        embed.add_field(name="Region", value=guild.region, inline=True)
+        embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)     
+        embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inlne=True)     
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        roles = []
-        for role in guild.roles:
-            if role.name == "@everyone":
-                return
-            else:
-                roles.append(role.name)
-        embed.add_field(name = "Roles", value = ", ".join(roles))
-        categories = []
-        for category in guild.categories:
-            categories.append(category.name)
-        embed.add_field(name="Categories", value=categories)
+        #roles = []
+        #for role in guild.roles:
+            #if role.name == "@everyone":
+                #return
+            #else:
+                #roles.append(role.name)
+        #embed.add_field(name = "Roles", value = ", ".join(roles))
+        #categories = []
+        #for category in guild.categories:
+            #categories.append(category.name)
+        embed.add_field(name="Categories", value=guild.categories)
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
 
