@@ -54,7 +54,7 @@ class Utils(commands.Cog):
             len([role.mention for role in [role for role in member.roles]]) - 1])
         embed.add_field(name="Is Bot User?", value=member.bot)
         embed.add_field(name="Nickname", value=member.name)
-        emed.add_field(name="Discriminator", value=member.discriminator)
+        embed.add_field(name="Discriminator", value=member.discriminator)
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated())
         embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})")
         if member.status == discord.Status.online:
