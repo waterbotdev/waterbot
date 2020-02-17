@@ -58,6 +58,12 @@ class Utils(commands.Cog):
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
             len([role.mention for role in [role for role in member.roles]]) - 1])
+        PERMS = []
+        for permissions in sorted(member.guild_permissions):
+            if permissions[1] == True:
+                PERMS.append(permissions[0].upper())
+            server_perms = ', '.join(PERMS)
+        embed.add_field(name="Server permissions", value=f"`{server_perms}`")
         if member.status == discord.Status.online:
             status = "<:Online:668360009960128522> Online"
         elif member.status == discord.Status.idle:
