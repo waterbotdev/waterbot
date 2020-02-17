@@ -88,7 +88,7 @@ class Utils(commands.Cog):
         embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)     
         embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)     
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        embed.add_field(name="Role Count", value=len(ctx.message.server.roles))
+        embed.add_field(name="Role Count", value=guild.roles)
         #roles = []
         #for role in guild.roles:
             #if role.name == "@everyone":
