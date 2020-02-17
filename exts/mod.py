@@ -118,7 +118,7 @@ class Mod(commands.Cog):
         '''Ban users
         Mass bans members with a delete_days parameter
         ban <member pings/ids> <delete days> <reason>
-        Ban members''
+        Ban members'''
         member = ""
         for i in members:
             member += i.mention + " "
