@@ -95,7 +95,7 @@ class Utils(commands.Cog):
             if role.name == "@everyone":
                 pass
             else:
-                roles.append(role.name)
+                roles.append(role.mention)
         embed.add_field(name = "Roles", value = ", ".join(roles))
         categories = []
         for category in guild.categories:
