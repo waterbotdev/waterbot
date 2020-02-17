@@ -47,8 +47,7 @@ class Utils(commands.Cog):
         embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name="User ID:", value=member.id)
-        embed.add_field(name="Created at:", value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
-        embed.add_field(name="Joined at:", value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
+        embed.add_field(name="Statisctics", value="Joined at:", `value=member.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC")`\n"Created At:", `value=member.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC")`        
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
             len([role.mention for role in [role for role in member.roles]]) - 1])
