@@ -86,7 +86,7 @@ class Utils(commands.Cog):
         embed.add_field(name="Created", value=guild.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC'), inline=True)
         embed.add_field(name="Region", value=guild.region, inline=True)
         embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)     
-        embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inlne=True)     
+        embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)     
         embed.add_field(name="Members", value=guild.member_count, inline=True)
         #roles = []
         #for role in guild.roles:
