@@ -43,8 +43,12 @@ class Member(commands.Converter):
             except ValueError:
                 raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
             except ModExceptions.MemberNotFound:
-                return type('ID User', (),
-                            {'id': member_id, '__str__': lambda s: f'Member ID {s.id}', 'mention': f'<@{member_id}>'})()
+                return type('IDUser', (), {
+                    'id': member_id,
+                    '__str__': lambda s: f'Member ID {s.id}',
+                    'mention': f'<@{member_id}>',
+                    '__type__': 'IDUser'
+                })()
         if not can_execute_action(ctx, ctx.author, m):
             raise commands.BadArgument('You cannot do this action on this user due to role hierarchy.')
         return m
@@ -128,8 +132,8 @@ class Mod(commands.Cog):
         for i in members:
             member += i.mention + " "
         for member in members:
-            if member.__type__ == 'ID User':
-                await ctx.guild.ban(type('id user', (), {'id': member.id}), delete_days=0, reason=reason)
+            if member.__type__ == 'IDUser':
+                await ctx.guild.ban(member, reason=reason)
             else:
                 await member.ban(delete_message_days=delete_days, reason=reason)
         embed = discord.Embed(title=f'{len(members)} member(s) banned.')
