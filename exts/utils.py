@@ -46,17 +46,19 @@ class Utils(commands.Cog):
         embed = discord.Embed(color=0x36393f, timestamp=ctx.message.created_at)
         embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
-        embed.add_field(name="User ID:", value=member.id)
         embed.add_field(name="Statisctics", value=f"Joined at: `{member.joined_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`\n"
-                                                  f"Created At: `{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`")        
+                                                  f"Created At: `{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`", inline=False)        
+        embed.add_field(name="User ID:", value=member.id, inline=True)
+        embed.add_field(name="Nickname", value=member.name, inline=True)
+        embed.add_field(name="Discriminator", value=member.discriminator, inline=True)
         embed.add_field(name=f"Roles({len(roles)})", value=" ".join([role.mention for role in roles]))
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
             len([role.mention for role in [role for role in member.roles]]) - 1])
         embed.add_field(name="Is Bot User?", value=member.bot)
-        embed.add_field(name="Nickname", value=member.name)
-        embed.add_field(name="Discriminator", value=member.discriminator)
-        embed.add_field(name="Animated Avatar", value=member.is_avatar_animated())
-        embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})")
+
+        embed.add_field(name="Activity", value=member.activity.name, inline=True)
+        embed.add_field(name="Animated Avatar", value=member.is_avatar_animated(), inline=True)
+        embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})", inline=True)
         if member.status == discord.Status.online:
             status = "<:Online:668360009960128522> Online"
         elif member.status == discord.Status.idle:
