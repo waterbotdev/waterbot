@@ -68,6 +68,7 @@ class Utils(commands.Cog):
             status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
             status = "<:Invisible:668360216491982858> Invisible/Offline"
+        embed.add_field(name="Permissions", value=f'.perms {member.id}')
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
@@ -91,14 +92,13 @@ class Utils(commands.Cog):
         embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)
         embed.add_field(name="Members", value=guild.member_count, inline=True)
         embed.add_field(name="Verification Level", value=guild.verification_level, inline=True)
-
         roles = []
         for role in guild.roles:
             if role.name == "@everyone":
                 pass
             else:
                 roles.append(role.mention)
-        embed.add_field(name = "Roles", value = ", ".join(roles), inline=True)
+        embed.add_field(name="Roles", value=", ".join(roles), inline=True)
         categories = []
         for category in guild.categories:
             categories.append(category.name)
@@ -154,8 +154,8 @@ class Utils(commands.Cog):
             if permissions[1]:
                 perms.append(permissions[0].upper())
         server_perms = ', '.join(perms)
-        embed = discord.Embed(title='Guild permissions of {}')
-        embed.add_field(name="Server permissions", value=f"`{server_perms}`")
+        embed = discord.Embed(title='Guild permissions of {}', description=server_perms)
+        await ctx.send(embed=embed)
 
     @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):

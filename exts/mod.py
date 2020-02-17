@@ -4,6 +4,47 @@ from discord.ext import commands, tasks
 
 botconf = json.load(open('configs/config.json'))
 
+# Exceptions
+class ModExceptions:
+    class MemberNotFound(Exception):
+        pass
+
+# Converters?
+
+def can_execute_action(ctx, user, target):
+    return user.id == ctx.bot.owner_id or \
+           user == ctx.guild.owner or \
+           user.top_role > target.top_role
+
+
+async def resolve_member(guild, member_id):
+    member = guild.get_member(member_id)
+    if member is None:
+        if guild.chunked:
+            raise ModExceptions.MemberNotFound()
+        try:
+            member = await guild.fetch_member(member_id)
+        except discord.NotFound:
+            raise ModExceptions.MemberNotFound() from None
+    return member
+
+
+class Member(commands.Converter):
+    async def convert(self, ctx, argument):
+        member_id = ""
+        try:
+            m = await commands.MemberConverter().convert(ctx, argument)
+        except commands.BadArgument:
+            try:
+                member_id = int(argument, base=10)
+                m = await resolve_member(ctx.guild, member_id)
+            except ValueError:
+                raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
+            except ModExceptions.MemberNotFound:
+                return type('ID User', (), {'id': member_id, '__str__': lambda s: f'Member ID {s.id}'})()
+        if not can_execute_action(ctx, ctx.author, m):
+            raise commands.BadArgument('You cannot do this action on this user due to role hierarchy.')
+        return m
 
 # noinspection PyShadowingNames
 class Mod(commands.Cog):
@@ -20,12 +61,13 @@ class Mod(commands.Cog):
         mute <user> [Reason]
         Manage messages, Manage roles'''
         # await ctx.send('Connecting...',delete_after=4)
+        reason = f"Executed by user {ctx.author} | Reason: {reason}"
         mute = discord.utils.get(ctx.guild.roles, name="Muted")
         if mute is None:
             mute = discord.utils.get(ctx.guild.roles, name="muted")
         async with ctx.channel.typing():
             for i in users:
-                i.add_roles(mute)
+                i.add_roles(mute, reason=reason)
         embed = discord.Embed(title='User(s) muted.')
         await ctx.send(embed=embed)
 
@@ -72,21 +114,11 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[discord.Member], delete_days: int = 1, *, reason: str = "None"):
+    async def ban(self, ctx, members: commands.Greedy[Member], delete_days: int = 1, *, reason: str = "None"):
         '''Ban users
         Mass bans members with a delete_days parameter
-        ban <member pings> <delete days> <reason>
+        ban <member pings/ids> <delete days> <reason>
         Ban members'''
-        # if members == '' or members is None:
-        #     raise commands.MissingRequiredArgument('Argument members missing')
-        # _members = members
-        # for i in members:
-        #     membobj = None
-        #     try:
-        #         membobj = await commands.MemberConverter().convert(ctx, i)
-        #     except commands.BadArgument:
-        #
-
         member = ""
         for i in members:
             member += i.mention + " "
