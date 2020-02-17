@@ -72,11 +72,21 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[discord.Member], delete_days: int = 1, *, reason: str = "None"):
+    async def ban(self, ctx, members: commands.Greedy[discord.Member, int], delete_days: int = 1, *, reason: str = "None"):
         '''Ban users
         Mass bans members with a delete_days parameter
         ban <member pings> <delete days> <reason>
         Ban members'''
+        if members == '' or members is None:
+            raise commands.MissingRequiredArgument('Argument members missing')
+        _members = members
+        for i in members:
+            membobj = None
+            try:
+                membobj = await commands.MemberConverter().convert(ctx, i)
+            except commands.BadArgument:
+
+
         member = ""
         for i in members:
             member += i.mention + " "

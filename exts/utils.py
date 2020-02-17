@@ -46,8 +46,10 @@ class Utils(commands.Cog):
         embed = discord.Embed(color=0x36393f, timestamp=ctx.message.created_at)
         embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
-        embed.add_field(name="Statisctics", value=f"Joined at: `{member.joined_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`\n"
-                                                  f"Created At: `{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`", inline=False)        
+        embed.add_field(name="Statisctics",
+                        value=f"Joined at: `{member.joined_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`\n"
+                              f"Created At: `{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`",
+                        inline=False)
         embed.add_field(name="User ID:", value=member.id, inline=True)
         embed.add_field(name="Nickname", value=member.name, inline=True)
         embed.add_field(name="Discriminator", value=member.discriminator, inline=True)
@@ -70,7 +72,7 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
 
     @commands.command()
-    async def serverinfo(self, ctx, guild: discord.Guild=None):
+    async def serverinfo(self, ctx, guild: discord.Guild = None):
         '''Get server info
         Get the info of a server.
         serverinfo [UserID/Mention]
@@ -82,24 +84,24 @@ class Utils(commands.Cog):
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
         embed.set_thumbnail(url=guild.icon_url)
         embed.add_field(name="Guild ID", value=guild.id, inline=True)
-        embed.add_field(name="Owner", value=f"{guild.owner} (`{guild.owner_id}`)", inline=True)   
+        embed.add_field(name="Owner", value=f"{guild.owner} (`{guild.owner_id}`)", inline=True)
         embed.add_field(name="Created", value=guild.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC'), inline=True)
         embed.add_field(name="Region", value=guild.region, inline=True)
-        embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)     
-        embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)     
+        embed.add_field(name="AFK Channel", value=guild.afk_channel, inline=True)
+        embed.add_field(name="AFK Timeout", value=guild.afk_timeout, inline=True)
         embed.add_field(name="Members", value=guild.member_count, inline=True)
-        #embed.add_field(name="Role Count", value=guild.roles)
-        #roles = []
-        #for role in guild.roles:
-            #if role.name == "@everyone":
-                #return
-            #else:
-                #roles.append(role.name)
-        #embed.add_field(name = "Roles", value = ", ".join(roles))
-        #categories = []
-        #for category in guild.categories:
-            #categories.append(category.name)
-        #embed.add_field(name="Categories", value=guild.categories)
+        # embed.add_field(name="Role Count", value=guild.roles)
+        # roles = []
+        # for role in guild.roles:
+        # if role.name == "@everyone":
+        # return
+        # else:
+        # roles.append(role.name)
+        # embed.add_field(name = "Roles", value = ", ".join(roles))
+        # categories = []
+        # for category in guild.categories:
+        # categories.append(category.name)
+        # embed.add_field(name="Categories", value=guild.categories)
         embed.add_field(name="Verification Level", value=guild.verification_level)
         await ctx.send(embed=embed)
 
@@ -138,6 +140,9 @@ class Utils(commands.Cog):
             feat += f"{featuresd[i]} "
         embed.add_field(name="Server (Un)Features", value=feat, inline=False)
         await ctx.send(embed=embed)
+        
+    @commands.command(name='permissions', aliases=['perms'])
+    async def permissions(self, ctx, user:discord.Member):
 
     @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):
