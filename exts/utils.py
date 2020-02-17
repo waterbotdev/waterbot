@@ -142,7 +142,20 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)
         
     @commands.command(name='permissions', aliases=['perms'])
-    async def permissions(self, ctx, user:discord.Member):
+    async def permissions(self, ctx, member:discord.Member = None):
+        '''Check the permissions of a member
+        Check the permissions that the member have.
+        permissions [user mention]
+        Send messages'''
+        if member is None:
+            member = ctx.author
+        perms = []
+        for permissions in sorted(member.guild_permissions):
+            if permissions[1]:
+                perms.append(permissions[0].upper())
+        server_perms = ', '.join(perms)
+        embed = discord.Embed(title='Guild permissions of {}')
+        embed.add_field(name="Server permissions", value=f"`{server_perms}`")
 
     @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):

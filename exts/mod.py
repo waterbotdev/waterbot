@@ -77,15 +77,15 @@ class Mod(commands.Cog):
         Mass bans members with a delete_days parameter
         ban <member pings> <delete days> <reason>
         Ban members'''
-        if members == '' or members is None:
-            raise commands.MissingRequiredArgument('Argument members missing')
-        _members = members
-        for i in members:
-            membobj = None
-            try:
-                membobj = await commands.MemberConverter().convert(ctx, i)
-            except commands.BadArgument:
-
+        # if members == '' or members is None:
+        #     raise commands.MissingRequiredArgument('Argument members missing')
+        # _members = members
+        # for i in members:
+        #     membobj = None
+        #     try:
+        #         membobj = await commands.MemberConverter().convert(ctx, i)
+        #     except commands.BadArgument:
+        #
 
         member = ""
         for i in members:

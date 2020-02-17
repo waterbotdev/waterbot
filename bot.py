@@ -194,6 +194,9 @@ async def on_command_error(ctx, error):
             title='Command errored',
             description=f'There are required parameters missing!\n'
                         f'Check the usage of the command by doing `.h <command name>` and try again.'
+        ).add_field(
+            name='Error',
+            value=f'```py\n{error}```'
         ))
 
     elif isinstance(error, commands.CommandInvokeError):
@@ -204,7 +207,7 @@ async def on_command_error(ctx, error):
                         f'However, if you want to fix the problem yourself, the error will be included.'
         )
         embed.add_field(name='Error', value=str(error), inline=False)
-        embed.add_field(name='Original Error', value=f'```python\n{error.original}```', inline=False)
+        embed.add_field(name='Original Error', value=f'```py\n{error.original}```', inline=False)
         await ctx.send(embed=embed)
 
     elif isinstance(error, commands.NotOwner):
