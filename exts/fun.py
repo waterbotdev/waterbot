@@ -80,7 +80,7 @@ class Fun(commands.Cog):
         Sometimes you gotta humiliate your friends and feed them beans.
         bean [user] <reason>
         Send messages'''
-        await ctx.send(f"<:bean:668814023399309332> {user.mention}, {ctx.author.name} has bean'd you because they said `{reason}`")
+        await ctx.send(f"{user.name} `({user.id})` has been beaned. Reason `{reason}`")
 
     # @bean.error
     # async def beanerror(self, ctx):
