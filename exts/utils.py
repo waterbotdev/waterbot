@@ -22,7 +22,7 @@ class Utils(commands.Cog):
         Send messages'''
         if user is None:
             user = ctx.message.author
-        embed = discord.Embed(colour=user.colour)
+        embed = discord.Embed(colour=0x36393f)
         embed.set_author(name=f"{user}'s avatar")
         embed.set_image(url=user.avatar_url)
         embed.add_field(name="Avatar:", value=f"[Link]({user.avatar_url})")
@@ -30,7 +30,7 @@ class Utils(commands.Cog):
         embed.set_footer(text=f"User ID: {user.id}")
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(name='userinfo', aliases=["ui", "whois"])
     async def userinfo(self, ctx, member: discord.Member = None):
         '''Get member info
         Get the info of a user. Leave the command as is to check your own info.
@@ -72,7 +72,7 @@ class Utils(commands.Cog):
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(name='serverinfo', aliases=["guildinfo", "gi", "si"])
     async def serverinfo(self, ctx, guild: discord.Guild = None):
         '''Get server info
         Get the info of a server.
@@ -111,7 +111,7 @@ class Utils(commands.Cog):
         Get the server's boost level\\n Altering boost level picture Soon:tm:
         boostinfo
         Send messages'''
-        embed = discord.Embed(name=f"{ctx.message.guild.name}'s info", color=0xff5e81)
+        embed = discord.Embed(name=f"{ctx.message.guild.name}'s info", color=0x36393f)
         embed.set_author(name=f"Nitro Boosting Status for: {ctx.message.guild.name}")
         embed.add_field(name="Boost Amount", value=ctx.message.guild.premium_subscription_count)
         embed.add_field(name="Boost / Server Level", value=ctx.message.guild.premium_tier)
@@ -159,7 +159,7 @@ class Utils(commands.Cog):
 
     @commands.command(aliases=["wthr"])
     async def weather(self, ctx, *, loc):
-        embed = discord.Embed(color=ctx.author.colour, timestamp=ctx.message.created_at)
+        embed = discord.Embed(color=0x36393f, timestamp=ctx.message.created_at)
         embed.set_image(url=f"https://wttr.in/{loc}.png?m%22")
         embed.set_author(name=f"Weather in {loc}")
         embed.set_footer(text=f"Requested By: {ctx.message.author}", icon_url=ctx.author.avatar_url)
