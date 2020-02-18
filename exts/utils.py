@@ -58,7 +58,7 @@ class Utils(commands.Cog):
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated(), inline=True)
         embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})", inline=True)
         roles = []
-        for role in member.roles:
+        for role in user.roles:
             if role.name == "@everyone":
                 pass
             else:
