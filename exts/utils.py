@@ -57,13 +57,13 @@ class Utils(commands.Cog):
         embed.add_field(name="Activity", value=member.activity.name, inline=True)
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated(), inline=True)
         embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})", inline=True)
-        #roles = []
-        #for role in user.roles:
-            #if role.name == "@everyone":
-                #pass
-            #else:
-                #roles.append(role.mention)
-        #embed.add_field(name="Roles", value=", ".join(roles), inline=True)
+        roles = []
+        for role in user.roles:
+           if role.name == "@everyone":
+                pass
+            else:
+                roles.append(role.mention)
+        embed.add_field(name="Roles", value=", ".join(roles), inline=True)
         embed.add_field(name="Top Role:", value=[role.mention for role in [role for role in member.roles]][
             len([role.mention for role in [role for role in member.roles]]) - 1])
         if member.status == discord.Status.online:
@@ -74,7 +74,7 @@ class Utils(commands.Cog):
             status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
             status = "<:Invisible:668360216491982858> Invisible/Offline"
-        embed.add_field(name="Permissions", value=f'[Hover over me](Use the command `.perms {member.id}` to view your permisssions!)')
+        embed.add_field(name="Permissions", value=f"[Hover over me](Use the command .perms {member.id} to check your perms". inline=True)
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
