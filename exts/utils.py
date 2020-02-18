@@ -30,7 +30,7 @@ class Utils(commands.Cog):
         embed.set_footer(text=f"User ID: {user.id}")
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(name='userinfo', aliases=["ui", "whois"])
     async def userinfo(self, ctx, member: discord.Member = None):
         '''Get member info
         Get the info of a user. Leave the command as is to check your own info.
@@ -72,7 +72,7 @@ class Utils(commands.Cog):
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
 
-    @commands.command()
+    @commands.command(name='serverinfo', aliases=["guildinfo", "gi", "si"])
     async def serverinfo(self, ctx, guild: discord.Guild = None):
         '''Get server info
         Get the info of a server.
