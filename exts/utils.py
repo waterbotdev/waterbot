@@ -75,7 +75,7 @@ class Utils(commands.Cog):
         elif member.status == discord.Status.dnd:
             status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
-            status = "<:Invisible:668360216491982858> Invisible/Offline"
+            status = "<:wohooo:679575680597360646> Invisible/Offline"
         embed.add_field(name="Permissions", value=f"`.perms {member.id}`", inline=True)
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
@@ -106,9 +106,7 @@ class Utils(commands.Cog):
                 pass
             else:
                 roles.append(role.mention)
-        embed.add_field(name="Roles",
-                        value=f"Too many roles ({len(roles)})" if len(roles) > 20 else ", ".join(roles),
-                        inline=True)
+        embed.add_field(name="Roles", value=", ".join(roles), inline=True)
         categories = []
         for category in guild.categories:
             categories.append(category.name)
