@@ -217,6 +217,11 @@ async def on_command_error(ctx, error):
     elif isinstance(error, commands.BadArgument):
         await ctx.send(f'Bad Argument. Check your command and try again.\n Full error: ```\n{error}```')
 
+    elif isinstance(error, commands.CommandNotFound):
+        await bot.get_channel(675329366309208074).send('<@397029587965575170>\n'
+                                                       'CommandNotFound\n'
+                                                       f'Dipshit to detention: {ctx.author.id} ({ctx.author.name})')
+
     embed = discord.Embed(title='Error', description=f'```\n{error}```')
     embed.add_field(name='Server', value=f'{ctx.guild.name} ({ctx.guild.id})', inline=False)
     embed.add_field(name='User Responsible', value=f'{ctx.author.id} ({ctx.author.name})', inline=False)
