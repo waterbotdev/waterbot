@@ -62,7 +62,7 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(manage_messages=True, manage_roles=True)
     @commands.command(name='mute')
-    async def mute(self, ctx, users: commands.Greedy[discord.Member], reason: str = "No Reason Given."):
+    async def mute(self, ctx, users: commands.Greedy[discord.Member], duration: str = '30m', reason: str = "No Reason Given."):
         '''Mute a user
         Mute a user to their mute jail cell\\nWho told them to misbehave, do this when you need to, but not abuse it.
         mute <user> [Reason]
@@ -74,7 +74,7 @@ class Mod(commands.Cog):
             mute = discord.utils.get(ctx.guild.roles, name="muted")
         async with ctx.channel.typing():
             for i in users:
-                i.add_roles(mute, reason=reason)
+                await i.add_roles(mute, reason=reason)
         embed = discord.Embed(title='User(s) muted.')
         await ctx.send(embed=embed)
 
@@ -84,7 +84,7 @@ class Mod(commands.Cog):
     #     ## DISABLED
 
     @commands.has_permissions(manage_messages=True)
-    @commands.command(name='prune', aliases=['remove', 'clear'])
+    @commands.command(name='prune', aliases=['remove', 'clear', 'purge'])
     async def prune(self, ctx, amount: int, members: commands.Greedy[discord.Member] = None):
         '''Clear messages
         Clear a number of messages, either globally or just from a user.
@@ -122,9 +122,9 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[Member], delete_days: int = 1, *, reason: str = "None"):
+    async def ban(self, ctx, members: commands.Greedy[Member], delete_days: str = '1d', *, reason: str = "None"):
         '''Ban users
-        Mass bans members with a delete_days parameter
+        Mass bans members with a delete_days parameter.\\n**HOW TO USE THE DELETE_DAYS PARAMETER**:\\n #y#mo#w#h#m#s (i.e. 3y for 3 years, 2mo3h14m for 2 months, 3 hours and 14 minutes) \\ny=Year mo=Month w=Week h=Hour m=Minute s=Second
         ban <member pings/ids> <delete days> <reason>
         Ban members'''
         member = ""

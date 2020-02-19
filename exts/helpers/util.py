@@ -7,11 +7,21 @@ from enum import Enum
 class TimeHelper:
     '''Useful module for converting times and shit.
     '''
+    @staticmethod
+    def str_to_sec(tst):
+        '''
+        Converts Half-readable text format into seconds
+
+        :param tst: Text time format (#y#mo#w#h#m#s) (No space)
+        :return: seconds[int]
+        '''
+
 
     @staticmethod
     def sec_to_str(sec):
         '''
         Convert Seconds to readable text format
+
         :param sec: Seconds
         :return:
         '''
@@ -49,6 +59,7 @@ class DB:
     def addlog(uid: int, timestamp: int, item: str, description: str, modrid: int, end: int=None):
         '''
         Add a log object to the json database
+
         :param uid: User ID.
         :param timestamp: The timestamp that the item is recorded.
         :param item: The item that user infracted(mute, kick, ban, warn)
@@ -87,10 +98,11 @@ class DB:
     def addmute(uid: int, seconds: int, reason: str):
         '''
         Add a mute record for a user
+
         :param uid: User ID
         :param seconds: Seconds for the mute(either calculated by hand/code or by TimeHelper.tosec()
         :param reason: Reason to be muted
-        :return:None
+        :return: None
         '''
         file = open(DbS.MUTES.value, 'r')
         mutes = json.load(file)
