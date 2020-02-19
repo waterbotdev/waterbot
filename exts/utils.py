@@ -44,7 +44,7 @@ class Utils(commands.Cog):
         # roles = roles.remove(roles[0])
         # roles.remove(0)
         embed = discord.Embed(color=0x36393f, timestamp=ctx.message.created_at)
-        embed.set_author(name=f"User Information - {member.name}")
+        # embed.set_author(name=f"User Information - {member.name}")
         embed.set_thumbnail(url=member.avatar_url)
         embed.add_field(name="Statisctics",
                         value=f"Joined at: `{member.joined_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`\n"
