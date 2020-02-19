@@ -4,7 +4,7 @@
 
 An all-in-one Discord.py bot, simple, funny, but robust.
 
-~~Remember to stay hydrated to use this bot!~~
+~~Remember to stay hydrated!~~
 
 This bot comes with funny features! Check them out at the docs, or do `.h` in the bot's DM!
 
