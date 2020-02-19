@@ -51,12 +51,12 @@ class Utils(commands.Cog):
                               f"Created At: `{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`",
                         inline=False)
         embed.add_field(name="User ID:", value=member.id, inline=True)
-        embed.add_field(name="Nickname", value=member.name, inline=True)
+        # embed.add_field(name="Nickname", value=member.name, inline=True)
         embed.add_field(name="Discriminator", value=member.discriminator, inline=True)
         embed.add_field(name="Is Bot User?", value=member.bot)
         embed.add_field(name="Activity", value=member.activity.name, inline=True)
         embed.add_field(name="Animated Avatar", value=member.is_avatar_animated(), inline=True)
-        embed.add_field(name="Avatar URL", value=f"[Click here]({ctx.author.avatar_url})", inline=True)
+        embed.add_field(name="Avatar URL", value=f"[Click here]({member.avatar_url})", inline=True)
         roles = []
         for role in member.roles:
             if role.name == "@everyone":

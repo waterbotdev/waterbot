@@ -7,8 +7,9 @@ import logging
 import requests
 import platform
 import datetime
+import traceback
+
 from cryptography.fernet import Fernet
-# import traceback
 
 from time import sleep
 from discord.ext import commands
@@ -217,6 +218,7 @@ async def on_command_error(ctx, error):
         await ctx.send(f'Bad Argument. Check your command and try again.\n Full error: ```\n{error}```')
 
     embed = discord.Embed(title='Error', description=f'```\n{error}```')
+    embed.add_field(name='Traceback', value=f'```py\n{traceback.format_exc()}```')
     embed.add_field(name='Server', value=f'{ctx.guild.name} ({ctx.guild.id})', inline=False)
     embed.add_field(name='User Responsible', value=f'{ctx.author.id} ({ctx.author.name})', inline=False)
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed)
