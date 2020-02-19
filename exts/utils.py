@@ -106,7 +106,9 @@ class Utils(commands.Cog):
                 pass
             else:
                 roles.append(role.mention)
-        embed.add_field(name="Roles", value=", ".join(roles), inline=True)
+        embed.add_field(name="Roles",
+                        value=f"Too many roles ({len(roles)})" if len(roles) > 20 else ", ".join(roles),
+                        inline=True)
         categories = []
         for category in guild.categories:
             categories.append(category.name)
