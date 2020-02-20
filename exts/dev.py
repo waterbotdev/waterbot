@@ -160,7 +160,7 @@ class Dev(commands.Cog):
                 ret = await func()
         except Exception as e:
             value = stdout.getvalue()
-            await ctx.send(f'```py\n{value}{traceback.format_exc()}```')
+            return await ctx.send(f'```py\n{value}{traceback.format_exc()}```')
         else:
             value = stdout.getvalue()
             try:
