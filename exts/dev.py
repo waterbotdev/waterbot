@@ -131,7 +131,7 @@ class Dev(commands.Cog):
                     name='Major outage' if text is not None else f'Outage: {text}'))
 
     # AUTHOR: RAPPTZ
-    @commands.command()
+    @commands.command(name="eval")
     async def _eval(self, ctx, *, code: str):
         '''Eval code
         Evaluate code.
