@@ -2,6 +2,7 @@ import json
 import discord
 from discord.ext import commands, tasks
 from .helpers.util import *
+
 botconf = json.load(open('configs/config.json'))
 
 
@@ -14,7 +15,8 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(manage_messages=True, manage_roles=True)
     @commands.command(name='mute')
-    async def mute(self, ctx, users: commands.Greedy[discord.Member], duration: str = '30m', reason: str = "No Reason Given."):
+    async def mute(self, ctx, users: commands.Greedy[discord.Member], duration: str = '30m',
+                   reason: str = "No Reason Given."):
         '''Mute a user
         Mute a user to their mute jail cell\\nWho told them to misbehave, do this when you need to, but not abuse it.
         mute <user> [Reason]
@@ -74,7 +76,8 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[Converters.Member], delete_days: str = '1d', *, reason: str = "None"):
+    async def ban(self, ctx, members: commands.Greedy[Converters.Member], delete_days: str = '1d', *,
+                  reason: str = "None"):
         '''Ban users
         Mass bans members with a delete_days parameter.\\n**HOW TO USE THE DELETE_DAYS PARAMETER**:\\n #y#mo#w#h#m#s (i.e. 3y for 3 years, 2mo3h14m for 2 months, 3 hours and 14 minutes) \\ny=Year mo=Month w=Week h=Hour m=Minute s=Second
         ban <member pings/ids> <delete days> <reason>
@@ -107,7 +110,42 @@ class Mod(commands.Cog):
             await i.kick(reason=f'Responsible user: {ctx.author}|reason: {reason}')
         await ctx.send(f"{ctx.author} Successfully kicked {len(members)}(`{membs}`)  member(s), with reason {reason}")
 
-    # LOOPING TASKS
+    @commands.has_permissions(manage_roles=True)
+    @commands.command(name='addrole', aliases=['addrole'])
+    async def addrole(self, ctx, users: commands.Greedy[discord.Member], rolename: str):
+        '''Add a role to user
+        Adds a role to users, with id/ping.
+        addrole <user mentions> <said role's **name**>'''
+        role = discord.utils.find(lambda a: a.name == rolename, ctx.guild.roles)
+        success = []
+        failed = []
+        if len(users) == 0:
+            return await ctx.send('')
+        if role is None:
+            return await ctx.send('Role not found. Please check your spellings and try again. It is CaSe-SeNsItIvE!')
+        async with ctx.channel.typing():
+            for i in users:
+                try:
+                    await i.add_roles(role)
+                except Exception as e:
+                    failed.append(i.mention + " ")
+                else:
+                    success.append(i.mention + " ")
+
+        sstr, fstr = "", ""
+        for i in success:
+            sstr += i
+        for i in failed:
+            fstr += i
+        embed = discord.Embed(title=f'Added roles for {len(success)} user(s)', description=f'Role: {role.name}')
+        if len(success) != 0:
+            embed.add_field(name='Successfully added for', value=sstr)
+        if len(failed) != 0:
+            embed.add_field(name='Failed to add for', value=fstr)
+        await ctx.send(embed=embed)
+
+    # LOOPING TASKS #
+
     @tasks.loop(seconds=10)
     async def unmuteloop(self):
         '''Check if any users is ok for unmuting.

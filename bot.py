@@ -124,38 +124,25 @@ async def on_member_remove(member):
                                                                        f'Messag: {e}')
 
 
-@Check.is_dev()
-@bot.command()
-async def reload(ctx):
-    '''Reload all extensions
-    Usage: reload
-    '''
-    log = ""
-    for i in cogs:
-        try:
-            print(f'Unloaded extension {i}')
-            bot.unload_extension(i)
-            log += f'Unloaded extension {i}\n'
-        except Exception as e:
-            print(e)
-            pass
-        bot.load_extension(i)
-        print(f'Loaded extension {i}')
-    await ctx.send(log)
+# @Check.is_dev()
+# @bot.command()
+# async def reload(ctx):
+#     '''Reload all extensions
+#     Usage: reload
+#     '''
+#     log = ""
+#     for i in cogs:
+#         try:
+#             print(f'Unloaded extension {i}')
+#             bot.unload_extension(i)
+#             log += f'Unloaded extension {i}\n'
+#         except Exception as e:
+#             print(e)
+#             pass
+#         bot.load_extension(i)
+#         print(f'Loaded extension {i}')
+#     await ctx.send(log)
 
-
-# @bot.event
-# async def on_command_error(ctx, error):
-#     embed = discord.Embed(title='Recieved error!',
-#                           description=f'```python\n'
-#                                       f'{error}```')
-#     embed.add_field(name='Server', value=f'```{ctx.guild.id} ({ctx.guild.name})```', inline=False)
-#     embed.add_field(name='User', value=f'```{ctx.author.id}```', inline=False)
-#     # trace = ""
-#     # for i in traceback.format_stack():
-#     #     trace += i
-#     # embed.add_field(name='Traceback', value=f'```{trace}```')
-#     await bot.get_channel(675329366309208074).send(embed=embed)
 
 # noinspection DuplicatedCode
 @bot.event
