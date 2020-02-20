@@ -145,6 +145,25 @@ def can_execute_action(ctx, user, target):
     return user.id == ctx.bot.owner_id or user == ctx.guild.owner or user.top_role > target.top_role
 
 
+# AUTHOR: RAPPTZ
+def cleanup_code(content):
+    '''
+    Automatically remove code blocks from the code.
+
+    :param content: The object to clean up
+    :return: Cleaned up code
+    '''
+    if content.startswith('```') and content.endswith('```'):
+        return '\n'.join(content.split('\n')[1:-1])
+    
+    
+# AUTHOR: RAPPTZ
+def get_syntax_error(self, e):
+    if e.text is None:
+        return f'```py\n{e.__class__.__name__}: {e}\n```'
+    return f'```py\n{e.text}{"^":>{e.offset}}\n{e.__class__.__name__}: {e}```'
+
+
 async def resolve_member(guild, member_id):
     member = guild.get_member(member_id)
     if member is None:
@@ -181,12 +200,3 @@ class Converters:
             if not can_execute_action(ctx, ctx.author, m):
                 raise ModExceptions.HierarchyError('You cannot do this action on this user.')
             return m
-
-    class Channel(commands.Converter):
-        async def convert(self, ctx, argument):
-            channelo = None
-            if type(argument) == discord.channel.TextChannel:
-                channelo = argument
-            else:
-                channelo = ctx.channel
-            return channelo

@@ -1,5 +1,6 @@
 import discord
 import re
+from typing import Optional
 from .helpers.check import Checks
 from .helpers.util import Converters
 from discord.ext import commands
@@ -24,23 +25,14 @@ class Core(commands.Cog):
         await ctx.bot.change_presence(status=discord.Status.online, activity=game)
         await ctx.send(':ok_hand: Done.')
 
-    @activity.error
-    async def activityerror(self, ctx, error):
-        await ctx.send("Command errored.\n{}".format(error))
-
     @commands.command(name='say')
     @commands.has_permissions(manage_messages=True)
-    async def say(self, ctx, *, text):
+    async def say(self, ctx, channel: Optional[discord.TextChannel],  *, text):
         '''Make the bot say something
-        Self-explanatory, note that channel is not a required argument, so you can just do ``.say text here`` to send the text in the current channel, or ``.say #testchannel something here`` to send it to #testchannel.
+        Self-explanatory. Note that ``channel`` is not a required argument, so you can just do ``.say text here`` to send the text in the current channel, or ``.say #testchannel something here`` to send it to #testchannel.
         say [channel] <text>
         Manage Messages'''
         await ctx.send(text)
-
-    # Error handler of the say command
-    @say.error
-    async def sayerror(self, ctx, error):
-        await ctx.send(f"Command errored.\n{error}")
 
     @commands.has_permissions(manage_messages=True)
     @commands.command()
