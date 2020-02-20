@@ -9,3 +9,8 @@ An all-in-one Discord.py bot, simple, funny, but robust.
 This bot comes with funny features! Check them out at the docs, or do `.h` in the bot's DM!
 
 This project started at December 2019. 
+
+## Links
+[Website](https://waterbotdev.github.io)
+
+[Docs](https://waterbotdev.github.io/docs)
