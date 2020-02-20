@@ -111,7 +111,7 @@ class Mod(commands.Cog):
         await ctx.send(f"{ctx.author} Successfully kicked {len(members)}(`{membs}`)  member(s), with reason {reason}")
 
     @commands.has_permissions(manage_roles=True)
-    @commands.command(name='addrole', aliases=['addrole'])
+    @commands.command(name='addrole', aliases=['adrole'])
     async def addrole(self, ctx, users: commands.Greedy[discord.Member], rolename: str):
         '''Add a role to user
         Adds a role to users, with id/ping.
