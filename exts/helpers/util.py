@@ -139,6 +139,7 @@ class DB:
                 raise DBExceptions.ConfigNotFoundError(f'Config entry for guild {gid} does not exist.')
         return config
 
+
 def can_execute_action(ctx, user, target):
     #      ||         is_Owner         ||      is_Guild_Owner     ||           RoleHigher          |
     return user.id == ctx.bot.owner_id or user == ctx.guild.owner or user.top_role > target.top_role

@@ -88,7 +88,8 @@ cogs = [
     'exts.fun',
     'exts.utils',
     'exts.dev',
-    'exts.mod'
+    'exts.mod',
+    'exts.guilds'
 ]
 if __name__ == '__main__':
     for cog in cogs:

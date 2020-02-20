@@ -18,6 +18,10 @@ class GuildConfig(commands.Cog):
         await ctx.send(f'This command is a work in progress. Check back in a while.\n '
                        f'{json}')
 
+    @commands.group(name='setting', invoke_without_command=True)
+    async def setting(self, ctx):
+        '''Base'''
+
 
 def setup(bot):
     bot.add_cog(GuildConfig(bot))
