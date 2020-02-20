@@ -154,7 +154,7 @@ class Dev(commands.Cog):
         except Exception as e:
             return await ctx.send(f'```py\n{e}\n```')
 
-        func = env["func"]
+        func = env["__f"]
         try:
             with redirect_stdout(stdout):
                 ret = await func()
