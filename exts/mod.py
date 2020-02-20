@@ -1,56 +1,8 @@
 import json
 import discord
 from discord.ext import commands, tasks
-
+from .helpers.util import *
 botconf = json.load(open('configs/config.json'))
-
-
-# Exceptions
-class ModExceptions:
-    class MemberNotFound(Exception):
-        pass
-
-
-# Converters?
-
-def can_execute_action(ctx, user, target):
-    #      ||         is_Owner         ||      is_Guild_Owner     ||           RoleHigher          |
-    return user.id == ctx.bot.owner_id or user == ctx.guild.owner or user.top_role > target.top_role
-
-
-async def resolve_member(guild, member_id):
-    member = guild.get_member(member_id)
-    if member is None:
-        if guild.chunked:
-            raise ModExceptions.MemberNotFound()
-        try:
-            member = await guild.fetch_member(member_id)
-        except discord.NotFound:
-            raise ModExceptions.MemberNotFound() from None
-    return member
-
-
-class Member(commands.Converter):
-    async def convert(self, ctx, argument):
-        member_id = ""
-        try:
-            m = await commands.MemberConverter().convert(ctx, argument)
-        except commands.BadArgument:
-            try:
-                member_id = int(argument, base=10)
-                m = await resolve_member(ctx.guild, member_id)
-            except ValueError:
-                raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
-            except ModExceptions.MemberNotFound:
-                return type('IDUser', (), {
-                    'id': member_id,
-                    '__str__': lambda s: f'Member ID {s.id}',
-                    'mention': f'<@{member_id}>',
-                    '__type__': 'IDUser'
-                })()
-        if not can_execute_action(ctx, ctx.author, m):
-            raise commands.BadArgument('You cannot do this action on this user due to role hierarchy.')
-        return m
 
 
 # noinspection PyShadowingNames
@@ -122,7 +74,7 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(ban_members=True)
     @commands.command(name='ban')
-    async def ban(self, ctx, members: commands.Greedy[Member], delete_days: str = '1d', *, reason: str = "None"):
+    async def ban(self, ctx, members: commands.Greedy[Converters.Member], delete_days: str = '1d', *, reason: str = "None"):
         '''Ban users
         Mass bans members with a delete_days parameter.\\n**HOW TO USE THE DELETE_DAYS PARAMETER**:\\n #y#mo#w#h#m#s (i.e. 3y for 3 years, 2mo3h14m for 2 months, 3 hours and 14 minutes) \\ny=Year mo=Month w=Week h=Hour m=Minute s=Second
         ban <member pings/ids> <delete days> <reason>

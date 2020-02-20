@@ -1,5 +1,8 @@
-import datetime
 import json
+import datetime
+
+import discord
+from discord.ext import commands
 
 from enum import Enum
 
@@ -7,6 +10,7 @@ from enum import Enum
 class TimeHelper:
     '''Useful module for converting times and shit.
     '''
+
     @staticmethod
     def str_to_sec(tst):
         '''
@@ -15,7 +19,6 @@ class TimeHelper:
         :param tst: Text time format (#y#mo#w#h#m#s) (No space)
         :return: seconds[int]
         '''
-
 
     @staticmethod
     def sec_to_str(sec):
@@ -56,7 +59,7 @@ class DB:
     '''Database commands'''
 
     @staticmethod
-    def addlog(uid: int, timestamp: int, item: str, description: str, modrid: int, end: int=None):
+    def addlog(uid: int, timestamp: int, item: str, description: str, modrid: int, end: int = None):
         '''
         Add a log object to the json database
 
@@ -68,7 +71,7 @@ class DB:
         :param end:
         :return: None
         '''
-        types = ['warn','mute','kick','tempban','ban']
+        types = ['warn', 'mute', 'kick', 'tempban', 'ban']
         if item not in types:
             raise TypeError(f'Type {item} is not in the acceptable '
                             f'list.')
@@ -87,12 +90,11 @@ class DB:
         if item == 'mute':
             if end is None:
                 raise TypeError('"end" parameter does not have a value when using "mute" type')
-            logs[uid][len(logs[uid])-1]['desc']['start'] = timestamp
-            logs[uid][len(logs[uid])-1]['desc']['end'] = timestamp + end
-        elif item == 'tempban':
-            logs[uid][len(logs[uid]-1)]['desc']['start'] = timestamp
+            logs[uid][len(logs[uid]) - 1]['desc']['start'] = timestamp
             logs[uid][len(logs[uid]) - 1]['desc']['end'] = timestamp + end
-
+        elif item == 'tempban':
+            logs[uid][len(logs[uid] - 1)]['desc']['start'] = timestamp
+            logs[uid][len(logs[uid]) - 1]['desc']['end'] = timestamp + end
 
     @staticmethod
     def addmute(uid: int, seconds: int, reason: str):
@@ -108,3 +110,63 @@ class DB:
         mutes = json.load(file)
         mutes['uid'] = datetime.datetime.now().timestamp() + seconds
 
+
+# Exceptions
+class ModExceptions:
+    class MemberNotFound(Exception):
+        pass
+
+    class HierarchyError(Exception):
+        pass
+
+
+def can_execute_action(ctx, user, target):
+    #      ||         is_Owner         ||      is_Guild_Owner     ||           RoleHigher          |
+    return user.id == ctx.bot.owner_id or user == ctx.guild.owner or user.top_role > target.top_role
+
+
+async def resolve_member(guild, member_id):
+    member = guild.get_member(member_id)
+    if member is None:
+        if guild.chunked:
+            raise ModExceptions.MemberNotFound()
+        try:
+            member = await guild.fetch_member(member_id)
+        except discord.NotFound:
+            raise ModExceptions.MemberNotFound() from None
+    return member
+
+
+class Converters:
+    # Converters
+
+    class Member(commands.Converter):
+        async def convert(self, ctx, argument):
+            member_id = ""
+            try:
+                m = await commands.MemberConverter().convert(ctx, argument)
+            except commands.BadArgument:
+                try:
+                    member_id = int(argument, base=10)
+                    m = await resolve_member(ctx.guild, member_id)
+                except ValueError:
+                    raise commands.BadArgument(f"{argument} is not a valid member or member ID.") from None
+                except ModExceptions.MemberNotFound:
+                    return type('IDUser', (), {
+                        'id': member_id,
+                        '__str__': lambda s: f'Member ID {s.id}',
+                        'mention': f'<@{member_id}>',
+                        '__type__': 'IDUser'
+                    })()
+            if not can_execute_action(ctx, ctx.author, m):
+                raise ModExceptions.HierarchyError('You cannot do this action on this user.')
+            return m
+
+    class Channel(commands.Converter):
+        async def convert(self, ctx, argument):
+            channelo = None
+            if type(argument) == discord.channel.TextChannel:
+                channelo = argument
+            else:
+                channelo = ctx.channel
+            return channelo

@@ -1,6 +1,7 @@
 import discord
 import re
 from .helpers.check import Checks
+from .helpers.util import Converters
 from discord.ext import commands
 
 
@@ -31,8 +32,8 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def say(self, ctx, *, text):
         '''Make the bot say something
-        Self-explanatory
-        say <text>
+        Self-explanatory, note that channel is not a required argument, so you can just do ``.say text here`` to send the text in the current channel, or ``.say #testchannel something here`` to send it to #testchannel.
+        say [channel] <text>
         Manage Messages'''
         await ctx.send(text)
 
