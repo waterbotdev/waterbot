@@ -14,7 +14,7 @@ from cryptography.fernet import Fernet
 from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as Check
-from exts.helpers.util import DB
+from exts.helpers.util import DB, DBExceptions
 
 # Configurations
 logging.basicConfig(level=logging.INFO)
@@ -39,8 +39,13 @@ token = os.environ["WATER_TOKEN"]
 
 
 def get_prefix(client, message):
-    '''Bullshit prefuix shit shit command'''
-    # TODO
+    default = '.'
+    try:
+        config = DB.get_guild_config(message.guild.id)
+    except DBExceptions.ConfigNotFoundError:
+        return default
+    else:
+        return config['prefix']
 
 
 bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
