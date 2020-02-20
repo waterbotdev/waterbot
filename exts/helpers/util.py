@@ -132,7 +132,7 @@ class DB:
         '''
         config = ""
         with open(DbS.GUILDS.value, 'r') as c:
-            conf = c.read()
+            conf = json.load(c)
             try:
                 config = conf[gid]
             except KeyError:
