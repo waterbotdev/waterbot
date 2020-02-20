@@ -54,6 +54,17 @@ class DbS(Enum):
     LOGS = 'dbs/logs.json'
     GUILDS = 'dbs/guild.json'
 
+# Exceptions
+class ModExceptions:
+    class MemberNotFound(Exception):
+        pass
+
+    class HierarchyError(Exception):
+        pass
+
+class DBExceptions:
+    class ConfigNotFoundError(Exception):
+        pass
 
 class DB:
     '''Database commands'''
@@ -110,15 +121,23 @@ class DB:
         mutes = json.load(file)
         mutes['uid'] = datetime.datetime.now().timestamp() + seconds
 
+    @staticmethod
+    def get_guild_config(gid: int):
+        '''
+        Get the configurations for a guild. This will somehow make life easier.
 
-# Exceptions
-class ModExceptions:
-    class MemberNotFound(Exception):
-        pass
-
-    class HierarchyError(Exception):
-        pass
-
+        :param gid: Guild ID
+        :return: guildconfig[dict]
+        :exception ConfigNotFoundError: The config file for the guild is no found.
+        '''
+        config = ""
+        with open(DbS.GUILDS.value, 'r') as c:
+            conf = c.read()
+            try:
+                config = conf[gid]
+            except KeyError:
+                raise DBExceptions.ConfigNotFoundError(f'Config entry for guild {gid} does not exist.')
+        return config
 
 def can_execute_action(ctx, user, target):
     #      ||         is_Owner         ||      is_Guild_Owner     ||           RoleHigher          |

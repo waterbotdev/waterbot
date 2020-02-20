@@ -14,6 +14,7 @@ from cryptography.fernet import Fernet
 from time import sleep
 from discord.ext import commands
 from exts.helpers.check import Checks as Check
+from exts.helpers.util import DB
 
 # Configurations
 logging.basicConfig(level=logging.INFO)
@@ -36,7 +37,17 @@ except FileNotFoundError:
 
 token = os.environ["WATER_TOKEN"]
 
-bot = commands.Bot(command_prefix='.')
+
+def get_prefix(client, message):
+    '''Bullshit prefuix shit shit command'''
+    # TODO
+
+
+bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
+    513603936033177620,  # Firebot
+    397029587965575170,  # Earthbot
+    521656100924293141,  # Pussybot
+    374047038926618624])  # Windbot
 bot.remove_command('help')
 
 print('Sleeping 10 seconds to prevent discord from thinking we\'re ddosing their server.')

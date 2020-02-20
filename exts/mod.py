@@ -112,13 +112,15 @@ class Mod(commands.Cog):
 
     @commands.has_permissions(manage_roles=True)
     @commands.command(name='addrole', aliases=['adrole'])
-    async def addrole(self, ctx, users: commands.Greedy[discord.Member], rolename: str):
+    async def addrole(self, ctx, users: commands.Greedy[discord.Member], *, rolename: str = None):
         '''Add a role to user
         Adds a role to users, with id/ping.
         addrole <user mentions> <said role's **name**>'''
         role = discord.utils.find(lambda a: a.name == rolename, ctx.guild.roles)
         success = []
         failed = []
+        if rolename is None:
+            return await ctx.send('You may want to re-evaluate your life choices and input a role name for me to add.')
         if len(users) == 0:
             return await ctx.send('')
         if role is None:
@@ -131,7 +133,6 @@ class Mod(commands.Cog):
                     failed.append(i.mention + " ")
                 else:
                     success.append(i.mention + " ")
-
         sstr, fstr = "", ""
         for i in success:
             sstr += i
