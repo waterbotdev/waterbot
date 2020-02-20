@@ -124,7 +124,7 @@ class Core(commands.Cog):
                 embed = discord.Embed(title=f"Help for command `{command}`", colour=0xa12ba1,
                                       timestamp=ctx.message.created_at)
                 embed.add_field(name="Short Description", value=doc[0], inline=False)
-                embed.add_field(name="Usage", value=ctx.bot.command_prefix + doc[2], inline=False)
+                embed.add_field(name="Usage", value=ctx.bot.get_prefix(ctx.message) + doc[2], inline=False)
                 embed.add_field(name="Description", value=re.sub('\\\\n', '\n', doc[1]), inline=False)
                 embed.add_field(name="Command Checks", value=doc[3], inline=False)
             await ctx.send(embed=embed)
@@ -150,7 +150,7 @@ class Core(commands.Cog):
                 if i.cog_name not in cmds:
                     cmds[i.cog_name] = []
                     cmds[i.cog_name + '_des'] = i.cog.description
-                cmds[i.cog_name].append(ctx.bot.command_prefix + i.name)
+                cmds[i.cog_name].append(ctx.bot.get_prefix(ctx.message) + i.name)
         if cogr not in cmds:
             return await ctx.send(embed=discord.Embed(description=f"No such category({cogr}).", colour=0xff5555))
         else:
