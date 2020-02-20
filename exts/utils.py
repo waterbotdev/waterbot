@@ -75,7 +75,7 @@ class Utils(commands.Cog):
         elif member.status == discord.Status.dnd:
             status = "<:dnd:673084189066657792> Do Not Disturb"
         elif member.status == discord.Status.offline:
-            status = "<:Invisible:668360216491982858> Invisible/Offline"
+            status = "<:offline:679576979800064141> Invisible/Offline"
         embed.add_field(name="Permissions", value=f"`.perms {member.id}`", inline=True)
         embed.add_field(name="Status", value=status)
         await ctx.send(embed=embed)
