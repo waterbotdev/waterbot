@@ -131,7 +131,7 @@ class Dev(commands.Cog):
                     name='Major outage' if text is not None else f'Outage: {text}'))
 
     # AUTHOR: RAPPTZ
-    @commands.command()
+    @commands.command(name="eval")
     async def _eval(self, ctx, *, code: str):
         '''Eval code
         Evaluate code.
@@ -154,13 +154,13 @@ class Dev(commands.Cog):
         except Exception as e:
             return await ctx.send(f'```py\n{e}\n```')
 
-        func = env["func"]
+        func = env["__f"]
         try:
             with redirect_stdout(stdout):
                 ret = await func()
         except Exception as e:
             value = stdout.getvalue()
-            await ctx.send(f'```py\n{value}{traceback.format_exc()}```')
+            return await ctx.send(f'```py\n{value}{traceback.format_exc()}```')
         else:
             value = stdout.getvalue()
             try:
