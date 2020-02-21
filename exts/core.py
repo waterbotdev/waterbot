@@ -96,7 +96,7 @@ class Core(commands.Cog):
             # Add fields
             for i in formlist:
                 temp = ""
-                embed.add_field(name=f'{i} module', value=f'`{" ".join(formlist[i])}`')
+                embed.add_field(name=f'{i} module', value=f'`{" ".join(formlist[i])}`', inline=False)
 
             await ctx.send(embed=embed)
         else:
