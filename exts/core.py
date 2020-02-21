@@ -80,43 +80,39 @@ class Core(commands.Cog):
     @commands.command(name="help", aliases=['h'])
     async def help(self, ctx, command: str = None):
         '''Help command
-        This command only include available extensions/cogs/categories, and in-depth explanations of the specified command.
+        This command only include available extensions/cogs, and in-depth explanations of the specified command.
         help [command name]
         Send messages'''
+        prefix = await ctx.bot.get_prefix(ctx.message)
         if command is None:
-            cognames = []
+            embed = discord.Embed(title='Available commands', color=0x0fffbb)
+            formlist = {}
+            # Get commands
             for i in ctx.bot.commands:
-                if i.cog_name not in cognames:
-                    cognames.append(i.cog_name)
-            out = "`"
-            for i in cognames:
-                out += f"{i}\n"
-            out += "`"
-            embed = discord.Embed(title="Waterbot Help",
-                                  description='Use .cmds <category name>` to get the available commands in a category',
-                                  colour=0xfffbb)
-            embed.add_field(name="Available modules of waterbot", value=out)
-            embed.set_footer(text="Remove `<>` and `[]`s when using a command.")
-            return await ctx.send(embed=embed)
+                if i.cog_name not in formlist:
+                    formlist[i.cog_name] = []
+                formlist[i.cog_name].append(f'{prefix}{i.name}')
+
+            # Add fields
+            for i in formlist:
+                temp = ""
+                embed.add_field(name=f'{i} module', value=f'`{" ".join(formlist[i])}`')
+
+            await ctx.send(embed=embed)
         else:
-            stat = 0
-            result = None
-            for i in ctx.bot.commands:
-                if i.name == command:
-                    # print('Searching command {command} in commands list (C: {})')
-                    stat = 1
-                    result = i
-                    break
-            if stat == 0:
+            result = discord.utils.find(lambda a: a.name == command, ctx.bot.commands)
+            if result is None:
                 return await ctx.send(embed=discord.Embed(
-                    description=f"No such command. ({command}) \nUse `.help` to list all available modules and use `.cmds <module name>` to check the available commands in that module.",
+                    description=f"No such command. ({command}) \n"
+                                f"Use `.help` to list all available modules and use `.cmds <module name>` "
+                                f"to check the available commands in that module.",
                     colour=0xff5555))
             else:
                 doc = result.help.splitlines()
                 embed = discord.Embed(title=f"Help for command `{command}`", colour=0xa12ba1,
                                       timestamp=ctx.message.created_at)
                 embed.add_field(name="Short Description", value=doc[0], inline=False)
-                embed.add_field(name="Usage", value=ctx.bot.get_prefix(ctx.message) + doc[2], inline=False)
+                embed.add_field(name="Usage", value=prefix + doc[2], inline=False)
                 embed.add_field(name="Description", value=re.sub('\\\\n', '\n', doc[1]), inline=False)
                 embed.add_field(name="Command Checks", value=doc[3], inline=False)
             await ctx.send(embed=embed)
@@ -136,13 +132,14 @@ class Core(commands.Cog):
         excluded = [
             'reload'
         ]
+        prefix = await ctx.bot.get_prefix(ctx.message)
         for i in ctx.bot.commands:
             if i.name not in excluded:
                 # print(f"Loading command {i}")
                 if i.cog_name not in cmds:
                     cmds[i.cog_name] = []
                     cmds[i.cog_name + '_des'] = i.cog.description
-                cmds[i.cog_name].append(ctx.bot.get_prefix(ctx.message) + i.name)
+                cmds[i.cog_name].append(prefix + i.name)
         if cogr not in cmds:
             return await ctx.send(embed=discord.Embed(description=f"No such category({cogr}).", colour=0xff5555))
         else:
