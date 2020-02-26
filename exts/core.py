@@ -67,14 +67,14 @@ class Core(commands.Cog):
         embed.add_field(name="Bot invite (normal)",
                         value="[Here](https://discordapp.com/api/oauth2/authorize?client_id=655262203309719552&permissions=2147483127&scope=bot)")
         embed.add_field(name="Guilds", value=f"{len(self.bot.guilds)}")
-        embed.add_field(name="Hate mails", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
+        embed.add_field(name="Feedback", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
         embed.add_field(name="Developers", value="**Waterbot is made by a bunch of hobby developers.\n"
                                                  "Here's a list of their names.**\n"
-                                                 "Creator: lindsey#2943 (374047038926618624)\n"
+                                                 "Creator: lindsey#0001 (374047038926618624) \n"
                                                  "Developers:\n"
-                                                 "```- Kenny_#2020    (397029587965575170)\n"
-                                                 "- Dragonic#3535  (513603936033177620)\n"
-                                                 "- appraiise#0004 (521656100924293141)```", inline=False)
+                                                 "```- Kenny_#2020    (397029587965575170) \n"
+                                                 "- Dragonic#3535  (513603936033177620) \n"
+                                                 "- appraiise#6117 (521656100924293141) ```", inline=False)
         await ctx.send(embed=embed)
 
     @commands.command(name="help", aliases=['h'])
