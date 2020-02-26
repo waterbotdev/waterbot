@@ -29,7 +29,7 @@ class Core(commands.Cog):
     @commands.has_permissions(manage_messages=True)
     async def say(self, ctx, channel: Optional[discord.TextChannel],  *, text):
         '''Make the bot say something
-        Self-explanatory. Note that ``channel`` is not a required argument, so you can just do ``.say text here`` to send the text in the current channel, or ``.say #testchannel something here`` to send it to #testchannel.
+        Self-explanatory. Note that ``channel`` is not a required argumment, so you can just do ``.say text here`` to send the text in the current channel, or ``.say #testchannel something here`` to send it to #testchannel.
         say [channel] <text>
         Manage Messages'''
         await ctx.send(text)
