@@ -70,7 +70,7 @@ class Core(commands.Cog):
         embed.add_field(name="Feedback", value="DM <@397029587965575170> or email waterbotmail@protonmail.com")
         embed.add_field(name="Developers", value="**Waterbot is made by a bunch of hobby developers.\n"
                                                  "Here's a list of their names.**\n"
-                                                 "Creator: lindsey#2943 (374047038926618624) \n"
+                                                 "Creator: lindsey#0001 (374047038926618624) \n"
                                                  "Developers:\n"
                                                  "```- Kenny_#2020    (397029587965575170) \n"
                                                  "- Dragonic#3535  (513603936033177620) \n"
