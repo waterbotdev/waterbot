@@ -178,5 +178,15 @@ class Fun(commands.Cog):
         await ctx.send(rancoin)
 #this is a test to see if pushing inside of vscode works now
 
+@commands.command()
+    async def fire(self, ctx):
+        '''Surprise...
+        Send messages'''
+        await @bot.event
+        async def on_message(message):
+            print(message)(embed=discord.Embed().set_image(
+            url='https://cdn.discordapp.com/attachments/672295118891384835/682056975022031002/external-content.duckduckgo.com.gif'))
+            await ctx.send('AAAAAAAAAAAAAAAAAAA FUCK FUCK FUCK FUCK AAAAAAAAAAAAAAAAAAAAAAAAA')
+
 def setup(bot):
     bot.add_cog(Fun(bot))
