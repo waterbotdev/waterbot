@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="ProjectId" id="1X16HRwMtd6bPWGparurDexbG9g" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\bots\tempbotditt" />
+      <recent name="C:\bots\waterbot\bot" />
+      <recent name="C:\bots\temp\" />
+      <recent name="C:\bots\waterbot\dbs" />
+      <recent name="C:\bots\waterbot\.pyinstaller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\bots\waterbot\.pyinstaller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="Drag event" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="" />
+      <created>1580201165644</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580201165644</updated>
+      <workItem from="1580201168716" duration="40000" />
+      <workItem from="1580201391785" duration="12333000" />
+      <workItem from="1580276627284" duration="25126000" />
+      <workItem from="1580441879064" duration="99000" />
+      <workItem from="1580442055091" duration="7634000" />
+      <workItem from="1580483311936" duration="21131000" />
+      <workItem from="1580810800920" duration="2801000" />
+      <workItem from="1580899465255" duration="36846000" />
+      <workItem from="1581040856588" duration="101411000" />
+      <workItem from="1581667224003" duration="49546000" />
+      <workItem from="1581863042771" duration="48123000" />
+      <workItem from="1582176291718" duration="204000" />
+      <workItem from="1582176986264" duration="221000" />
+      <workItem from="1582177345972" duration="904000" />
+    </task>
+    <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
+      <created>1581936531212</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581936531213</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.cmd" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/site" />
+    </ignored-roots>
+    <MESSAGE value="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="272" y="8" width="816" height="730" key="#Intentions" timestamp="1581151811144">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="272" y="8" width="816" height="730" key="#Intentions/0.0.1360.738@0.0.1360.738" timestamp="1581151811144" />
+    <state x="272" y="31" key="#JSON_Schema_Mappings" timestamp="1580201646763">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="272" y="31" key="#JSON_Schema_Mappings/0.0.1360.738@0.0.1360.738" timestamp="1580201646763" />
+    <state x="272" y="9" key="#Plugins" timestamp="1581949522452">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="272" y="9" key="#Plugins/0.0.1360.738@0.0.1360.738" timestamp="1581949522452" />
+    <state x="451" y="171" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581062023888">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="451" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1360.738@0.0.1360.738" timestamp="1581062023888" />
+    <state x="408" y="170" key="FileChooserDialogImpl" timestamp="1580484537461">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="408" y="170" key="FileChooserDialogImpl/0.0.1360.738@0.0.1360.738" timestamp="1580484537461" />
+    <state x="203" y="153" width="840" height="529" key="IDE.errors.dialog" timestamp="1581128802009">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="203" y="153" width="840" height="529" key="IDE.errors.dialog/0.0.1360.738@0.0.1360.738" timestamp="1581128802009" />
+    <state x="128" y="56" key="MergeDialog" timestamp="1581936491197">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="128" y="56" key="MergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1581936491197" />
+    <state x="393" y="80" key="MultipleFileMergeDialog" timestamp="1581936491213">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="393" y="80" key="MultipleFileMergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1581936491213" />
+    <state x="161" y="30" width="998" height="708" key="SettingsEditor" timestamp="1581864241077">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="161" y="30" width="998" height="708" key="SettingsEditor/0.0.1360.738@0.0.1360.738" timestamp="1581864241077" />
+    <state width="688" height="377" key="XDebugger.FullValuePopup" timestamp="1581003238910">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state width="688" height="377" key="XDebugger.FullValuePopup/0.0.1360.738@0.0.1360.738" timestamp="1581003238910" />
+    <state x="435" y="214" key="cloudConfig.PluginsDialog" timestamp="1580975533387">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="435" y="214" key="cloudConfig.PluginsDialog/0.0.1360.738@0.0.1360.738" timestamp="1580975533387" />
+    <state x="435" y="214" key="cloudConfig.SelfSettingsDialog" timestamp="1580975556525">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="435" y="214" key="cloudConfig.SelfSettingsDialog/0.0.1360.738@0.0.1360.738" timestamp="1580975556525" />
+    <state x="200" y="77" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1" timestamp="1580276964167">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="200" y="77" key="com.intellij.execution.console.ConsoleHistoryController$MyBrowseAction$1/0.0.1360.738@0.0.1360.738" timestamp="1580276964167" />
+    <state x="388" y="197" width="809" height="520" key="com.intellij.ide.util.TipDialog" timestamp="1580276656957">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="388" y="197" width="809" height="520" key="com.intellij.ide.util.TipDialog/0.0.1360.738@0.0.1360.738" timestamp="1580276656957" />
+    <state x="359" y="74" width="586" height="646" key="find.popup" timestamp="1580286375183">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="359" y="74" width="586" height="646" key="find.popup/0.0.1360.738@0.0.1360.738" timestamp="1580286375183" />
+    <state x="343" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1580303010532">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="343" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1360.738@0.0.1360.738" timestamp="1580303010532" />
+  </component>
+</project>

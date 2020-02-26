@@ -96,13 +96,6 @@ if __name__ == '__main__':
         bot.load_extension(cog)
 
 
-def is_dev():
-    async def predicate(ctx):
-        return ctx.author.id in botConfig["developers"]
-
-    return commands.check(predicate)
-
-
 @bot.event
 async def on_member_join(member):
     for i in guildconf:
@@ -174,7 +167,7 @@ async def on_command_error(ctx, error):
             count += 1
         if isinstance(error, commands.MissingPermissions):
             await ctx.send(embed=discord.Embed(
-                title='Command errored',
+                title='Command errored',  
                 description=f'**You do not have permissions to run this command.**\n'
                             f'The permissions missing: ```{error.missing_perms}```'
             ))

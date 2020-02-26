@@ -2,12 +2,6 @@
 __pycache__/
 configs/credentials.json
 
-# Visual Studio Code
-.vscode/
-
-# JetBrains stuff
-.idea/
-
 # PyInstaller Shit
 build/
 dist/

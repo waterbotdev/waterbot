@@ -1,5 +1,6 @@
 import io
 import json
+import random
 import asyncio
 import discord
 import inspect
@@ -306,6 +307,45 @@ class Dev(commands.Cog):
             await ctx.bot.user.edit(avatar=data)
             r.close()
         await ctx.send('Changed pfp!')
+        
+    @commands.group(invoke_without_command=True)
+    async def devutils(self, ctx):
+        '''Developer Utilities
+        Utilities for developers, just for testing only.
+        [devutils|devut] [subcommand]
+        Developers only'''
+        sbc = ""
+        sbc += "`unbanall`: Unban everyone in the server. Takes a long time. Requires confirmation."
+        await ctx.send(embed=discord.Embed(title='Subcommands of `devutils`', description=sbc, color=0x4b80e6))
+
+    @commands.has_permissions(ban_members=True)
+    @devutils.command()
+    async def unbanall(self, ctx):
+        '''Unban all users.
+        **DANGER!!!!!!** THIS ACTION IS IRREVERSABLE, ANY BANNED USERS WILL BE UNBANNED AND THERE WILL BE NO WAY OF UNBANNING THE USERS. PLEASE CONSIDER YOUR ACTION SERIOUSLY.
+        devutils unbanall
+        Developers only (Ban user permissions extra)'''
+        chars = [i for i in 'qwertyuiopasdfghjklzxcvbnm1234567890']
+        validator = ""
+        for i in range(random.randint(10, 20)):
+            validator += random.choice(chars)
+        await ctx.send('By running this script you acknowledge that this action is irreversable and you bear the full '
+                       'responsibility of either accidentally or purposedly running this script. If you are a normal'
+                       'user that is not a developer of waterbot, please report this to the support server as this'
+                       'command should be developers only. If you acknowledge  what you are doing, please send the '
+                       f'following verification failsafe code to confirm.\n **VERIFICATION**: '
+                       f'``{validator}``')
+        messageq = await self.bot.wait_for('message', check=lambda a: a.id == ctx.author.id)
+        if messageq.content != validator:
+            await ctx.send('The code is incorrect. The action will now be cancelled.')
+            return
+        count = 0
+        bans = await ctx.guild.bans()
+        async with ctx.channel.typing():
+            for i in bans:
+                ctx.guild.unban(i)
+                count += 1
+        await ctx.send(embed=discord.Embed(description='{count} user(s) unbanned.'))
 
 
 def setup(bot):

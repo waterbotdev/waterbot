@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 83, in wrapped
+    ret = await coro(*args, **kwargs)
+  File "C:\bots\waterbot\bot\exts\dev.py", line 330, in unbanall
+    validator += random.choices(chars)
+TypeError: can only concatenate str (not "list") to str
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\bot.py", line 892, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 1234, in invoke
+    await ctx.invoked_subcommand.invoke(ctx)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 797, in invoke
+    await injected(*ctx.args, **ctx.kwargs)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 92, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: can only concatenate str (not "list") to str
