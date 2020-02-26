@@ -74,7 +74,7 @@ class Core(commands.Cog):
                                                  "Developers:\n"
                                                  "```- Kenny_#2020    (397029587965575170) \n"
                                                  "- Dragonic#3535  (513603936033177620) \n"
-                                                 "- appraiise#0004 (521656100924293141) ```", inline=False)
+                                                 "- appraiise#6117 (521656100924293141) ```", inline=False)
         await ctx.send(embed=embed)
 
     @commands.command(name="help", aliases=['h'])
