@@ -85,11 +85,12 @@ class Mod(commands.Cog):
         member = ""
         for i in members:
             member += i.mention + " "
-        for member in members:
-            if member.__type__ == 'IDUser':
-                await ctx.guild.ban(member, reason=reason)
-            else:
-                await member.ban(delete_message_days=delete_days, reason=reason)
+        async with ctx.channel.typing():
+            for member in members:
+                if member.__type__ == 'IDUser':
+                    await ctx.guild.ban(member, reason=reason)
+                else:
+                    await member.ban(delete_message_days=delete_days, reason=reason)
         embed = discord.Embed(title=f'{len(members)} member(s) banned.')
         embed.add_field(name='Amount', value=str(len(members)))
         embed.add_field(name='Members', value=member)

@@ -1,7 +1,18 @@
 cryptography
-discord.py
+discord.py[voice]
 requests
-mysql-connector-python
+# mysql-connector-python
 psutil
-pymongo
-dnspython
+# pymongo
+# dnspython
+
+# Google search
+git+https://github.com/abenassi/Google-Search-API
+unidecode
+selenium<3.0.0,>=2.44.0
+fake_useragent
+bs4
+
+#DuckDuckGo Ssearch
+duckduckgo2
+urllib2

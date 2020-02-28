@@ -4,7 +4,7 @@ import random
 
 import discord
 from discord.ext import commands
-from .helpers.util import TimeHelper as th
+from .helpers.util import TimeHelper as Th
 
 
 class Utils(commands.Cog):
@@ -196,7 +196,7 @@ class Utils(commands.Cog):
         embed.add_field(name='Platform details', value=f'{platd.system} '
                                                        f'Release {platd.release} '
                                                        f'{platd.machine}\n', inline=False)
-        embed.add_field(name='Uptime', value=th.sec_to_str(time.perf_counter()), inline=False)
+        embed.add_field(name='Uptime', value=Th.sec_to_str(time.perf_counter()), inline=False)
         await ctx.send(embed=embed)
 
     @commands.command(name='ping')

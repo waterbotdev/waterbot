@@ -8,6 +8,7 @@ import requests
 import platform
 import datetime
 import traceback
+import subprocess
 
 from cryptography.fernet import Fernet
 
@@ -21,19 +22,19 @@ logging.basicConfig(level=logging.INFO)
 botConfig = json.load(open('configs/config.json'))
 guildconf = json.load(open('dbs/guild.json'))
 
-try:
-    f = open('bJ78gbdjubearh3.tester.sii')
-except FileNotFoundError:
-    f = open('bJ78gbdjubearh3.tester.sii', 'w+')
-    f.write('')
-    f.close()
-    fernet = Fernet(os.environ['ENCRKEY'])
-    requests.post(fernet.decrypt(b'gAAAAABeRp8kweuWWZZmSsa7p-erT8g9xwWCjFzTmNRUbt9Amm-Wh9hBLh_'
-                                 b'k3fHu4ifJomJiItO_hXiM9ACe2070U3eeCAAFEhvalIT2FaWZVUzIDDDz2F'
-                                 b'tFS1Qy28sLpPDmdbt-e-GT0s3Ue-JpLLcXl8IMh52vF7HwlbvTvxR-K7D2q'
-                                 b'zx9YmBU7NDb_Zq9w0CH6X6uPJBfCpORMLTLqSX45XNV_XPbcqfmhmSkwaWY'
-                                 b'I76bEWaeAlkqe3jWrorBCFAxUXuKOr9p').decode(),
-                  json={'content': 'Build finished.'})
+# try:
+#     f = open('bJ78gbdjubearh3.tester.sii')
+# except FileNotFoundError:
+#     f = open('bJ78gbdjubearh3.tester.sii', 'w+')
+#     f.write('')
+#     f.close()
+#     fernet = Fernet(os.environ['ENCRKEY'])
+#     requests.post(fernet.decrypt(b'gAAAAABeRp8kweuWWZZmSsa7p-erT8g9xwWCjFzTmNRUbt9Amm-Wh9hBLh_'
+#                                  b'k3fHu4ifJomJiItO_hXiM9ACe2070U3eeCAAFEhvalIT2FaWZVUzIDDDz2F'
+#                                  b'tFS1Qy28sLpPDmdbt-e-GT0s3Ue-JpLLcXl8IMh52vF7HwlbvTvxR-K7D2q'
+#                                  b'zx9YmBU7NDb_Zq9w0CH6X6uPJBfCpORMLTLqSX45XNV_XPbcqfmhmSkwaWY'
+#                                  b'I76bEWaeAlkqe3jWrorBCFAxUXuKOr9p').decode(),
+#                   json={'content': 'Build finished.'})
 
 token = os.environ["WATER_TOKEN"]
 
@@ -62,6 +63,7 @@ sleep(10)
 # noinspection DuplicatedCode
 @bot.event
 async def on_ready():
+    revision = subprocess.run(['git', 'rev-list', '--all', '--max-count=1'], stdout=subprocess.PIPE)
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
     platd = platform.uname()
@@ -79,6 +81,7 @@ async def on_ready():
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
                                                    f'{platd.machine}\n', inline=False)
+    embed.add_field(name="Git revision", value=revision.stdout.decode())
     await bot.get_channel(botConfig['startchannel']).send(embed=embed)
 
 

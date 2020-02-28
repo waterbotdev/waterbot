@@ -176,7 +176,6 @@ class Fun(commands.Cog):
         choices = ["Heads!", "Tails!"]
         rancoin = random.choice(choices)
         await ctx.send(rancoin)
-#this is a test to see if pushing inside of vscode works now
 
 
 def setup(bot):
