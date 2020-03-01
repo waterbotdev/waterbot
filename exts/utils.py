@@ -219,6 +219,27 @@ class Utils(commands.Cog):
                                                        f'Message Roundtrip latency: {round(roundt * 1000, 4)} ms',
                                            color=color))
 
+    @commands.has_permissions(manage_emojis=True)
+    @commands.command(aliases=['steal', 'addemoji'])
+    async def addemote(self, ctx, name:str, url:str=None):
+        '''Add emote to server
+        Adds a custom emoji to the server. Must be 256kb or smaller. Please note that you have to remove all other random parameters such as \`?v=1`.
+        \`\`[addemote|steal|addemoji] <emoji name> [<image url>|<image attachment>]\`\`
+        Manage Emoji permission'''
+        if url is None:
+            if len(ctx.message.attachments) == 0:
+                return ctx.send('Please provide me with an image attachment or an image url. I do not know how to read your mind. I\'m not that powerful.')
+            else:
+                url = ctx.message.attachments[0].url
+        img = requests.get(url)
+        try:
+            await ctx.guild.add_emoji(name=name, image=img.content)
+        except discord.HTTPException:
+            await ctx.send('An error occured trying to create the emoji. Please check if the bot have sufficient permissions or is the image size below 256 kilobytes.')
+        except discord.Forbidden:
+            await ctx.send('I do not seem to have the permission to do that. Please check if i have the manage emojis permission.')
+        finally:
+            await ctx.send('✅ Successfully added emoji :{name}: to this server.')
 
 def setup(bot):
     bot.add_cog(Utils(bot))
