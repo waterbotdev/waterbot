@@ -233,10 +233,9 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_message(message):
-  if message.author == bot.user:
-      return
-  if message.content == message.guild.me.mention:
-      await ctx.send('idk if this will work')        
+possible_mentions = ['<@655262203309719552>']
+if possible_mentions in message.content:
+    await ctx.send('Hi')    
     
     
 # Run the bot
