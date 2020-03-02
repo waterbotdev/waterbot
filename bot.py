@@ -231,6 +231,13 @@ async def on_command_error(ctx, error):
     file = discord.File('exception.txt')
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed, file=file)
 
-
+@bot.event
+async def on_message(message):
+  if message.author == bot.user:
+      return
+  if message.content == message.guild.me.mention:
+      await ctx.send('idk if this will work')        
+    
+    
 # Run the bot
 bot.run(token)
