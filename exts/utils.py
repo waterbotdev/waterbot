@@ -239,8 +239,8 @@ class Utils(commands.Cog):
             await ctx.send('An error occured trying to create the emoji. Please check if the bot have sufficient permissions or is the image size below 256 kilobytes.')
         except discord.Forbidden:
             await ctx.send('I do not seem to have the permission to do that. Please check if i have the manage emojis permission.')
-        finally:
-            await ctx.send('✅ Successfully added emoji :{name}: to this server.')
+        else:
+            await ctx.send(f'✅ Successfully added emoji :{name}: to this server.')
 
 def setup(bot):
     bot.add_cog(Utils(bot))
