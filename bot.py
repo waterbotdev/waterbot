@@ -231,11 +231,12 @@ async def on_command_error(ctx, error):
     file = discord.File('exception.txt')
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed, file=file)
 
-@bot.event
-async def on_message(message):
-possible_mentions = ['<@655262203309719552>']
-if possible_mentions in message.content:
-    await ctx.send('Hi')    
+#@bot.event
+#async def on_message(message):
+#    possible_mentions = ['<@655262203309719552>']
+#    for i in possible_mentions:
+#        if i in message.content:
+#            await ctx.send(f'')
     
     
 # Run the bot
