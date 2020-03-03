@@ -234,7 +234,7 @@ class Utils(commands.Cog):
                 url = ctx.message.attachments[0].url
         img = requests.get(url)
         try:
-            await ctx.guild.add_emoji(name=name, image=img.content)
+            await ctx.guild.create_custom_emoji(name=name, image=img.content)
         except discord.HTTPException:
             await ctx.send('An error occured trying to create the emoji. Please check if the bot have sufficient permissions or is the image size below 256 kilobytes.')
         except discord.Forbidden:
