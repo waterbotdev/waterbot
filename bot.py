@@ -81,7 +81,7 @@ async def on_ready():
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
                                                    f'{platd.machine}\n', inline=False)
-    embed.add_field(name="Git revision", value=revision.stdout.decode())
+    # embed.add_field(name="Git revision", value=revision.stdout.decode())
     await bot.get_channel(botConfig['startchannel']).send(embed=embed)
 
 
