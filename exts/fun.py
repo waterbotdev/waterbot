@@ -176,7 +176,7 @@ class Fun(commands.Cog):
         choices = ["Heads!", "Tails!"]
         rancoin = random.choice(choices)
         await ctx.send(rancoin)
-
+#whats up buddy
 
 def setup(bot):
     bot.add_cog(Fun(bot))
