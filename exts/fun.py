@@ -176,7 +176,11 @@ class Fun(commands.Cog):
         choices = ["Heads!", "Tails!"]
         rancoin = random.choice(choices)
         await ctx.send(rancoin)
-#whats up buddy
+    
+@commands.command()
+async def choose(self, ctx, *choices: str):
+    '''Chooses between multiple choices.'''
+    await ctx.send(random.choice(choices))
 
 def setup(bot):
     bot.add_cog(Fun(bot))
