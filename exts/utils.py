@@ -158,12 +158,15 @@ class Utils(commands.Cog):
         embed.set_author(name=f"Role Name - {role.name}")
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
 
-        embed.add_field(name="Role ID:", value=role.id)
-        embed.add_field(name="Members", value=str(len(role.members)))
-        embed.add_field(name="Mentionable?", value=role.mentionable)
-        embed.add_field(name="Color:", value=role.color)
-        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
-        embed.add_field(name="Position", value=role.position)
+        embed.add_field(name="Role Name:", value=role.name, inline=True)
+        embed.add_field(name="Role ID:", value=role.id, inline=False)
+        embed.add_field(name"Role Mention:", value=role.mention, inline=False)
+        embed.add_field(name="Members", value=str(len(role.members)), inline=True)
+        embed.add_field(name="Mentionable?", value=role.mentionable, inline=False)
+        embed.add_field(name="Color:", value=role.color, inline=True)
+        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=False)
+        embed.add_field(name="Position", value=role.position, inline=False)
+        
         await ctx.send(embed=embed)   
         
     @commands.command(name='permissions', aliases=['perms'])
