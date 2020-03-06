@@ -152,19 +152,19 @@ class Utils(commands.Cog):
         embed.add_field(name="Server (Un)Features", value=feat, inline=False)
         await ctx.send(embed=embed)
 
-    #@commands.command()
-    #async def roleinfo(self, ctx, role: discord.Role):
-        #embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
-        #embed.set_author(name=f"Role Name - {role.name}")
-        #embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
-        
-        #embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
-        #embed.add_field(name="Role ID:", value=role.id)
-        #embed.add_field(name="Members", value=str(len(role.members)))
-        #embed.add_field(name="Mentionable?", value=role.mentionable)
-        #embed.add_field(name="Color HEX", value=role.color)
-        #embed.add_field(name="Position", value=role.position)
-        #await ctx.send(embed=embed)        
+    @commands.command()
+    async def roleinfo(self, ctx, role: discord.Role):
+        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_author(name=f"Role Name - {role.name}")
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+
+        embed.add_field(name="Role ID:", value=role.id)
+        embed.add_field(name="Members", value=str(len(role.members)))
+        embed.add_field(name="Mentionable?", value=role.mentionable)
+        embed.add_field(name="Color:", value=role.color)
+        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
+        embed.add_field(name="Position", value=role.position)
+        await ctx.send(embed=embed)   
         
     @commands.command(name='permissions', aliases=['perms'])
     async def permissions(self, ctx, member: discord.Member = None):
