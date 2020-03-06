@@ -159,13 +159,13 @@ class Utils(commands.Cog):
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
 
         embed.add_field(name="Role Name", value=role.name, inline=True)
-        embed.add_field(name="Role ID", value=role.id, inline=False)
-        embed.add_field(name="Role Mention", value=role.mention, inline=False)
+        embed.add_field(name="Role ID", value=role.id, inline=True)
+        embed.add_field(name="Role Mention", value=role.mention, inline=True)
         embed.add_field(name="Members", value=str(len(role.members)), inline=True)
-        embed.add_field(name="Mentionable?", value=role.mentionable, inline=False)
+        embed.add_field(name="Mentionable?", value=role.mentionable, inline=True)
         embed.add_field(name="Color", value=role.color, inline=True)
-        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=False)
-        embed.add_field(name="Position", value=role.position, inline=False)
+        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=True)
+        embed.add_field(name="Position", value=role.position, inline=True)
         
         await ctx.send(embed=embed)   
         
