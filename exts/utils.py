@@ -158,7 +158,7 @@ class Utils(commands.Cog):
         embed.set_author(name=f"Role Name - {role.name}")
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
         
-        embed.add_field(name=f"Created at", value=`{member.created_at.strftime('%a, %#d %B %Y, %I:%M %p UTC')}`)
+        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"))
         embed.add_field(name="Role ID:", value=role.id)
         embed.add_field(name="Members", value=str(len(role.members)))
         embed.add_field(name="Mentionable?", value=role.mentionable)
