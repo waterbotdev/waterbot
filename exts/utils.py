@@ -160,7 +160,7 @@ class Utils(commands.Cog):
 
         embed.add_field(name="Role Name:", value=role.name, inline=True)
         embed.add_field(name="Role ID:", value=role.id, inline=False)
-        embed.add_field(name"Role Mention:", value=role.mention, inline=False)
+        embed.add_field(name="Role Mention:", value=role.mention, inline=False)
         embed.add_field(name="Members", value=str(len(role.members)), inline=True)
         embed.add_field(name="Mentionable?", value=role.mentionable, inline=False)
         embed.add_field(name="Color:", value=role.color, inline=True)
