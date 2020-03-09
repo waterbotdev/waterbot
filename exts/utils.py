@@ -178,7 +178,7 @@ class Utils(commands.Cog):
         embed.add_field(name="ID", value=emote.id, inline=True)
         embed.add_field(name="Require Colons?", value=emote.require_colons, inline=True)
         embed.add_field(name="Animated?", value=emote.animated, inline=True)
-        embed.add_field(name="Managed?", value=role.managed, inline=True)
+        embed.add_field(name="Managed?", value=emote.managed, inline=True)
         embed.add_field(name="Created At", value=emote.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=True)
         
         await ctx.send(embed=embed)
