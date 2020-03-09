@@ -170,9 +170,10 @@ class Utils(commands.Cog):
         await ctx.send(embed=embed)   
 
     @commands.command()
-    async def emoteinfo(self, ctx, emoji: discord.Emoji):
+    async def emoteinfo(self, ctx, emote: discord.Emoji):
         embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
         embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+        embed.set_thumbnail(url=emote.url)
 
         embed.add_field(name="Name", value=emote.name, inline=True)
         embed.add_field(name="ID", value=emote.id, inline=True)
