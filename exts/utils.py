@@ -168,6 +168,20 @@ class Utils(commands.Cog):
         embed.add_field(name="Position", value=role.position, inline=True)
         
         await ctx.send(embed=embed)   
+
+    @commands.command()
+    async def emoteinfo(self, ctx, emoji: discord.Emoji):
+        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+
+        embed.add_field(name="Name", value=emote.name, inline=True)
+        embed.add_field(name="ID", value=emote.id, inline=True)
+        embed.add_field(name="Require Colons?", value=emote.require_colons, inline=True)
+        embed.add_field(name="Animated?", value=emote.animated, inline=True)
+        embed.add_field(name="Managed?", value=role.managed, inline=True)
+        embed.add_field(name="Created At", value=emote.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=True)
+        
+        await ctx.send(embed=embed)
         
     @commands.command(name='permissions', aliases=['perms'])
     async def permissions(self, ctx, member: discord.Member = None):
