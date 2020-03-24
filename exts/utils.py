@@ -151,7 +151,39 @@ class Utils(commands.Cog):
             feat += f"{featuresd[i]} "
         embed.add_field(name="Server (Un)Features", value=feat, inline=False)
         await ctx.send(embed=embed)
-        
+
+    @commands.command()
+    async def roleinfo(self, ctx, role: discord.Role):
+        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_author(name=f"Role Name - {role.name}")
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+
+        embed.add_field(name="Role Name", value=role.name, inline=True)
+        embed.add_field(name="Role ID", value=role.id, inline=True)
+        embed.add_field(name="Role Mention", value=role.mention, inline=True)
+        embed.add_field(name="Members", value=str(len(role.members)), inline=True)
+        embed.add_field(name="Mentionable?", value=role.mentionable, inline=True)
+        embed.add_field(name="Color", value=role.color, inline=True)
+        embed.add_field(name="Created At", value=role.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=True)
+        embed.add_field(name="Position", value=role.position, inline=True)
+
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def emoteinfo(self, ctx, emote: discord.Emoji):
+        embed = discord.Embed(color=ctx.author.color, timestamp=ctx.message.created_at)
+        embed.set_footer(text=f"Requested by {ctx.author}", icon_url=ctx.author.avatar_url)
+        embed.set_thumbnail(url=emote.url)
+
+        embed.add_field(name="Name", value=emote.name, inline=True)
+        embed.add_field(name="ID", value=emote.id, inline=True)
+        embed.add_field(name="Require Colons?", value=emote.require_colons, inline=True)
+        embed.add_field(name="Animated?", value=emote.animated, inline=True)
+        embed.add_field(name="Managed?", value=emote.managed, inline=True)
+        embed.add_field(name="Created At", value=emote.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC"), inline=True)
+
+        await ctx.send(embed=embed)
+
     @commands.command(name='permissions', aliases=['perms'])
     async def permissions(self, ctx, member: discord.Member = None):
         '''Check the permissions of a member
@@ -234,13 +266,13 @@ class Utils(commands.Cog):
                 url = ctx.message.attachments[0].url
         img = requests.get(url)
         try:
-            await ctx.guild.add_emoji(name=name, image=img.content)
+            await ctx.guild.create_custom_emoji(name=name, image=img.content)
         except discord.HTTPException:
             await ctx.send('An error occured trying to create the emoji. Please check if the bot have sufficient permissions or is the image size below 256 kilobytes.')
         except discord.Forbidden:
             await ctx.send('I do not seem to have the permission to do that. Please check if i have the manage emojis permission.')
-        finally:
-            await ctx.send('✅ Successfully added emoji :{name}: to this server.')
+        else:
+            await ctx.send(f'✅ Successfully added emoji :{name}: to this server.')
 
 def setup(bot):
     bot.add_cog(Utils(bot))

@@ -81,7 +81,7 @@ async def on_ready():
     embed.add_field(name='Platform details', value=f'{platd.system} '
                                                    f'Release {platd.release} '
                                                    f'{platd.machine}\n', inline=False)
-    embed.add_field(name="Git revision", value=revision.stdout.decode())
+    # embed.add_field(name="Git revision", value=revision.stdout.decode())
     await bot.get_channel(botConfig['startchannel']).send(embed=embed)
 
 
@@ -231,6 +231,11 @@ async def on_command_error(ctx, error):
     file = discord.File('exception.txt')
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed, file=file)
 
-
+#@bot.event
+#async def on_message(message):
+#    if message.content.startswith('<@655262203309719552>')
+#        await ctx.send('Current prefix is `{prefix}`')
+    
+    
 # Run the bot
 bot.run(token)
