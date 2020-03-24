@@ -1,5 +1,6 @@
 import datetime, time
 import platform, psutil
+import requests
 import random
 
 import discord
@@ -221,11 +222,11 @@ class Utils(commands.Cog):
 
     @commands.has_permissions(manage_emojis=True)
     @commands.command(aliases=['steal', 'addemoji'])
-    async def addemote(self, ctx, name:str, url:str=None):
-        '''Add emote to server
+    async def addemote(self, ctx, name: str, url: str = None):
+        """Add emote to server
         Adds a custom emoji to the server. Must be 256kb or smaller. Please note that you have to remove all other random parameters such as \`?v=1`.
-        \`\`[addemote|steal|addemoji] <emoji name> [<image url>|<image attachment>]\`\`
-        Manage Emoji permission'''
+        ``[addemote|steal|addemoji] <emoji name> [<image url>|<image attachment>]``
+        Manage Emoji permission"""
         if url is None:
             if len(ctx.message.attachments) == 0:
                 return ctx.send('Please provide me with an image attachment or an image url. I do not know how to read your mind. I\'m not that powerful.')

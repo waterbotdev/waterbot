@@ -8,26 +8,26 @@ from enum import Enum
 
 
 class TimeHelper:
-    '''Useful module for converting times and shit.
-    '''
+    """Useful module for converting times and shit.
+    """
 
     @staticmethod
     def str_to_sec(tst):
-        '''
+        """
         Converts Half-readable text format into seconds
 
         :param tst: Text time format (#y#mo#w#h#m#s) (No space)
         :return: seconds[int]
-        '''
+        """
 
     @staticmethod
     def sec_to_str(sec):
-        '''
+        """
         Convert Seconds to readable text format
 
         :param sec: Seconds
         :return:
-        '''
+        """
         m = 0
         h = 0
         d = 0
@@ -67,11 +67,11 @@ class DBExceptions:
         pass
 
 class DB:
-    '''Database commands'''
+    """Database commands"""
 
     @staticmethod
     def addlog(uid: int, timestamp: int, item: str, description: str, modrid: int, end: int = None):
-        '''
+        """
         Add a log object to the json database
 
         :param uid: User ID.
@@ -81,7 +81,7 @@ class DB:
         :param modrid: Moderator responsible
         :param end:
         :return: None
-        '''
+        """
         types = ['warn', 'mute', 'kick', 'tempban', 'ban']
         if item not in types:
             raise TypeError(f'Type {item} is not in the acceptable '
@@ -109,27 +109,27 @@ class DB:
 
     @staticmethod
     def addmute(uid: int, seconds: int, reason: str):
-        '''
+        """
         Add a mute record for a user
 
         :param uid: User ID
         :param seconds: Seconds for the mute(either calculated by hand/code or by TimeHelper.tosec()
         :param reason: Reason to be muted
         :return: None
-        '''
+        """
         file = open(DbS.MUTES.value, 'r')
         mutes = json.load(file)
         mutes['uid'] = datetime.datetime.now().timestamp() + seconds
 
     @staticmethod
     def get_guild_config(gid: int):
-        '''
+        """
         Get the configurations for a guild. This will somehow make life easier.
 
         :param gid: Guild ID
         :return: guildconfig[dict]
         :exception ConfigNotFoundError: The config file for the guild is no found.
-        '''
+        """
         config = ""
         with open(DbS.GUILDS.value, 'r') as c:
             conf = json.load(c)
@@ -147,20 +147,21 @@ def can_execute_action(ctx, user, target):
 
 # AUTHOR: RAPPTZ
 def cleanup_code(content):
-    '''
+    """
     Automatically remove code blocks from the code.
 
     :param content: The object to clean up
     :return: Cleaned up code
-    '''
+    """
     if content.startswith('```') and content.endswith('```'):
         return '\n'.join(content.split('\n')[1:-1])
     else:
         return content
-    
-    
+
+
 # AUTHOR: RAPPTZ
 def get_syntax_error(self, e):
+    _ = self
     if e.text is None:
         return f'```py\n{e.__class__.__name__}: {e}\n```'
     return f'```py\n{e.text}{"^":>{e.offset}}\n{e.__class__.__name__}: {e}```'

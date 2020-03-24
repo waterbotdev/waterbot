@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py" />
+    <list default="true" id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exception.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exception.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/helpers/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/helpers/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,6 +229,7 @@
       <workItem from="1582176291718" duration="204000" />
       <workItem from="1582176986264" duration="221000" />
       <workItem from="1582177345972" duration="904000" />
+      <workItem from="1585056426816" duration="1287000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
       <created>1581936531212</created>
@@ -250,6 +257,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

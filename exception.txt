@@ -7,6 +7,12 @@ Traceback (most recent call last):
     await self._parse_arguments(ctx)
   File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 670, in _parse_arguments
     transformed = await self.transform(ctx, param)
-  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 516, in transform
-    raise MissingRequiredArgument(param)
-discord.ext.commands.errors.MissingRequiredArgument: user is a required argument that is missing.
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 526, in transform
+    return await self.do_conversion(ctx, converter, argument, param)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 479, in do_conversion
+    return await self._actual_conversion(ctx, converter, argument, param)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\core.py", line 425, in _actual_conversion
+    ret = await instance.convert(ctx, argument)
+  File "C:\Users\Administrator\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\discord\ext\commands\converter.py", line 179, in convert
+    raise BadArgument('User "{}" not found'.format(argument))
+discord.ext.commands.errors.BadArgument: User "Zero" not found

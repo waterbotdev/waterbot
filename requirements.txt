@@ -1,6 +1,6 @@
-cryptography
-discord.py[voice]
+discord.py[voice]>=1.3.0
 requests
+cryptography
 # mysql-connector-python
 psutil
 # pymongo
@@ -13,6 +13,6 @@ selenium<3.0.0,>=2.44.0
 fake_useragent
 bs4
 
-#DuckDuckGo Ssearch
-duckduckgo2
-urllib2
+# # DuckDuckGo Ssearch
+# duckduckgo2
+# urllib2
