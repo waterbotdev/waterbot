@@ -21,10 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exception.txt" beforeDir="false" afterPath="$PROJECT_DIR$/exception.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/helpers/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/helpers/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs/guild.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs/logs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbs/mutes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/autorespond.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/passives.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +231,7 @@
       <workItem from="1582176291718" duration="204000" />
       <workItem from="1582176986264" duration="221000" />
       <workItem from="1582177345972" duration="904000" />
-      <workItem from="1585056426816" duration="1287000" />
+      <workItem from="1585056426816" duration="8900000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
       <created>1581936531212</created>
@@ -292,14 +294,14 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="203" y="153" width="840" height="529" key="IDE.errors.dialog/0.0.1360.738@0.0.1360.738" timestamp="1581128802009" />
-    <state x="128" y="56" key="MergeDialog" timestamp="1581936491197">
+    <state x="108" y="76" key="MergeDialog" timestamp="1585060215014">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
-    <state x="128" y="56" key="MergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1581936491197" />
-    <state x="393" y="80" key="MultipleFileMergeDialog" timestamp="1581936491213">
+    <state x="108" y="76" key="MergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1585060215014" />
+    <state x="200" y="3" width="860" height="663" key="MultipleFileMergeDialog" timestamp="1585060215023">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
-    <state x="393" y="80" key="MultipleFileMergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1581936491213" />
+    <state x="200" y="3" width="860" height="663" key="MultipleFileMergeDialog/0.0.1360.738@0.0.1360.738" timestamp="1585060215023" />
     <state x="161" y="30" width="998" height="708" key="SettingsEditor" timestamp="1581864241077">
       <screen x="0" y="0" width="1360" height="738" />
     </state>

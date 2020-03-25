@@ -4,43 +4,24 @@ import psutil
 import random
 import discord
 import logging
-import requests
 import platform
 import datetime
 import traceback
-import subprocess
-
-from cryptography.fernet import Fernet
 
 from time import sleep
 from discord.ext import commands
-from exts.helpers.check import Checks as Check
 from exts.helpers.util import DB, DBExceptions
 
 # Configurations
 logging.basicConfig(level=logging.INFO)
 botConfig = json.load(open('configs/config.json'))
-guildconf = json.load(open('dbs/guild.json'))
-
-# try:
-#     f = open('bJ78gbdjubearh3.tester.sii')
-# except FileNotFoundError:
-#     f = open('bJ78gbdjubearh3.tester.sii', 'w+')
-#     f.write('')
-#     f.close()
-#     fernet = Fernet(os.environ['ENCRKEY'])
-#     requests.post(fernet.decrypt(b'gAAAAABeRp8kweuWWZZmSsa7p-erT8g9xwWCjFzTmNRUbt9Amm-Wh9hBLh_'
-#                                  b'k3fHu4ifJomJiItO_hXiM9ACe2070U3eeCAAFEhvalIT2FaWZVUzIDDDz2F'
-#                                  b'tFS1Qy28sLpPDmdbt-e-GT0s3Ue-JpLLcXl8IMh52vF7HwlbvTvxR-K7D2q'
-#                                  b'zx9YmBU7NDb_Zq9w0CH6X6uPJBfCpORMLTLqSX45XNV_XPbcqfmhmSkwaWY'
-#                                  b'I76bEWaeAlkqe3jWrorBCFAxUXuKOr9p').decode(),
-#                   json={'content': 'Build finished.'})
 
 token = os.environ["WATER_TOKEN"]
 
 
 def get_prefix(client, message):
     default = '.'
+    _ = client
     try:
         config = DB.get_guild_config(message.guild.id)
     except DBExceptions.ConfigNotFoundError:
@@ -50,10 +31,10 @@ def get_prefix(client, message):
 
 
 bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
-    513603936033177620,  # Firebot
-    397029587965575170,  # Earthbot
-    521656100924293141,  # Pussybot
-    374047038926618624])  # Windbot
+    513603936033177620,  # Dragonic
+    397029587965575170,  # Kenny
+    521656100924293141,  # Zac
+    374047038926618624])  # Lindsey
 bot.remove_command('help')
 
 print('Sleeping 10 seconds to prevent discord from thinking we\'re ddosing their server.')
@@ -63,7 +44,7 @@ sleep(10)
 # noinspection DuplicatedCode
 @bot.event
 async def on_ready():
-    revision = subprocess.run(['git', 'rev-list', '--all', '--max-count=1'], stdout=subprocess.PIPE)
+    # revision = subprocess.run(['git', 'rev-list', '--all', '--max-count=1'], stdout=subprocess.PIPE)
     print(f'Logged in as: {bot.user.name}')
     print(f'With ID: {bot.user.id}')
     platd = platform.uname()
@@ -92,69 +73,12 @@ cogs = [
     'exts.utils',
     'exts.dev',
     'exts.mod',
-    'exts.guilds'
+    'exts.guilds',
+    'exts.passives'
 ]
 if __name__ == '__main__':
     for cog in cogs:
         bot.load_extension(cog)
-
-
-@bot.event
-async def on_member_join(member):
-    for i in guildconf:
-        if member.guild.id == int(i):
-            if 'joinchannel' in guildconf[i]:
-                if guildconf[i]['joinchannel'] is not None:
-                    channel = bot.get_channel(guildconf[i]['joinlogs']['joinchannel'])
-                    try:
-                        embed = discord.Embed(title='Welcome new member!',
-                                              description=f'Welcome **{member.name}** to **{member.guild.name}**.\n'
-                                                          f'There are now **{len(member.guild.members)}** members.',
-                                              color=0xffffff)
-                        await channel.send(embed=embed)
-                    except Exception as e:
-                        await bot.get_channel(668447749443813416).send(f'Error in event on_member_join'
-                                                                       f'Server: {member.guild.name}({member.guild.id})'
-                                                                       f'Messag: {e}')
-
-
-@bot.event
-async def on_member_remove(member):
-    for i in guildconf:
-        if member.guild.id == int(i):
-            if 'leavechannel' in guildconf[i]:
-                if guildconf[i]['leavechannel'] is not None:
-                    channel = bot.get_channel(guildconf[i]['joinlogs']['leavechannel'])
-                    try:
-                        embed = discord.Embed(title='Goodbye',
-                                              description=f'Bye bye **{member.name}**.\n'
-                                                          f'There are now **{len(member.guild.members)}** members.',
-                                              color=0xaaaaaa)
-                        await channel.send(embed=embed)
-                    except Exception as e:
-                        await bot.get_channel(668447749443813416).send(f'Error in event on_member_leave'
-                                                                       f'Server: {member.guild.name}({member.guild.id})'
-                                                                       f'Messag: {e}')
-
-
-# @Check.is_dev()
-# @bot.command()
-# async def reload(ctx):
-#     '''Reload all extensions
-#     Usage: reload
-#     '''
-#     log = ""
-#     for i in cogs:
-#         try:
-#             print(f'Unloaded extension {i}')
-#             bot.unload_extension(i)
-#             log += f'Unloaded extension {i}\n'
-#         except Exception as e:
-#             print(e)
-#             pass
-#         bot.load_extension(i)
-#         print(f'Loaded extension {i}')
-#     await ctx.send(log)
 
 
 # noinspection DuplicatedCode
@@ -231,11 +155,6 @@ async def on_command_error(ctx, error):
     file = discord.File('exception.txt')
     await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed, file=file)
 
-#@bot.event
-#async def on_message(message):
-#    if message.content.startswith('<@655262203309719552>')
-#        await ctx.send('Current prefix is `{prefix}`')
-    
-    
+
 # Run the bot
 bot.run(token)
