@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eca3f429-317e-4edf-b95f-1bdd0fcbed27" name="Default Changelist" comment="Merge branch 'master' of https://github.com/waterbotdev/waterbot&#10;&#10;# Conflicts:&#10;#&#9;exts/utils.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs/guild.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs/logs.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs/mutes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts/autorespond.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/passives.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,6 +280,10 @@
       <screen x="0" y="0" width="1360" height="738" />
     </state>
     <state x="451" y="171" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1360.738@0.0.1360.738" timestamp="1581062023888" />
+    <state x="39" y="134" width="1176" height="554" key="DiffContextDialog" timestamp="1585795978642">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="39" y="134" width="1176" height="554" key="DiffContextDialog/0.0.1360.738@0.0.1360.738" timestamp="1585795978642" />
     <state x="408" y="170" key="FileChooserDialogImpl" timestamp="1580484537461">
       <screen x="0" y="0" width="1360" height="738" />
     </state>
