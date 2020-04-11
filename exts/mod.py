@@ -1,7 +1,11 @@
+import re
 import json
+
 import discord
 from discord.ext import commands, tasks
+
 from .helpers.util import *
+from .helpers.checks import Checks
 
 botconf = json.load(open('configs/config.json'))
 
@@ -79,7 +83,7 @@ class Mod(commands.Cog):
     async def ban(self, ctx, members: commands.Greedy[Converters.Member], delete_days: str = '1d', *,
                   reason: str = "None"):
         '''Ban users
-        Mass bans members with a delete_days parameter.\\n**HOW TO USE THE DELETE_DAYS PARAMETER**:\\n #y#mo#w#h#m#s (i.e. 3y for 3 years, 2mo3h14m for 2 months, 3 hours and 14 minutes) \\ny=Year mo=Month w=Week h=Hour m=Minute s=Second
+        Mass ban members with a delete_days parameter.\\n**HOW TO USE THE DELETE_DAYS PARAMETER**:\\n #y#mo#w#h#m#s (i.e. 3y for 3 years, 2mo3h14m for 2 months, 3 hours and 14 minutes) \\ny=Year mo=Month w=Week h=Hour m=Minute s=Second
         ban <member pings/ids> <delete days> <reason>
         Ban members'''
         member = ""
@@ -87,7 +91,7 @@ class Mod(commands.Cog):
             member += i.mention + " "
         async with ctx.channel.typing():
             for member in members:
-                if member.__type__ == 'IDUser':
+                if type(member) == 'IDUser':
                     await ctx.guild.ban(member, reason=reason)
                 else:
                     await member.ban(delete_message_days=delete_days, reason=reason)

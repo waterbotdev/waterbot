@@ -1,10 +1,12 @@
 discord.py[voice]>=1.3.0
 requests
 cryptography
-# mysql-connector-python
 psutil
-# pymongo
-# dnspython
+
+# MongoDB Requirements
+motor
+pymongo
+dnspython
 
 # Google search
 git+https://github.com/abenassi/Google-Search-API

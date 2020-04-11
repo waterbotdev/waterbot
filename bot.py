@@ -73,7 +73,6 @@ cogs = [
     'exts.utils',
     'exts.dev',
     'exts.mod',
-    'exts.guilds',
     'exts.passives'
 ]
 if __name__ == '__main__':
