@@ -7,7 +7,7 @@ from discord.ext import commands, tasks
 from .helpers.util import *
 from .helpers.checks import Checks
 
-botconf = json.load(open('configs/config.json'))
+botconf = json.load(open('config.json'))
 
 
 # noinspection PyShadowingNames

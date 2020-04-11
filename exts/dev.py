@@ -15,7 +15,7 @@ from contextlib import redirect_stdout
 from .helpers.util import cleanup_code, get_syntax_error
 from discord.ext import commands
 
-botConfig = json.load(open('configs/config.json'))
+botConfig = json.load(open('config.json'))
 
 
 # Certain code fragments below is written by Rapptz.
