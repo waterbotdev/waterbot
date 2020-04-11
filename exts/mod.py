@@ -5,7 +5,7 @@ import discord
 from discord.ext import commands, tasks
 
 from .helpers.util import *
-from .helpers.checks import Checks
+from .helpers.check import Checks
 
 botconf = json.load(open('config.json'))
 
