@@ -152,7 +152,7 @@ async def on_command_error(ctx, error):
     with open('exception.txt', 'w+') as tempexceptionfile:
         tempexceptionfile.write("".join(traceback.TracebackException.from_exception(error).format()))
     file = discord.File('exception.txt')
-    await bot.get_channel(675329366309208074).send('<@397029587965575170>', embed=embed, file=file)
+    await bot.get_channel(675329366309208074).send('<@&686449668648861786>', embed=embed, file=file)
 
 
 # Run the bot
