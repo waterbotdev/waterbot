@@ -14,7 +14,7 @@ from exts.helpers.util import DB, DBExceptions
 
 # Configurations
 logging.basicConfig(level=logging.INFO)
-botConfig = json.load(open('configs/config.json'))
+botConfig = json.load(open('config.json'))
 
 token = os.environ["WATER_TOKEN"]
 
@@ -30,7 +30,7 @@ def get_prefix(client, message):
         return config['prefix']
 
 
-bot = commands.Bot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
+bot = commands.AutoShardedBot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
     513603936033177620,  # Dragonic
     397029587965575170,  # Kenny
     521656100924293141,  # Zac

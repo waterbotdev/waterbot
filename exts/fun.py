@@ -41,7 +41,7 @@ class Fun(commands.Cog):
     @commands.command(name='8ball')
     async def _8ball(self, ctx, *, question):
         '''Le Magiko 8 bowling ball
-        Ask 8ball a question. You'll get a good answer. Or not. :eyes:
+        Ask 8ball a question. You'll get a good answer. Or not. hmm. :eyes:
         8ball <question>
         Send messages'''
         responses = ['It is certain.',
