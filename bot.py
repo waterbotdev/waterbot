@@ -20,14 +20,7 @@ token = os.environ["WATER_TOKEN"]
 
 
 def get_prefix(client, message):
-    default = '.'
-    _ = client
-    try:
-        config = DB.get_guild_config(message.guild.id)
-    except DBExceptions.ConfigNotFoundError:
-        return default
-    else:
-        return config['prefix']
+    return '.'
 
 
 bot = commands.AutoShardedBot(command_prefix=get_prefix, case_insensitive=True, owner_ids=[
