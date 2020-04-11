@@ -38,7 +38,7 @@ class Fun(commands.Cog):
         await ctx.send(embed=discord.Embed().set_image(
             url='https://cdn.discordapp.com/attachments/452733553122476062/655291803087667201/image0.png'))
 
-    @commands.command(aliases=['8ball'])
+    @commands.command(name='8ball')
     async def _8ball(self, ctx, *, question):
         '''Le Magiko 8 bowling ball
         Ask 8ball a question. You'll get a good answer. Or not. :eyes:
